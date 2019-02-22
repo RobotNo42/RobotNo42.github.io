@@ -229,6 +229,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robotno42.github.io/2019/02/22/LINUX命令二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Messiless">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Messiless Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/22/LINUX命令二/" itemprop="url">LINUX命令二</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-22T23:16:24+08:00">
+                2019-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="打包压缩"><a href="#打包压缩" class="headerlink" title="打包压缩"></a>打包压缩</h4><p>打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt</p>
+<p>查看包内的内容 tar -tf /test.tar</p>
+<p>解压包到当前目录 tar -xvf /test.tar</p>
+<p><em></em></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/22/LINUX命令二/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://robotno42.github.io/2019/02/22/LINUX命令一/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -299,64 +426,16 @@
 
       
         
-          
-            <h4 id="快捷键："><a href="#快捷键：" class="headerlink" title="快捷键："></a>快捷键：</h4><p>ctrl+c 取消命令</p>
+          <h4 id="快捷键："><a href="#快捷键：" class="headerlink" title="快捷键："></a>快捷键：</h4><p>ctrl+c 取消命令</p>
 <p>ctrl+l 清屏</p>
-<h4 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h4><p>更换用户 su - 或sudo su</p>
-<p>关机 init 0</p>
-<p>重启 init 6</p>
-<p>立即关机 shutdown -h now</p>
-<p>查询当前用户 who am i</p>
-<p>查看当前日期 date</p>
-<p>修改当前日期 date -s “2012-01-02 14:00:00”（必须切换到root用户）</p>
-<p>查看今天日历 cal 查看某天 cal 日月年（cal 3 4 2012）</p>
-<p>改密码 passwd</p>
-<p>查看文件下的子文件 ls 查看文件夹下的子文件详细信息 ls -l (简写ll) 查看文件的详细信息 ls -dl(简写ll -d)</p>
-<p>查看文件夹下的所有文件包括隐藏文件 ls-a</p>
-<p>切换目录 cd</p>
-<p>退到上级目录 cd ,,</p>
-<p>返回到上一次的目录 cd -</p>
-<p>查看当前目录 pwd</p>
-<p>递归建文件夹 mkdir -p</p>
-<p>改名/移动 mv /a/b1 /a/b2(把a文件下的b1改成b2) mv /a/b1 /z/(把b1移动到z文件下)</p>
-<p>文件复制顺便改名 cp /a/b1 /a/b2</p>
-<p>文件夹的复制 cp -rf /a/b /c</p>
-<p>删除文件夹 rm 删除文件夹下的所有子文件 rm -rf (不建议使用，最好用mv /a /tmp/ 移动到临时文件，还可以还原） ,如果文件带特殊符号，则加上“”即可删除</p>
-<p>创建文件 touch a.txt</p>
-<p>查看内容 cat</p>
-<p>百分比查看 more</p>
-<p>分页查看 less</p>
-<p>查看前三行 head - n3</p>
-<p>查看后三行 tail -n3</p>
-<p>监控文件 tail -f</p>
-<p>覆盖内容 echo 内容 &gt;</p>
-<p>新增内容 echo 内容 &gt;&gt;</p>
-<p>查看历史命令 history</p>
-<p>使用第57行的历史命令 !57</p>
-<p>直接修改密码 echo 123456 | passwd –stdin Messiless</p>
-<p>用户信息文件 /etc/passwd 用户密码文件 /etc/shadow 用户组 /etc/group 用户组密码 /etc/gshadow</p>
-<p>创建hsy用户 useradd hsy</p>
-<p>完全删除hsy用户 userdel -r hsy</p>
-<p><img src="//robotno42.github.io/2019/02/22/LINUX命令一/hexo\source\_posts\LINUX命令一\1.png" alt></p>
-<p>第一段代表文件权限信息，第一个数字是-代表普通文件，d则是目录 ，后面的一堆分3个3个来看，rwx代表属主的权限（可读可执行可写） r-x代表属组的权限（可读可执行） r-x代表其他用户的权限（可读可执行）</p>
-<p>在jack组中附加一个tom用户 usermod -G jack tom</p>
-<p>手动创建一个用户的流程</p>
-<p>/etc/passwd</p>
-<p>/etc/shadow</p>
-<p>/etc/group</p>
-<p>/etc/gshaow</p>
-<p>mkdir /home/hsy</p>
-<p>cp -r /etc/skel/.[!.]* /home/hsy</p>
-<p>chown -R hsy.hsy /home/hsy</p>
-<p>touch /var/spool/mail/hsy</p>
-<p>chown -R hsy.mail /var/spool/mail/hsy</p>
-<p>更换文件权限：</p>
-<p>方法一：chmod u=rw,g=r,o=rx /a.txt</p>
-<p>方法二：chmod 744 /a.txt (r=4,w=2,x=1)</p>
-<p>如果要在一个目录下创建删除重命名文件，则该用户需要同时有wx权限</p>
-<p>如果要修改一个目录下文件的内容，则需要文件的w权限，和前面目录的x权限</p>
-
-          
+<p><em></em></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/22/LINUX命令一/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -436,7 +515,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

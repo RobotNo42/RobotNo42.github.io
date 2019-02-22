@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="快捷键：ctrl+c 取消命令 ctrl+l 清屏">
+<meta name="description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar">
 <meta name="keywords" content="linux命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LINUX命令一">
-<meta property="og:url" content="https://robotno42.github.io/2019/02/22/LINUX命令一/index.html">
+<meta property="og:title" content="LINUX命令二">
+<meta property="og:url" content="https://robotno42.github.io/2019/02/22/LINUX命令二/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="快捷键：ctrl+c 取消命令 ctrl+l 清屏">
+<meta property="og:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://robotno42.github.io/2019/02/22/LINUX命令一/1.PNG">
-<meta property="og:updated_time" content="2019-02-22T15:23:45.929Z">
+<meta property="og:image" content="https://robotno42.github.io/2019/02/22/LINUX命令二/1.PNG">
+<meta property="og:updated_time" content="2019-02-22T15:25:10.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LINUX命令一">
-<meta name="twitter:description" content="快捷键：ctrl+c 取消命令 ctrl+l 清屏">
-<meta name="twitter:image" content="https://robotno42.github.io/2019/02/22/LINUX命令一/1.PNG">
+<meta name="twitter:title" content="LINUX命令二">
+<meta name="twitter:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar">
+<meta name="twitter:image" content="https://robotno42.github.io/2019/02/22/LINUX命令二/1.PNG">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://robotno42.github.io/2019/02/22/LINUX命令一/">
+  <link rel="canonical" href="https://robotno42.github.io/2019/02/22/LINUX命令二/">
 
 
 
 
 
-  <title>LINUX命令一 | Messiless Blog</title>
+  <title>LINUX命令二 | Messiless Blog</title>
   
 
 
@@ -235,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robotno42.github.io/2019/02/22/LINUX命令一/">
+    <link itemprop="mainEntityOfPage" href="https://robotno42.github.io/2019/02/22/LINUX命令二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Messiless">
@@ -252,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LINUX命令一</h1>
+          <h1 class="post-title" itemprop="name headline">LINUX命令二</h1>
         
 
         <div class="post-meta">
@@ -264,7 +264,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-22T21:54:51+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-22T23:16:24+08:00">
                 2019-02-22
               </time>
             
@@ -302,62 +302,89 @@
       
 
       
-        <h4 id="快捷键："><a href="#快捷键：" class="headerlink" title="快捷键："></a>快捷键：</h4><p>ctrl+c 取消命令</p>
-<p>ctrl+l 清屏</p>
+        <h4 id="打包压缩"><a href="#打包压缩" class="headerlink" title="打包压缩"></a>打包压缩</h4><p>打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt</p>
+<p>查看包内的内容 tar -tf /test.tar</p>
+<p>解压包到当前目录 tar -xvf /test.tar</p>
 <p><em><a id="more"></a></em></p>
-<h4 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h4><p>更换用户 su - 或sudo su</p>
-<p>关机 init 0</p>
-<p>重启 init 6</p>
-<p>立即关机 shutdown -h now</p>
-<p>查询当前用户 who am i</p>
-<p>查看当前日期 date</p>
-<p>修改当前日期 date -s “2012-01-02 14:00:00”（必须切换到root用户）</p>
-<p>查看今天日历 cal 查看某天 cal 日月年（cal 3 4 2012）</p>
-<p>改密码 passwd</p>
-<p>查看文件下的子文件 ls 查看文件夹下的子文件详细信息 ls -l (简写ll) 查看文件的详细信息 ls -dl(简写ll -d)</p>
-<p>查看文件夹下的所有文件包括隐藏文件 ls-a</p>
-<p>切换目录 cd</p>
-<p>退到上级目录 cd ,,</p>
-<p>返回到上一次的目录 cd -</p>
-<p>查看当前目录 pwd</p>
-<p>递归建文件夹 mkdir -p</p>
-<p>改名/移动 mv /a/b1 /a/b2(把a文件下的b1改成b2) mv /a/b1 /z/(把b1移动到z文件下)</p>
-<p>文件复制顺便改名 cp /a/b1 /a/b2</p>
-<p>文件夹的复制 cp -rf /a/b /c</p>
-<p>删除文件夹 rm 删除文件夹下的所有子文件 rm -rf (不建议使用，最好用mv /a /tmp/ 移动到临时文件，还可以还原） ,如果文件带特殊符号，则加上“”即可删除</p>
-<p>创建文件 touch a.txt</p>
-<p>查看内容 cat</p>
-<p>百分比查看 more</p>
-<p>分页查看 less</p>
-<p>查看前三行 head - n3</p>
-<p>查看后三行 tail -n3</p>
-<p>监控文件 tail -f</p>
-<p>覆盖内容 echo 内容 &gt;</p>
-<p>新增内容 echo 内容 &gt;&gt;</p>
-<p>查看历史命令 history</p>
-<p>使用第57行的历史命令 !57</p>
-<p>直接修改密码 echo 123456 | passwd –stdin Messiless</p>
-<p>用户信息文件 /etc/passwd 用户密码文件 /etc/shadow 用户组 /etc/group 用户组密码 /etc/gshadow</p>
-<p>创建hsy用户 useradd hsy</p>
-<p>完全删除hsy用户 userdel -r hsy</p>
-<p><img src="//robotno42.github.io/2019/02/22/LINUX命令一/1.PNG" alt="示例图片" title="示例图片"></p>
-<p>第一段代表文件权限信息，第一个数字是-代表普通文件，d则是目录 ，后面的一堆分3个3个来看，rwx代表属主的权限（可读可执行可写） r-x代表属组的权限（可读可执行） r-x代表其他用户的权限（可读可执行）</p>
-<p>在jack组中附加一个tom用户 usermod -G jack tom</p>
-<p>手动创建一个用户的流程</p>
-<p>/etc/passwd</p>
-<p>/etc/shadow</p>
-<p>/etc/group</p>
-<p>/etc/gshaow</p>
-<p>mkdir /home/hsy</p>
-<p>cp -r /etc/skel/.[!.]* /home/hsy</p>
-<p>chown -R hsy.hsy /home/hsy</p>
-<p>touch /var/spool/mail/hsy</p>
-<p>chown -R hsy.mail /var/spool/mail/hsy</p>
-<p>更换文件权限：</p>
-<p>方法一：chmod u=rw,g=r,o=rx /a.txt</p>
-<p>方法二：chmod 744 /a.txt (r=4,w=2,x=1)</p>
-<p>如果要在一个目录下创建删除重命名文件，则该用户需要同时有wx权限</p>
-<p>如果要修改一个目录下文件的内容，则需要文件的w权限，和前面目录的x权限</p>
+<p>解压包到指定目录 tar -xvf /test.tar -C /try</p>
+<p>压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小）</p>
+<p>解压文件 tar -xf /test.tar.zp tar-xf /test.tar.bz2</p>
+<p>打包并同时压缩文件tar -cvzf /test.tar.zp /a.txt /b.txt /c.txt</p>
+<p>或 tar -cvjf /test.tar.bz2 /a.txt /b.txt /c.txt</p>
+<p>如果要连同目录一起压缩则最后用/ 如果只想压缩目录下面的文件则/*</p>
+<h4 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h4><p>查看并编辑文档 vim 按a 编辑 按 :wq 保存并退出</p>
+<p>q！不保存</p>
+<p>x    小写的x表示向后删除一个字符,也就是删除光标所在字符</p>
+<p>nx  n表示数字，表示向后删除每个字符，例如：10x表示删除包括光标在内的后面10个字符</p>
+<p>dd 删除当前一行 ,就是截切</p>
+<p>ndd删除n行（例如3dd删除3行）</p>
+<p>yy复制一行</p>
+<p>nyy复制n行</p>
+<p>p 粘贴到目标位置的下一行</p>
+<p>P 粘贴到目标位置的上一行</p>
+<p>u 撤销上一步操作</p>
+<p>ctrl+r 返回前一步</p>
+<p>gg 光标移动到文件的第一行</p>
+<p>G 光标移动到文件的最后一行</p>
+<p>nG 光标移动到文件的第n行</p>
+<p>dgg  删除光标所在行到第一行数据</p>
+<p>dG     删除光标所在行到最后一行数据</p>
+<h4 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h4><p>/dev</p>
+<p>fdisk -l /dev/sda 查看磁盘信息</p>
+<p>fdisk /dev/sdb 进入磁盘分区</p>
+<p>p 输出目前磁盘分区信息</p>
+<p>n 分区 分为p主分区 e扩展分区</p>
+<p>d 删除分区</p>
+<p>给分区装装指定系统 mkfs.xfs /dev/sdb1</p>
+<p>挂载一个目录 mount /dev/sdb1 /test</p>
+<p>卸除挂载目录 umount /dev/sdb1</p>
+<p>一个分区挂载两个目录时，则两个目录同时指向该分区，即同步</p>
+<p>df 查看磁盘分区信息 df-Th</p>
+<p>创建软链接（相当于创建快捷方式）ln -s /test/a.txt /sb/a.txt 前面是被创建的软连接</p>
+<h4 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h4><p>查看内存信息 swapon -s</p>
+<p>增加内存区 mkswap /dev/sdb2</p>
+<p>swapon -a /dev/sdb2</p>
+<p>删除内存区swapoff /dev/sdb2</p>
+<p>查看内存 free</p>
+<h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>firefox &amp; 后台运行程序</p>
+<p>ps aux 查看全部进程</p>
+<p>ps aux|grep fire 查找带fire的进程</p>
+<p>pgrep firefox 查找firefox进程号</p>
+<p>kill -9 3315 强制杀死进程(3315代表进程编号)</p>
+<p>pkill -9 firefox 指定名称的杀死进程</p>
+<h4 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h4><h5 id="二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><a href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm" class="headerlink" title="二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm"></a>二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</h5><p>覆盖安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm –force</p>
+<p>查看系统中所有安装的rpm包 rpm -qa</p>
+<p>查看指定的包 rpm -qa|grep vsf</p>
+<p>查看rpm包安装在哪 rpm -ql vsf</p>
+<p>查看rmp包详细信息 rpm -qi vsf</p>
+<p>查看文件是由那个包产生 rpm -qf /test/b1.txt</p>
+<p>删除rmp包 rmp -e vsf</p>
+<p>使用yum安装和卸载软件，有个前提是yum安装的软件包都是rpm格式的</p>
+<p> yum update  升级系统</p>
+<p> yum install  ～ 安装指定软件包</p>
+<p> yum update ～ 升级指定软件包</p>
+<p> yum remove ～ 卸载指定软件</p>
+<p> yum grouplist   查看系统中已经安装的和可用的软件组，可用的可以安装</p>
+<p> yum grooupinstall ～安装上一个命令显示的可用的软件组中的一个</p>
+<h5 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h5><p>python安装</p>
+<p>python官网下载file源代码</p>
+<p>安装环境</p>
+<p>查看group列表 yum grouplist</p>
+<p>安装组包 yum groupinstall ‘开发工具’ -y</p>
+<p>解压文件 tar -xvf pytho-3.7.0.tgz</p>
+<p>cd到解压好的文件目录，更改源码包安装路径 ./configure –prefix=/usr/local/python3.7</p>
+<p>编码 make</p>
+<p>安装 make install（安装时会出现下面两种错误</p>
+<p>1.<img src="//robotno42.github.io/2019/02/22/LINUX命令二/1.PNG" alt="示例图片" title="示例图片"></p>
+<p>需要安装zlib包 yum install zlib*</p>
+<p>2.ModuleNotFoundError: No module named ‘_ctypes’</p>
+<p>解决方法：3.7版本需要一个新的包libffi-devel，安装此包之后再次进行编译安装即可</p>
+<p>yum install libffi-*</p>
+<p>把python3.7加到path环境中</p>
+<p>更改profile文件 vim /etc/profile</p>
+<p>在文件的最后面加上 PATH=$PATH:/usr/local/python3.7/bin</p>
+<p>export PATH</p>
+<p>netstat -tunapl 查看网络状态</p>
 
       
     </div>
@@ -388,15 +415,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/02/22/LINUX命令一/" rel="next" title="LINUX命令一">
+                <i class="fa fa-chevron-left"></i> LINUX命令一
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/22/LINUX命令二/" rel="prev" title="LINUX命令二">
-                LINUX命令二 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -519,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#快捷键："><span class="nav-number">1.</span> <span class="nav-text">快捷键：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令："><span class="nav-number">2.</span> <span class="nav-text">命令：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包压缩"><span class="nav-number">1.</span> <span class="nav-text">打包压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vi"><span class="nav-number">2.</span> <span class="nav-text">vi</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#磁盘分区"><span class="nav-number">3.</span> <span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存"><span class="nav-number">4.</span> <span class="nav-text">内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程"><span class="nav-number">5.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件安装"><span class="nav-number">6.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><span class="nav-number">6.1.</span> <span class="nav-text">二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源代码安装"><span class="nav-number">6.2.</span> <span class="nav-text">源代码安装</span></a></li></ol></li></ol></div>
             
 
           </div>
