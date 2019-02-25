@@ -118,7 +118,7 @@
 <meta property="og:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://robotno42.github.io/2019/02/22/LINUX命令二/1.png">
-<meta property="og:updated_time" content="2019-02-23T10:05:18.943Z">
+<meta property="og:updated_time" content="2019-02-25T13:54:43.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LINUX命令二">
 <meta name="twitter:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
@@ -360,8 +360,8 @@
            
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-02-23T18:05:18+08:00" content="2019-02-23">
-      2019-02-23
+    <time itemprop="dateUpdated" datetime="2019-02-25T21:54:43+08:00" content="2019-02-25">
+      2019-02-25
     </time>
   </span>
 
@@ -415,7 +415,7 @@
       
 
       
-        <h4 id="打包压缩"><a href="#打包压缩" class="headerlink" title="打包压缩"></a>打包压缩</h4><p>打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt</p>
+        <h3 id="打包压缩"><a href="#打包压缩" class="headerlink" title="打包压缩"></a><blockquote class="question">打包压缩</blockquote></h3><p>打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt</p>
 <p>查看包内的内容 tar -tf /test.tar</p>
 <p>解压包到当前目录 tar -xvf /test.tar</p>
 <p>解压包到指定目录 tar -xvf /test.tar -C /try</p>
@@ -424,7 +424,7 @@
 <p>打包并同时压缩文件tar -cvzf /test.tar.zp /a.txt /b.txt /c.txt</p>
 <p>或 tar -cvjf /test.tar.bz2 /a.txt /b.txt /c.txt</p>
 <p>如果要连同目录一起压缩则最后用/ 如果只想压缩目录下面的文件则/*</p>
-<h4 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h4><p>查看并编辑文档 vim 按a 编辑 按 :wq 保存并退出</p>
+<h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a><blockquote class="question">vi</blockquote></h3><p>查看并编辑文档 vim 按a 编辑 按 :wq 保存并退出</p>
 <p>q！不保存</p>
 <p>x    小写的x表示向后删除一个字符,也就是删除光标所在字符</p>
 <p>nx  n表示数字，表示向后删除每个字符，例如：10x表示删除包括光标在内的后面10个字符</p>
@@ -441,7 +441,7 @@
 <p>nG 光标移动到文件的第n行</p>
 <p>dgg  删除光标所在行到第一行数据</p>
 <p>dG     删除光标所在行到最后一行数据</p>
-<h4 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a>磁盘分区</h4><p>/dev</p>
+<h3 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a><blockquote class="question">磁盘分区</blockquote></h3><p>/dev</p>
 <p>fdisk -l /dev/sda 查看磁盘信息</p>
 <p>fdisk /dev/sdb 进入磁盘分区</p>
 <p>p 输出目前磁盘分区信息</p>
@@ -452,19 +452,19 @@
 <p>卸除挂载目录 umount /dev/sdb1</p>
 <p>一个分区挂载两个目录时，则两个目录同时指向该分区，即同步</p>
 <p>df 查看磁盘分区信息 df-Th</p>
-<p>创建软链接（相当于创建快捷方式）ln -s /test/a.txt /sb/a.txt 前面是被创建的软连接</p>
-<h4 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h4><p>查看内存信息 swapon -s</p>
+<h3 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a><blockquote class="question">创建软连接</blockquote></h3><p>相当于创建快捷方式ln -s /test/a.txt /sb/a.txt 前面是被创建的软连接</p>
+<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a><blockquote class="question">内存</blockquote></h3><p>查看内存信息 swapon -s</p>
 <p>增加内存区 mkswap /dev/sdb2</p>
 <p>swapon -a /dev/sdb2</p>
 <p>删除内存区swapoff /dev/sdb2</p>
 <p>查看内存 free</p>
-<h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><p>firefox &amp; 后台运行程序</p>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a><blockquote class="question">进程</blockquote></h3><p>firefox &amp; 后台运行程序</p>
 <p>ps aux 查看全部进程</p>
 <p>ps aux|grep fire 查找带fire的进程</p>
 <p>pgrep firefox 查找firefox进程号</p>
 <p>kill -9 3315 强制杀死进程(3315代表进程编号)</p>
 <p>pkill -9 firefox 指定名称的杀死进程</p>
-<h4 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h4><h5 id="二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><a href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm" class="headerlink" title="二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm"></a>二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</h5><p>覆盖安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm –force</p>
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a><blockquote class="question">软件安装</blockquote></h3><h4 id="二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><a href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm" class="headerlink" title="二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm"></a>二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</h4><p>覆盖安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm –force</p>
 <p>查看系统中所有安装的rpm包 rpm -qa</p>
 <p>查看指定的包 rpm -qa|grep vsf</p>
 <p>查看rpm包安装在哪 rpm -ql vsf</p>
@@ -478,7 +478,7 @@
 <p> yum remove ～ 卸载指定软件</p>
 <p> yum grouplist   查看系统中已经安装的和可用的软件组，可用的可以安装</p>
 <p> yum grooupinstall ～安装上一个命令显示的可用的软件组中的一个</p>
-<h5 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h5><p>python安装</p>
+<h4 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h4><p>python安装</p>
 <p>python官网下载file源代码</p>
 <p>安装环境</p>
 <p>查看group列表 yum grouplist</p>
@@ -691,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#打包压缩"><span class="nav-number">1.</span> <span class="nav-text">打包压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vi"><span class="nav-number">2.</span> <span class="nav-text">vi</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#磁盘分区"><span class="nav-number">3.</span> <span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内存"><span class="nav-number">4.</span> <span class="nav-text">内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程"><span class="nav-number">5.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件安装"><span class="nav-number">6.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><span class="nav-number">6.1.</span> <span class="nav-text">二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#源代码安装"><span class="nav-number">6.2.</span> <span class="nav-text">源代码安装</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打包压缩"><span class="nav-number">1.</span> <span class="nav-text">打包压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vi"><span class="nav-number">2.</span> <span class="nav-text">vi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘分区"><span class="nav-number">3.</span> <span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建软连接"><span class="nav-number">4.</span> <span class="nav-text">创建软连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存"><span class="nav-number">5.</span> <span class="nav-text">内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-number">6.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件安装"><span class="nav-number">7.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><span class="nav-number">7.1.</span> <span class="nav-text">二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码安装"><span class="nav-number">7.2.</span> <span class="nav-text">源代码安装</span></a></li></ol></li></ol></div>
             
 
           </div>
