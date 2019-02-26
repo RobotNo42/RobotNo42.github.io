@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[冒泡排序]]></title>
+    <url>%2F2019%2F02%2F26%2F%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%2F</url>
+    <content type="text"><![CDATA[冒泡排序的思想: 每次比较两个相邻的元素, 如果他们的顺序错误就把他们交换位置比如有五个数: 12, 35, 99, 18, 76, 从大到小排序, 对相邻的两位进行比较 第一趟: 第一次比较: 35, 12, 99, 18, 76 第二次比较: 35, 99, 12, 18, 76 第三次比较: 35, 99, 18, 12, 76 第四次比较: 35, 99, 18, 76, 12 经过第一趟比较后, 五个数中最小的数已经在最后面了, 接下来只比较前四个数, 依次类推 第二趟99, 35, 76, 18, 12 第三趟99, 76, 35, 18, 12 第四趟99, 76, 35, 18, 12比较完成 冒泡排序原理: 每一趟只能将一个数归位, 如果有n个数进行排序,只需将n-1个数归位, 也就是说要进行n-1趟操作(已经归位的数不用再比较)12345678910def my_sort(num): l = len(num) for i in range(l-1): for j in range(l-1-i): if num[j] &lt; num[j+1]: num[j], num[j+1] = num[j+1], num[j]nums = [2,45,67,8,0,56]print(nums)]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>冒泡排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python生成器表达式]]></title>
+    <url>%2F2019%2F02%2F26%2Fpython%E7%94%9F%E6%88%90%E5%99%A8%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[生成器表达式相比列表表达式，将[]换成了()，返回对象不是一个列表，而是一个生成器，相比列表更加省内存 实例1： 列表表达式写法： 12l = ['apple%s' % i for i in range(10000)]print(l) 生成器表达式写法： 123g = ('apple%s' % i for i in range(10000))for i in g: print(i) 实例2: 一般写法： 12345678910res = []with open('test1.txt') as f: for line in f: l = line.split(',') d = &#123;&#125; d['name'] = l[0] d['price'] = l[1] d['count'] = l[2] res.append(d) print(d) 生成器表达式写法： 12345with open('test1.txt') as f: res = (line.split(',') for line in f) dic_g = (&#123;'name': i[0], 'price': i[1], 'count': i[2]&#125; for i in res) apple_dic = next(dic_g) #只有调用next才会往外拿一个,大大节省内存 print(apple_dic)]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>生成器表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python列表生成式]]></title>
+    <url>%2F2019%2F02%2F26%2Fpython%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[列表生成式会将所有的结果全部计算出来，把结果存放到内存中，如果列表中数据比较多，就会占用过多的内存空间，可能会导致MemoryError内存错误或者导致程序在运行时出现卡顿的情况 实例1： 在数字0-99中，取大于50的数，分为拼接在apple字符串后面，并存到一个列表中 一般的写法： 12345messi = []for i in range(100): if i &gt; 50: messi.append("apple%s" % i)print(messi) 列表生成式的写法： 123l = ["apple%s" % i for i in range(100) if i &gt; 50] # 'apple%s' %i 这句话在列表中，所以不用append命令写入列表中print(l) 实例2： 将一个列表中的每一个元素与一个字符串的每一个字符拼接，并保存到一个列表中 一般的写法： 123456789x1 = [1, 2, 3, 4]s = 'month'x2 = []for num in x1: for s1 in s: if num &gt; 2: t = (num, s1) x2.append(t)print(x2) 列表生成式的写法: 1234x1 = [1, 2, 3, 4]s = "month"le = [(num, s1) for num in x1 if num &gt; 2 for s1 in s]print(le)]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>列表生成式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python协程函数]]></title>
     <url>%2F2019%2F02%2F26%2Fpython%E5%8D%8F%E7%A8%8B%E5%87%BD%E6%95%B0%2F</url>
     <content type="text"><![CDATA[协程函数从语法上来看，协程和生成器类似，都是定义体中包含yield关键字的函数。yield在协程中的用法： 在协程中yield通常出现在表达式的右边，例如：datum = yield,可以产出值，也可以不产出–如果yield关键字后面没有表达式，那么生成器产出None. 协程可能从调用方接受数据，调用方是通过send(datum)的方式把数据提供给协程使用，而不是next(…)函数，通常调用方会把值推送给协程。 协程可以把控制器让给中心调度程序，从而激活其他的协程 所以总体上在协程中把yield看做是控制流程的方式 实例： 123456789101112131415def menu(x): print("welcome %s to shaxian restaurant" % x) men_list = [] while True: print(men_list) food = yield men_list print("%s start to eat %s" % (x, food)) men_list.append(food) g = menu('张三')next(g)g.send('包子') # 将'包子'传给yield ，然后赋值给了food，然后从上次暂停的位置接着执行代码，直到又到下一个yieldg.send('饺子')g.send('牛肉面') g.send与next(g)的区别是： 1.如果函数内yield是表达式形式，那么必须先next(g) 2.二者的共同之处都是可以让函数在上一次暂停的位置继续运行，不一样的地方在于send在触发下一次代码的执行时，会顺便给yield传一个值 如果不想写next的初始化，而直接调用send，可以选择加个装饰器 12345678910111213141516171819202122232425def happy(fuc): def f1(*args, **kwargs): res = fuc(*args, **kwargs) next(res) #让函数调用时自动初始化next return res return f1 @happydef menu(x): print("welcome %s to shaxian restaurant" % x) men_list = [] while True: print(men_list) food = yield men_list print("%s start to eat %s" % (x, food)) men_list.append(food) g = menu('张三') g.send('包子') # 将'包子'传给yield ，然后赋值给了food，然后从上次暂停的位置接着执行代码，直到又到下一个yieldg.send('饺子')g.send('牛肉面')]]></content>
