@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python协程函数]]></title>
+    <url>%2F2019%2F02%2F26%2Fpython%E5%8D%8F%E7%A8%8B%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[协程函数从语法上来看，协程和生成器类似，都是定义体中包含yield关键字的函数。yield在协程中的用法： 在协程中yield通常出现在表达式的右边，例如：datum = yield,可以产出值，也可以不产出–如果yield关键字后面没有表达式，那么生成器产出None. 协程可能从调用方接受数据，调用方是通过send(datum)的方式把数据提供给协程使用，而不是next(…)函数，通常调用方会把值推送给协程。 协程可以把控制器让给中心调度程序，从而激活其他的协程 所以总体上在协程中把yield看做是控制流程的方式 实例： 123456789101112131415def menu(x): print("welcome %s to shaxian restaurant" % x) men_list = [] while True: print(men_list) food = yield men_list print("%s start to eat %s" % (x, food)) men_list.append(food) g = menu('张三')next(g)g.send('包子') # 将'包子'传给yield ，然后赋值给了food，然后从上次暂停的位置接着执行代码，直到又到下一个yieldg.send('饺子')g.send('牛肉面') g.send与next(g)的区别是： 1.如果函数内yield是表达式形式，那么必须先next(g) 2.二者的共同之处都是可以让函数在上一次暂停的位置继续运行，不一样的地方在于send在触发下一次代码的执行时，会顺便给yield传一个值 如果不想写next的初始化，而直接调用send，可以选择加个装饰器 12345678910111213141516171819202122232425def happy(fuc): def f1(*args, **kwargs): res = fuc(*args, **kwargs) next(res) #让函数调用时自动初始化next return res return f1 @happydef menu(x): print("welcome %s to shaxian restaurant" % x) men_list = [] while True: print(men_list) food = yield men_list print("%s start to eat %s" % (x, food)) men_list.append(food) g = menu('张三') g.send('包子') # 将'包子'传给yield ，然后赋值给了food，然后从上次暂停的位置接着执行代码，直到又到下一个yieldg.send('饺子')g.send('牛肉面')]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>协程函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python生成器]]></title>
+    <url>%2F2019%2F02%2F26%2Fpython%E7%94%9F%E6%88%90%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[生成器生成器就是一个函数，这个函数内包含yield这个关键字 生成器与return的区别： return只能返回一次函数就结束，而生成器可以返回多次值 生成器函数包含一个或者多个yield 当调用生成器函数时，函数将返回一个对象，但是不会立刻向下执行，yield会保存一个状态，下一次运行会在这个位置接着往下运行，直到碰到下一个yield 像__iter__()和__next__()方法等是自动实现的，所以我们可以通过next()方法对对象进行迭代 一旦函数被yield，函数会暂停，控制权返回调用者 1234567891011def pr(x): print("start games") while x &gt; 0: yield x x -= 1 print("game over") game = pr(5) #此时game就是一个迭代器for i in game: print(i) 输出结果为： 1234567start games54321game over]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>生成器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[python迭代器]]></title>
+    <url>%2F2019%2F02%2F26%2Fpython%E8%BF%AD%E4%BB%A3%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[迭代器迭代器是一个可以记住遍历的位置的对象。 迭代器有两个基本的方法：iter() 和 next()。 使用对象内置的__iter__()方法生成迭代器 1it = name.__iter__() 使用内置工厂函数生成迭代器 1it = iter(name) 迭代器通过其内建的 iter.next() 方法，或通过 Python 内建的 next() 来迭代下一个元素，直到最后触发 StopIteration异常后表示迭代结束。 实例： 1234567name = &#123;'张三': 24, '李四': 25, '王五': 20&#125;it = iter(name)while True: try: print(next(it)) except StopIteration: break 输出为三个key的值 而for循环，本质就是调用了迭代器 for x in name 把name变成了一个迭代器，然后调用next方法，而且不用写 except StopIteration 作用优点1.提供一种不依赖索引的取值方式，这样就可以遍历那些没有索引的可迭代对象(字典，集合，文件) 2.迭代器与列表比较，迭代性是惰性计算，更省内存 缺点1.永远无法获取迭代器的长度，使用不如列表索引灵活，比如要获取第三个，则必须要一个个next 2.一次性，只能往后取，无法倒着取]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>迭代器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python装饰器]]></title>
     <url>%2F2019%2F02%2F26%2Fpython%E8%A3%85%E9%A5%B0%E5%99%A8%2F</url>
     <content type="text"><![CDATA[python装饰器就是用于在不改变原函数代码的情况下拓展新功能的一种函数，这个函数的特殊之处在于它的返回值也是一个函数，使用python装饰器的好处就是在不用更改原函数的代码前提下给函数增加新的功能。 装饰器分为有参和无参两种 无参123456789101112131415161718192021import timedef happy(func): def f1(*args, **kwargs): start_time = time.time() func(*args, **kwargs) end_time = time.time() print('run time is %s' % (end_time-start_time)) return f1 @happy #auto=happy(auto)def auto(name, password): print(name, password) @happydef shadow(): time.sleep(3) print("hello_world") shadow()auto('wzc', '123456') auto函数为原函数，我们需要对其进行功能扩展 因为原函数可能有形参或者没有，因此我们将函数定义为 def f1(*args, **kwargs)，这样不管是有参还是无参，都可以接收，不会报错 这里的happy函数就是最原始的装饰器，把auto当做了一个参数传了进去 auto=happy(auto) 然后返回值也是一个函数，返回一个f1，相当于auto=f1 其中作为参数的这个函数auto就在返回函数f1的内部执行。在函数auto前面加上@happy，auto函数就相当于被注入了计时功能，现在只要调用auto，它就已经变身为“新的功能更多”的函数了。 有参有参装饰器与无参装饰器的区别就是在外面多加一个嵌套函数，实现闭包功能 12345678910111213141516171819import time def mom(x='blee'): def happy(func): def f1(*args, **kwargs): print(x) start_time = time.time() func(*args, **kwargs) end_time = time.time() print('run time is %s' % (end_time-start_time)) return f1 return happy @mom('red')def auto(name, password): print(name, password) auto('wzc', '123456') 在原函数前面写@装饰器名，并加入参数 @mom(‘red’) 这时候我们先看mom(‘red’)，传回一个函数happy，等同于 @happy 接下来就和上面一样，这样就实现了有参装饰器]]></content>
