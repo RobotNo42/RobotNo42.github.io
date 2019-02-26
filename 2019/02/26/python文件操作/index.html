@@ -109,18 +109,18 @@
 
 
 
-<meta name="description" content="流程1.打开文件 open() 2.操作文件 read write 3.关闭文件 close()">
+<meta name="description" content="流程1.打开文件 open() 2.操作文件 read write 3.关闭文件 close() 在window系统上 默认的编码是gbk 用open()打开时，window系统会使用默认的gbk编码，所以如果打开的文件是别的编码保存，则需要手动指定编码，例如打开utf-8保存的文件时 1f = open(&quot;test&quot;,encoding=&quot;utf-8&quot;) 而在linux系统上 默认的编码是utf-">
 <meta name="keywords" content="python文件操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python文件操作">
 <meta property="og:url" content="https://robotno42.github.io/2019/02/26/python文件操作/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="流程1.打开文件 open() 2.操作文件 read write 3.关闭文件 close()">
+<meta property="og:description" content="流程1.打开文件 open() 2.操作文件 read write 3.关闭文件 close() 在window系统上 默认的编码是gbk 用open()打开时，window系统会使用默认的gbk编码，所以如果打开的文件是别的编码保存，则需要手动指定编码，例如打开utf-8保存的文件时 1f = open(&quot;test&quot;,encoding=&quot;utf-8&quot;) 而在linux系统上 默认的编码是utf-">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-26T10:22:36.265Z">
+<meta property="og:updated_time" content="2019-02-26T11:38:37.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python文件操作">
-<meta name="twitter:description" content="流程1.打开文件 open() 2.操作文件 read write 3.关闭文件 close()">
+<meta name="twitter:description" content="流程1.打开文件 open() 2.操作文件 read write 3.关闭文件 close() 在window系统上 默认的编码是gbk 用open()打开时，window系统会使用默认的gbk编码，所以如果打开的文件是别的编码保存，则需要手动指定编码，例如打开utf-8保存的文件时 1f = open(&quot;test&quot;,encoding=&quot;utf-8&quot;) 而在linux系统上 默认的编码是utf-">
 
 
 
@@ -358,7 +358,7 @@
            
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-02-26T18:22:36+08:00" content="2019-02-26">
+    <time itemprop="dateUpdated" datetime="2019-02-26T19:38:37+08:00" content="2019-02-26">
       2019-02-26
     </time>
   </span>
@@ -416,6 +416,43 @@
         <h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a><blockquote class="question">流程</blockquote></h3><p>1.打开文件 open()</p>
 <p>2.操作文件 read write</p>
 <p>3.关闭文件 close()</p>
+<p>在window系统上 默认的编码是gbk</p>
+<p>用open()打开时，window系统会使用默认的gbk编码，所以如果打开的文件是别的编码保存，则需要手动指定编码，例如打开utf-8保存的文件时</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">"test"</span>,encoding=<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<p>而在linux系统上 默认的编码是utf-8</p>
+<h3 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a><blockquote class="question">操作方法</blockquote></h3><p>读整个文件的内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.read()</span><br></pre></td></tr></table></figure>
+<p>读文件前5个字符的内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.read(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<p>如果再来一次 f.read(5),则读接下来的5个字符，read的内容取决于光标的位置</p>
+<p>读一行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.readline()</span><br></pre></td></tr></table></figure>
+<p>一行一行打印，并移除空白</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f:</span><br><span class="line">    print(i.strip())</span><br></pre></td></tr></table></figure>
+<h3 id="写入模式"><a href="#写入模式" class="headerlink" title="写入模式"></a><blockquote class="question">写入模式</blockquote></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">"d://test1.txt"</span>, mode=<span class="string">"w"</span>, encoding=<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<p>当文件不存在时，会自动创建</p>
+<p>这个模式只能写，不能读</p>
+<p>覆盖的写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.write(hello\nworld)</span><br></pre></td></tr></table></figure>
+<p>多行一起写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f.write([<span class="string">'11111\n'</span>,<span class="string">'222222\n'</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="追加模式"><a href="#追加模式" class="headerlink" title="追加模式"></a><blockquote class="question">追加模式</blockquote></h3><p>跟w模式一样也是只能写，但是是追加的写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">"d://test1.txt"</span>,mode=<span class="string">"a"</span>,encoding=<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a><blockquote class="question">光标移动</blockquote></h3><p>seek()的三种模式：</p>
+<p>（1）f.seek(p,0)  移动当文件第p个字节处，绝对位置</p>
+<p>（2）f.seek(p,1)  移动到相对于当前位置之后的p个字节</p>
+<p>（3）f.seek(p,2)  移动到相对文章尾之后的p个字节</p>
+<p>seek是按字节移动</p>
+<h3 id="可读可写模式"><a href="#可读可写模式" class="headerlink" title="可读可写模式"></a><blockquote class="question">可读可写模式</blockquote></h3><p>1.可读内容，写则是追加的写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">"d://test1.txt"</span>,mode=<span class="string">"r+"</span>,encoding=<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<p>2.写的时候会把原来的内容覆盖,想读取内容，需要seek调整光标位置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">"d://test1.txt"</span>,mode=<span class="string">"w+"</span>,encoding=<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<p>3.初始光标在最后，要读，则需要将光标调到初始位置，seek(0)，要写不管光标位置在哪，都是追加的写入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">"d://test1.txt"</span>,mode=<span class="string">"a+"</span>,encoding=<span class="string">"utf-8"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="新的方法"><a href="#新的方法" class="headerlink" title="新的方法"></a><blockquote class="question">新的方法</blockquote></h3><p>可以避免忘记写close()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"d://test1.txt"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f</span><br></pre></td></tr></table></figure>
+<p>导入sys模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.stdout.write(s)</span><br><span class="line">sys.stdout.flush()</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -606,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程"><span class="nav-number">1.</span> <span class="nav-text">流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#流程"><span class="nav-number">1.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作方法"><span class="nav-number">2.</span> <span class="nav-text">操作方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写入模式"><span class="nav-number">3.</span> <span class="nav-text">写入模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#追加模式"><span class="nav-number">4.</span> <span class="nav-text">追加模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#光标移动"><span class="nav-number">5.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可读可写模式"><span class="nav-number">6.</span> <span class="nav-text">可读可写模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新的方法"><span class="nav-number">7.</span> <span class="nav-text">新的方法</span></a></li></ol></div>
             
 
           </div>

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[python文件操作]]></title>
     <url>%2F2019%2F02%2F26%2Fpython%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[流程1.打开文件 open() 2.操作文件 read write 3.关闭文件 close()]]></content>
+    <content type="text"><![CDATA[流程1.打开文件 open() 2.操作文件 read write 3.关闭文件 close() 在window系统上 默认的编码是gbk 用open()打开时，window系统会使用默认的gbk编码，所以如果打开的文件是别的编码保存，则需要手动指定编码，例如打开utf-8保存的文件时 1f = open("test",encoding="utf-8") 而在linux系统上 默认的编码是utf-8 操作方法读整个文件的内容 1f.read() 读文件前5个字符的内容 1f.read(5) 如果再来一次 f.read(5),则读接下来的5个字符，read的内容取决于光标的位置 读一行 1f.readline() 一行一行打印，并移除空白 12for i in f: print(i.strip()) 写入模式1f = open("d://test1.txt", mode="w", encoding="utf-8") 当文件不存在时，会自动创建 这个模式只能写，不能读 覆盖的写 1f.write(hello\nworld) 多行一起写 1f.write(['11111\n','222222\n']) 追加模式跟w模式一样也是只能写，但是是追加的写 1f=open("d://test1.txt",mode="a",encoding="utf-8") 光标移动seek()的三种模式： （1）f.seek(p,0) 移动当文件第p个字节处，绝对位置 （2）f.seek(p,1) 移动到相对于当前位置之后的p个字节 （3）f.seek(p,2) 移动到相对文章尾之后的p个字节 seek是按字节移动 可读可写模式1.可读内容，写则是追加的写 1f=open("d://test1.txt",mode="r+",encoding="utf-8") 2.写的时候会把原来的内容覆盖,想读取内容，需要seek调整光标位置 1f=open("d://test1.txt",mode="w+",encoding="utf-8") 3.初始光标在最后，要读，则需要将光标调到初始位置，seek(0)，要写不管光标位置在哪，都是追加的写入 1f=open("d://test1.txt",mode="a+",encoding="utf-8") 新的方法可以避免忘记写close() 1with open("d://test1.txt", encoding="utf-8") as f 导入sys模块 123import syssys.stdout.write(s)sys.stdout.flush()]]></content>
       <categories>
         <category>python</category>
       </categories>
