@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="递归,二分法,">
 
 
 
@@ -109,13 +109,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Messiless Blog">
-<meta property="og:url" content="https://robotno42.github.io/archives/2019/02/page/2/index.html">
+<meta name="description" content="递归递归:在调用一个函数的过程中，直接或间接地调用了函数本身这个就叫递归 1.必须有个明确的结束条件 2.每次进入更深一层递归时，问题规模相比上次递归应有所减少 3.递归效率不高，递归层次过多会导致栈溢出（在计算机中，函数调用是通过栈(stack)这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，就栈就会减少一层栈帧。由于栈的大小不是无限的，递归调用的次数过多，则会导致栈溢">
+<meta name="keywords" content="递归,二分法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的递归与二分法">
+<meta property="og:url" content="https://robotno42.github.io/2019/02/27/python的递归与二分法/index.html">
 <meta property="og:site_name" content="Messiless Blog">
+<meta property="og:description" content="递归递归:在调用一个函数的过程中，直接或间接地调用了函数本身这个就叫递归 1.必须有个明确的结束条件 2.每次进入更深一层递归时，问题规模相比上次递归应有所减少 3.递归效率不高，递归层次过多会导致栈溢出（在计算机中，函数调用是通过栈(stack)这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，就栈就会减少一层栈帧。由于栈的大小不是无限的，递归调用的次数过多，则会导致栈溢">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-27T05:17:33.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Messiless Blog">
+<meta name="twitter:title" content="python的递归与二分法">
+<meta name="twitter:description" content="递归递归:在调用一个函数的过程中，直接或间接地调用了函数本身这个就叫递归 1.必须有个明确的结束条件 2.每次进入更深一层递归时，问题规模相比上次递归应有所减少 3.递归效率不高，递归层次过多会导致栈溢出（在计算机中，函数调用是通过栈(stack)这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，就栈就会减少一层栈帧。由于栈的大小不是无限的，递归调用的次数过多，则会导致栈溢">
 
 
 
@@ -145,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://robotno42.github.io/archives/2019/02/page/2/">
+  <link rel="canonical" href="https://robotno42.github.io/2019/02/27/python的递归与二分法/">
 
 
 
 
 
-  <title>Archive | Messiless Blog</title>
+  <title>python的递归与二分法 | Messiless Blog</title>
   
 
 
@@ -173,7 +178,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -298,356 +303,186 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robotno42.github.io/2019/02/27/python的递归与二分法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Messiless">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mianma.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Messiless Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">python的递归与二分法</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T11:28:54+08:00">
+                2019-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+           
+  <span class="post-updated">
+    &nbsp; | &nbsp; Edited on
+    <time itemprop="dateUpdated" datetime="2019-02-27T13:17:33+08:00" content="2019-02-27">
+      2019-02-27
+    </time>
+  </span>
+
           
-        
-        Um..! 19 posts in total. Keep on posting.
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/26/python文件操作/" itemprop="url">
-              
-                <span itemprop="name">python文件操作</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-26T16:20:00+08:00" content="2019-02-26">
-          02-26
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/25/python基础二/" itemprop="url">
-              
-                <span itemprop="name">python基础二</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-25T22:21:36+08:00" content="2019-02-25">
-          02-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/25/python基础一/" itemprop="url">
-              
-                <span itemprop="name">python基础一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-25T14:24:49+08:00" content="2019-02-25">
-          02-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a><blockquote class="question">递归</blockquote></h3><p>递归:在调用一个函数的过程中，直接或间接地调用了函数本身这个就叫递归</p>
+<p>1.必须有个明确的结束条件</p>
+<p>2.每次进入更深一层递归时，问题规模相比上次递归应有所减少</p>
+<p>3.递归效率不高，递归层次过多会导致栈溢出（在计算机中，函数调用是通过栈(stack)这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，就栈就会减少一层栈帧。由于栈的大小不是无限的，递归调用的次数过多，则会导致栈溢出）</p>
+<p>实例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">age</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">18</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> age(n<span class="number">-1</span>)+<span class="number">2</span></span><br><span class="line"> </span><br><span class="line">print(age(<span class="number">5</span>))</span><br><span class="line"><span class="comment"># age(5)=age(4)+2 第一次进入</span></span><br><span class="line"><span class="comment"># age(4)=age(3)+2 第二次进入</span></span><br><span class="line"><span class="comment"># age(3)=age(2)+2 第三次进入</span></span><br><span class="line"><span class="comment"># age(2)=age(1)+2 第四次进入</span></span><br><span class="line"><span class="comment"># age(1)=18 第五次进入，最后判断终止条件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># age(n)=age(n-1)+2 #n&gt;1  递归终止条件</span></span><br><span class="line"><span class="comment"># age(1)=18 #n=1          等于终止条件</span></span><br></pre></td></tr></table></figure>
+<h3 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a><blockquote class="question">二分法</blockquote></h3><p>每次拿中间的值与想要的值比较</p>
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">name = &#123;<span class="number">12</span>, <span class="number">32</span>, <span class="number">23</span>, <span class="number">45</span>, <span class="number">123</span>, <span class="number">4654</span>, <span class="number">1231</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">212</span>, <span class="number">56</span>, <span class="number">9</span>, <span class="number">34</span>, <span class="number">99</span>, <span class="number">30</span>&#125;</span><br><span class="line">name_sor = sorted(name)     <span class="comment">#把列表内容按升序排列</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">second_find</span><span class="params">(x, li)</span>:</span></span><br><span class="line">    mid_index = int(len(li) / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">if</span> len(li) &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> x &gt; li[mid_index]:</span><br><span class="line">            l1 = li[mid_index:]</span><br><span class="line">            second_find(x,l1)</span><br><span class="line">        <span class="keyword">elif</span> x &lt;li[mid_index]:</span><br><span class="line">            l2 = li[:mid_index]</span><br><span class="line">            second_find(x,l2)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">'恭喜你找到了'</span>)</span><br><span class="line">    <span class="keyword">elif</span> len(li) == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> li[<span class="number">0</span>] == x:</span><br><span class="line">            print(<span class="string">"恭喜你找到了"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"gun!"</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">second_find(<span class="number">32</span>, name_sor)</span><br></pre></td></tr></table></figure>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/23/hexo的next主题详细配置/" itemprop="url">
-              
-                <span itemprop="name">hexo的next主题详细配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-23T18:45:28+08:00" content="2019-02-23">
-          02-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/23/如何更换hexo博客主题/" itemprop="url">
-              
-                <span itemprop="name">如何更换hexo博客主题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-23T16:21:10+08:00" content="2019-02-23">
-          02-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/23/使用hexo-github搭建属于自己的博客/" itemprop="url">
-              
-                <span itemprop="name">使用hexo+github搭建属于自己的博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-23T16:09:42+08:00" content="2019-02-23">
-          02-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/23/LINUX命令三/" itemprop="url">
-              
-                <span itemprop="name">LINUX命令三</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-23T11:00:47+08:00" content="2019-02-23">
-          02-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/22/LINUX命令二/" itemprop="url">
-              
-                <span itemprop="name">LINUX命令二</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-22T23:16:24+08:00" content="2019-02-22">
-          02-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/02/22/LINUX命令一/" itemprop="url">
-              
-                <span itemprop="name">LINUX命令一</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-22T21:54:51+08:00" content="2019-02-22">
-          02-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/递归/" rel="tag"># 递归</a>
+          
+            <a href="/tags/二分法/" rel="tag"># 二分法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/26/python内置函数/" rel="next" title="python内置函数">
+                <i class="fa fa-chevron-left"></i> python内置函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/02/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2019/02/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -655,6 +490,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -675,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -756,6 +604,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归"><span class="nav-text">递归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分法"><span class="nav-text">二分法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -903,6 +767,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
