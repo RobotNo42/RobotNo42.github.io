@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="linux命令,">
+  <meta name="keywords" content="绑定方法,非绑定方法,">
 
 
 
@@ -109,20 +109,18 @@
 
 
 
-<meta name="description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
-<meta name="keywords" content="linux命令">
+<meta name="description" content="类中定义的函数分成两大类一：绑定方法绑定给谁，谁来调用就自动将它本身当作第一个参数传入 1.绑定到类的方法：用classmethod装饰器装饰的方法。 为类量身定制 类.boud_method(),自动将类当作第一个参数传入 (其实对象也可调用，但仍将类当作第一个参数传入) 2.绑定到对象的方法：没有被任何装饰器装饰的方法。 为对象量身定制 对象.boud_method(),自动将对象当作第一个">
+<meta name="keywords" content="绑定方法,非绑定方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LINUX命令二">
-<meta property="og:url" content="https://robotno42.github.io/2019/02/22/LINUX命令二/index.html">
+<meta property="og:title" content="python面向对象之绑定方法与非绑定方法">
+<meta property="og:url" content="https://robotno42.github.io/2019/02/27/python面向对象之绑定方法与非绑定方法/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
+<meta property="og:description" content="类中定义的函数分成两大类一：绑定方法绑定给谁，谁来调用就自动将它本身当作第一个参数传入 1.绑定到类的方法：用classmethod装饰器装饰的方法。 为类量身定制 类.boud_method(),自动将类当作第一个参数传入 (其实对象也可调用，但仍将类当作第一个参数传入) 2.绑定到对象的方法：没有被任何装饰器装饰的方法。 为对象量身定制 对象.boud_method(),自动将对象当作第一个">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://robotno42.github.io/2019/02/22/LINUX命令二/1.png">
-<meta property="og:updated_time" content="2019-02-25T13:54:43.513Z">
+<meta property="og:updated_time" content="2019-02-27T14:07:44.419Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LINUX命令二">
-<meta name="twitter:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
-<meta name="twitter:image" content="https://robotno42.github.io/2019/02/22/LINUX命令二/1.png">
+<meta name="twitter:title" content="python面向对象之绑定方法与非绑定方法">
+<meta name="twitter:description" content="类中定义的函数分成两大类一：绑定方法绑定给谁，谁来调用就自动将它本身当作第一个参数传入 1.绑定到类的方法：用classmethod装饰器装饰的方法。 为类量身定制 类.boud_method(),自动将类当作第一个参数传入 (其实对象也可调用，但仍将类当作第一个参数传入) 2.绑定到对象的方法：没有被任何装饰器装饰的方法。 为对象量身定制 对象.boud_method(),自动将对象当作第一个">
 
 
 
@@ -152,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://robotno42.github.io/2019/02/22/LINUX命令二/">
+  <link rel="canonical" href="https://robotno42.github.io/2019/02/27/python面向对象之绑定方法与非绑定方法/">
 
 
 
 
 
-  <title>LINUX命令二 | Messiless Blog</title>
+  <title>python面向对象之绑定方法与非绑定方法 | Messiless Blog</title>
   
 
 
@@ -319,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://robotno42.github.io/2019/02/22/LINUX命令二/">
+    <link itemprop="mainEntityOfPage" href="https://robotno42.github.io/2019/02/27/python面向对象之绑定方法与非绑定方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Messiless">
@@ -336,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LINUX命令二</h1>
+          <h1 class="post-title" itemprop="name headline">python面向对象之绑定方法与非绑定方法</h1>
         
 
         <div class="post-meta">
@@ -348,8 +346,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-22T23:16:24+08:00">
-                2019-02-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T21:08:46+08:00">
+                2019-02-27
               </time>
             
 
@@ -360,8 +358,8 @@
            
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-02-25T21:54:43+08:00" content="2019-02-25">
-      2019-02-25
+    <time itemprop="dateUpdated" datetime="2019-02-27T22:07:44+08:00" content="2019-02-27">
+      2019-02-27
     </time>
   </span>
 
@@ -378,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -415,88 +413,41 @@
       
 
       
-        <h3 id="打包压缩"><a href="#打包压缩" class="headerlink" title="打包压缩"></a><blockquote class="question">打包压缩</blockquote></h3><p>打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt</p>
-<p>查看包内的内容 tar -tf /test.tar</p>
-<p>解压包到当前目录 tar -xvf /test.tar</p>
-<p>解压包到指定目录 tar -xvf /test.tar -C /try</p>
-<p>压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小）</p>
-<p>解压文件 tar -xf /test.tar.zp tar-xf /test.tar.bz2</p>
-<p>打包并同时压缩文件tar -cvzf /test.tar.zp /a.txt /b.txt /c.txt</p>
-<p>或 tar -cvjf /test.tar.bz2 /a.txt /b.txt /c.txt</p>
-<p>如果要连同目录一起压缩则最后用/ 如果只想压缩目录下面的文件则/*</p>
-<h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a><blockquote class="question">vi</blockquote></h3><p>查看并编辑文档 vim 按a 编辑 按 :wq 保存并退出</p>
-<p>q！不保存</p>
-<p>x    小写的x表示向后删除一个字符,也就是删除光标所在字符</p>
-<p>nx  n表示数字，表示向后删除每个字符，例如：10x表示删除包括光标在内的后面10个字符</p>
-<p>dd 删除当前一行 ,就是截切</p>
-<p>ndd删除n行（例如3dd删除3行）</p>
-<p>yy复制一行</p>
-<p>nyy复制n行</p>
-<p>p 粘贴到目标位置的下一行</p>
-<p>P 粘贴到目标位置的上一行</p>
-<p>u 撤销上一步操作</p>
-<p>ctrl+r 返回前一步</p>
-<p>gg 光标移动到文件的第一行</p>
-<p>G 光标移动到文件的最后一行</p>
-<p>nG 光标移动到文件的第n行</p>
-<p>dgg  删除光标所在行到第一行数据</p>
-<p>dG     删除光标所在行到最后一行数据</p>
-<h3 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a><blockquote class="question">磁盘分区</blockquote></h3><p>/dev</p>
-<p>fdisk -l /dev/sda 查看磁盘信息</p>
-<p>fdisk /dev/sdb 进入磁盘分区</p>
-<p>p 输出目前磁盘分区信息</p>
-<p>n 分区 分为p主分区 e扩展分区</p>
-<p>d 删除分区</p>
-<p>给分区装装指定系统 mkfs.xfs /dev/sdb1</p>
-<p>挂载一个目录 mount /dev/sdb1 /test</p>
-<p>卸除挂载目录 umount /dev/sdb1</p>
-<p>一个分区挂载两个目录时，则两个目录同时指向该分区，即同步</p>
-<p>df 查看磁盘分区信息 df-Th</p>
-<h3 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a><blockquote class="question">创建软连接</blockquote></h3><p>相当于创建快捷方式ln -s /test/a.txt /sb/a.txt 前面是被创建的软连接</p>
-<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a><blockquote class="question">内存</blockquote></h3><p>查看内存信息 swapon -s</p>
-<p>增加内存区 mkswap /dev/sdb2</p>
-<p>swapon -a /dev/sdb2</p>
-<p>删除内存区swapoff /dev/sdb2</p>
-<p>查看内存 free</p>
-<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a><blockquote class="question">进程</blockquote></h3><p>firefox &amp; 后台运行程序</p>
-<p>ps aux 查看全部进程</p>
-<p>ps aux|grep fire 查找带fire的进程</p>
-<p>pgrep firefox 查找firefox进程号</p>
-<p>kill -9 3315 强制杀死进程(3315代表进程编号)</p>
-<p>pkill -9 firefox 指定名称的杀死进程</p>
-<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a><blockquote class="question">软件安装</blockquote></h3><h4 id="二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><a href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm" class="headerlink" title="二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm"></a>二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</h4><p>覆盖安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm –force</p>
-<p>查看系统中所有安装的rpm包 rpm -qa</p>
-<p>查看指定的包 rpm -qa|grep vsf</p>
-<p>查看rpm包安装在哪 rpm -ql vsf</p>
-<p>查看rmp包详细信息 rpm -qi vsf</p>
-<p>查看文件是由那个包产生 rpm -qf /test/b1.txt</p>
-<p>删除rmp包 rmp -e vsf</p>
-<p>使用yum安装和卸载软件，有个前提是yum安装的软件包都是rpm格式的</p>
-<p> yum update  升级系统</p>
-<p> yum install  ～ 安装指定软件包</p>
-<p> yum update ～ 升级指定软件包</p>
-<p> yum remove ～ 卸载指定软件</p>
-<p> yum grouplist   查看系统中已经安装的和可用的软件组，可用的可以安装</p>
-<p> yum grooupinstall ～安装上一个命令显示的可用的软件组中的一个</p>
-<h4 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h4><p>python安装</p>
-<p>python官网下载file源代码</p>
-<p>安装环境</p>
-<p>查看group列表 yum grouplist</p>
-<p>安装组包 yum groupinstall ‘开发工具’ -y</p>
-<p>解压文件 tar -xvf pytho-3.7.0.tgz</p>
-<p>cd到解压好的文件目录，更改源码包安装路径 ./configure –prefix=/usr/local/python3.7</p>
-<p>编码 make</p>
-<p>安装 make install（安装时会出现下面两种错误</p>
-<p>1.<img src="/2019/02/22/LINUX命令二/1.png" alt="你想输入的替代文字"></p>
-<p>需要安装zlib包 yum install zlib*</p>
-<p>2.ModuleNotFoundError: No module named ‘_ctypes’</p>
-<p>解决方法：3.7版本需要一个新的包libffi-devel，安装此包之后再次进行编译安装即可</p>
-<p>yum install libffi-*</p>
-<p>把python3.7加到path环境中</p>
-<p>更改profile文件 vim /etc/profile</p>
-<p>在文件的最后面加上 PATH=$PATH:/usr/local/python3.7/bin</p>
-<p>export PATH</p>
-<p>netstat -tunapl 查看网络状态</p>
+        <h3 id="类中定义的函数分成两大类"><a href="#类中定义的函数分成两大类" class="headerlink" title=" 类中定义的函数分成两大类"></a><blockquote class="question"> 类中定义的函数分成两大类</blockquote></h3><h4 id="一：绑定方法"><a href="#一：绑定方法" class="headerlink" title="一：绑定方法"></a>一：绑定方法</h4><p>绑定给谁，谁来调用就自动将它本身当作第一个参数传入</p>
+<p>1.绑定到类的方法：用classmethod装饰器装饰的方法。</p>
+<p>为类量身定制</p>
+<p>类.boud_method(),自动将类当作第一个参数传入</p>
+<p>(其实对象也可调用，但仍将类当作第一个参数传入)</p>
+<p>2.绑定到对象的方法：没有被任何装饰器装饰的方法。</p>
+<p>为对象量身定制</p>
+<p>对象.boud_method(),自动将对象当作第一个参数传入</p>
+<p>(属于类的函数，类可以调用，但是必须按照函数的规则来，没有自动传值那么一说)</p>
+<h4 id="二：非绑定方法"><a href="#二：非绑定方法" class="headerlink" title="二：非绑定方法"></a>二：非绑定方法</h4><p>用staticmethod装饰器装饰的方法</p>
+<p>1.不与类或对象绑定，类和对象都可以调用，但是没有自动传值那么一说。就是一个普通工具而已</p>
+<p>注意：与绑定到对象方法区分开，在类中直接定义的函数，没有被任何装饰器装饰的，都是绑定到对象的方法，可不是普通函数，对象调用该方法会自动传值，而staticmethod装饰的方法，不管谁来调用，都没有自动传值一说</p>
+<h3 id="绑定方法"><a href="#绑定方法" class="headerlink" title=" 绑定方法"></a><blockquote class="question"> 绑定方法</blockquote></h3><h4 id="绑定给对象的方法"><a href="#绑定给对象的方法" class="headerlink" title="绑定给对象的方法"></a>绑定给对象的方法</h4><p>首先我们明确一个知识点，凡是类中的方法或函数，默认情况下都是绑定给对象使用的。下面，我们通过实例，来慢慢解析绑定方法的应用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">p = People(<span class="string">'xiaohua'</span>,<span class="number">18</span>)</span><br><span class="line">print(p.talk)</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">&lt;bound method People.talk of &lt;__main__.People object at <span class="number">0x000000F802C69358</span>&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>从上面的输出结果来看，talk()這个类中的方法，是绑定给对象使用的。下面，我在看看另外一种情况。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">p = People(<span class="string">'xiaohua'</span>,<span class="number">18</span>)</span><br><span class="line">print(p.talk)</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">&lt;bound method People.talk of &lt;__main__.People object at <span class="number">0x000000FF68F39358</span>&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>　现在，我们将talk()函数的参数去掉，结果显示与上面是一样。这说明，不管是类中的方法，还是类中函数，默认情况下都是绑定给对象使用的。绑定给对象使用有一种好处，那就是不用手动将对象传入。对象是自动传到类中。如果你不信，我们来看看下面的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">p = People(<span class="string">'xiaohua'</span>,<span class="number">18</span>)</span><br><span class="line">print(People.talk)</span><br><span class="line">print(p.talk)</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">&lt;function People.talk at <span class="number">0x000000C54E3D0A60</span>&gt;  类来调用仅仅是当作函数使用</span><br><span class="line">&lt;bound method People.talk of &lt;__main__.People object at <span class="number">0x000000C54E249358</span>&gt;&gt;  而对象来调用则为绑定方法</span><br></pre></td></tr></table></figure>
+<p>上面很好说明了，如果类来调用类中的方法，那么这个方法仅仅只是一个函数，那么既然是函数，就不会有自动传值这一功能。来看看下面代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">p = People(<span class="string">'xiaohua'</span>,<span class="number">18</span>)</span><br><span class="line">People.talk() <span class="number">1</span></span><br><span class="line">p.talk() <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#代码1处报错</span></span><br><span class="line">talk() missing <span class="number">1</span> required positional argument: <span class="string">'self'</span></span><br><span class="line"><span class="comment">#代码2处正常</span></span><br></pre></td></tr></table></figure>
+<p>从上面输出结果来看，当类调用类中的方法时候，是不会进行自动传值的，也就是说，函数有几个参数，我们就得传递进去几个参数。如果想结果正常运行，那么在类名调用talk()的时候，将参数一一都传递进去。即：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">People.talk(<span class="number">312312</span>)</span><br></pre></td></tr></table></figure>
+<p>這个参数可以是任意的，但是，必须传递进去。而，当对象调用类中方法时候，则不用传递，如上面的2正常执行。既然知道了区别，那么，我们来看看下面代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.age = age</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">p = People(<span class="string">'xiaohua'</span>,<span class="number">18</span>)</span><br><span class="line">People.talk() <span class="number">1</span></span><br><span class="line">p.talk() <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1处正常执行</span></span><br><span class="line"><span class="comment"># 2 处报错</span></span><br><span class="line">talk() takes <span class="number">0</span> positional arguments but <span class="number">1</span> was given</span><br></pre></td></tr></table></figure>
+<p>从输出结果来看，People来调用talk()方法时候，并不需要传递参数；而当对象来调用talk()的时候，由于对象调用自己的绑定方法，会自动将对象当作第一个参数传递进去，所以，当类中talk()方法没有带参数时，而你又给它传递了一个，显然是会报错的。</p>
+<p><strong>综上所述，我们可以得出以下结论：</strong>　</p>
+<p>1.凡是类中的方法和函数，都是绑定给对象使用的；</p>
+<p>2.绑定方法都有自动传值的功能。传递进去的值，就是对象本身。</p>
+<p>3.如果类想调用绑定方法，就必须遵循函数的参数规则，有几个参数，就必须传递几个参数。</p>
+<h4 id="绑定给类的方法（classmethod）"><a href="#绑定给类的方法（classmethod）" class="headerlink" title="绑定给类的方法（classmethod）"></a>绑定给类的方法（classmethod）</h4><p>classmehtod是给类用的，即绑定到类，类在使用时会将类本身当做参数传给类方法的第一个参数（即便是对象来调用也会将类当作第一个参数传入），python为我们内置了函数classmethod来把类中的函数定义成类方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> settings</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQL</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,host,port)</span>:</span></span><br><span class="line">        self.host=host</span><br><span class="line">        self.port=port</span><br><span class="line"> </span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">from_conf</span><span class="params">(cls)</span>:</span></span><br><span class="line">        print(cls)</span><br><span class="line">        <span class="keyword">return</span> cls(settings.HOST,settings.PORT)</span><br><span class="line"> </span><br><span class="line">print(MySQL.from_conf) <span class="comment">#&lt;bound method MySQL.from_conf of &lt;class '__main__.MySQL'&gt;&gt;</span></span><br><span class="line">conn=MySQL.from_conf()</span><br><span class="line"> </span><br><span class="line">conn.from_conf() <span class="comment">#对象也可以调用，但是默认传的第一个参数仍然是类</span></span><br></pre></td></tr></table></figure>
+<h3 id="非绑定方法"><a href="#非绑定方法" class="headerlink" title=" 非绑定方法"></a><blockquote class="question"> 非绑定方法</blockquote></h3><p>在类内部用staticmethod装饰的函数即非绑定方法，就是普通函数</p>
+<p>statimethod不与类或对象绑定，谁都可以调用，没有自动传值效果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQL</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,host,port)</span>:</span></span><br><span class="line">        self.id=self.create_id()</span><br><span class="line">        self.host=host</span><br><span class="line">        self.port=port</span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create_id</span><span class="params">()</span>:</span> <span class="comment">#就是一个普通工具</span></span><br><span class="line">        m=hashlib.md5(str(time.time()).encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        <span class="keyword">return</span> m.hexdigest()</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">print(MySQL.create_id) <span class="comment">#&lt;function MySQL.create_id at 0x0000000001E6B9D8&gt; </span></span><br><span class="line"><span class="comment">#查看结果为普通函数</span></span><br><span class="line">conn=MySQL(<span class="string">'127.0.0.1'</span>,<span class="number">3306</span>)</span><br><span class="line">print(conn.create_id) <span class="comment">#&lt;function MySQL.create_id at 0x00000000026FB9D8&gt; </span></span><br><span class="line"><span class="comment">#查看结果为普通函数</span></span><br></pre></td></tr></table></figure>
+<h3 id="classmethod与staticmethod的区别"><a href="#classmethod与staticmethod的区别" class="headerlink" title=" classmethod与staticmethod的区别"></a><blockquote class="question"> classmethod与staticmethod的区别</blockquote></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> settings</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQL</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,host,port)</span>:</span></span><br><span class="line">        self.host=host</span><br><span class="line">        self.port=port</span><br><span class="line"> </span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">from_conf</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">return</span> MySQL(settings.HOST,settings.PORT)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># @classmethod #哪个类来调用,就将哪个类当做第一个参数传入</span></span><br><span class="line">    <span class="comment"># def from_conf(cls):</span></span><br><span class="line">    <span class="comment">#     return cls(settings.HOST,settings.PORT)</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'就不告诉你'</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mariadb</span><span class="params">(MySQL)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;%s:%s&gt;'</span> %(self.host,self.port)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">m=Mariadb.from_conf()</span><br><span class="line">print(m) </span><br><span class="line"><span class="comment">#我们的意图是想触发Mariadb.__str__,但是结果触发了MySQL.__str__的执行，打印就不告诉你：</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -514,7 +465,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux命令/" rel="tag"># linux命令</a>
+            <a href="/tags/绑定方法/" rel="tag"># 绑定方法</a>
+          
+            <a href="/tags/非绑定方法/" rel="tag"># 非绑定方法</a>
           
         </div>
       
@@ -527,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/22/LINUX命令一/" rel="next" title="LINUX命令一">
-                <i class="fa fa-chevron-left"></i> LINUX命令一
+              <a href="/2019/02/27/python封装与property/" rel="next" title="python封装与property">
+                <i class="fa fa-chevron-left"></i> python封装与property
               </a>
             
           </div>
@@ -537,8 +490,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/23/LINUX命令三/" rel="prev" title="LINUX命令三">
-                LINUX命令三 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/27/python面向对象高级/" rel="prev" title="python面向对象高级">
+                python面向对象高级 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -691,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打包压缩"><span class="nav-text">打包压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vi"><span class="nav-text">vi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘分区"><span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建软连接"><span class="nav-text">创建软连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存"><span class="nav-text">内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件安装"><span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><span class="nav-text">二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码安装"><span class="nav-text">源代码安装</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类中定义的函数分成两大类"><span class="nav-text"> 类中定义的函数分成两大类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一：绑定方法"><span class="nav-text">一：绑定方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二：非绑定方法"><span class="nav-text">二：非绑定方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绑定方法"><span class="nav-text"> 绑定方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定给对象的方法"><span class="nav-text">绑定给对象的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定给类的方法（classmethod）"><span class="nav-text">绑定给类的方法（classmethod）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非绑定方法"><span class="nav-text"> 非绑定方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#classmethod与staticmethod的区别"><span class="nav-text"> classmethod与staticmethod的区别</span></a></li></ol></div>
             
 
           </div>
