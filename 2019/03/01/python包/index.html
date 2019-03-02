@@ -118,7 +118,7 @@
 <meta property="og:description" content="包介绍1、什么是包？ 官网解释Packages are a way of structuring Python’s module namespace by using “dotted module names”包是一种通过使用‘.模块名’来组织python模块名称空间的方式。 具体的：包就是一个包含有__init__.py文件的文件夹，所以其实我们创建包的目的就是为了用文件夹将文件/模块组织起来">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://robotno42.github.io/2019/03/01/python包/1.png">
-<meta property="og:updated_time" content="2019-03-02T03:14:48.746Z">
+<meta property="og:updated_time" content="2019-03-02T03:34:27.236Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python包">
 <meta name="twitter:description" content="包介绍1、什么是包？ 官网解释Packages are a way of structuring Python’s module namespace by using “dotted module names”包是一种通过使用‘.模块名’来组织python模块名称空间的方式。 具体的：包就是一个包含有__init__.py文件的文件夹，所以其实我们创建包的目的就是为了用文件夹将文件/模块组织起来">
@@ -360,7 +360,7 @@
            
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-03-02T11:14:48+08:00" content="2019-03-02">
+    <time itemprop="dateUpdated" datetime="2019-03-02T11:34:27+08:00" content="2019-03-02">
       2019-03-02
     </time>
   </span>
@@ -455,7 +455,7 @@
 <p><strong>3、包的使用之from … import …</strong></p>
 <p><strong>需要注意的是from后import导入的模块，必须是明确的一个不能带点，否则会有语法错误，如：from a import b.c是错误语法</strong></p>
 <p><strong>4、from glance.api import *</strong></p>
-<p>在讲模块时，我们已经讨论过了从一个模块内导入所有<em>，此处我们研究从一个包导入所有</em>。</p>
+<p>在讲模块时，我们已经讨论过了从一个模块内导入所有，此处我们研究从一个包导入所有。</p>
 <p>此处是想从包api中导入所有，实际上该语句只会导入包api下<code>__init__.py</code>文件中定义的名字，我们可以在这个文件中定义<code>__all___</code>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在__init__.py中定义</span></span><br><span class="line">x=<span class="number">10</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'from api.__init.py'</span>)</span><br><span class="line"> </span><br><span class="line">__all__=[<span class="string">'x'</span>,<span class="string">'func'</span>,<span class="string">'policy'</span>]</span><br></pre></td></tr></table></figure>
 <p>此时我们在于glance同级的文件中执行from glance.api import *就导入<code>__all__</code>中的内容（versions仍然不能导入）。</p>
@@ -614,7 +614,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -636,7 +636,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
