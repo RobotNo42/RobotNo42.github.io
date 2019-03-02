@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.css.network/css?family=Lato:300,300italic,400,400italic,700,700italic|Iosevka:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="nginx,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="了解Nginxnginx会以daemon的方式在后台运行。后台进程包含一个master进程和多个worker进程。 master进程：主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态，当worker进程退出后(异常情况下)，会自动重新启动新的worker进程 worker进程：处理基本的网络事件，各进程互相之间是独立的。worke">
+<meta name="keywords" content="nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LINUX -nginx服务安装">
+<meta property="og:url" content="https://robotno42.github.io/2019/03/02/LINUX-nginx服务安装/index.html">
+<meta property="og:site_name" content="Messiless Blog">
+<meta property="og:description" content="了解Nginxnginx会以daemon的方式在后台运行。后台进程包含一个master进程和多个worker进程。 master进程：主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态，当worker进程退出后(异常情况下)，会自动重新启动新的worker进程 worker进程：处理基本的网络事件，各进程互相之间是独立的。worke">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://robotno42.github.io/2019/03/02/LINUX-nginx服务安装/1.png">
+<meta property="og:updated_time" content="2019-03-02T11:19:37.591Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LINUX -nginx服务安装">
+<meta name="twitter:description" content="了解Nginxnginx会以daemon的方式在后台运行。后台进程包含一个master进程和多个worker进程。 master进程：主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态，当worker进程退出后(异常情况下)，会自动重新启动新的worker进程 worker进程：处理基本的网络事件，各进程互相之间是独立的。worke">
+<meta name="twitter:image" content="https://robotno42.github.io/2019/03/02/LINUX-nginx服务安装/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://robotno42.github.io/2019/03/02/LINUX-nginx服务安装/">
+
+
+
+
+
+  <title>LINUX -nginx服务安装 | Messiless Blog</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Messiless Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://robotno42.github.io/2019/03/02/LINUX-nginx服务安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Messiless">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mianma.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Messiless Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LINUX -nginx服务安装</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-02T18:34:06+08:00">
+                2019-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+           
+  <span class="post-updated">
+    &nbsp; | &nbsp; Edited on
+    <time itemprop="dateUpdated" datetime="2019-03-02T19:19:37+08:00" content="2019-03-02">
+      2019-03-02
+    </time>
+  </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nginx/" itemprop="url" rel="index">
+                    <span itemprop="name">nginx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="了解Nginx"><a href="#了解Nginx" class="headerlink" title="了解Nginx"></a><blockquote class="question">了解Nginx</blockquote></h3><p>nginx会以daemon的方式在后台运行。后台进程包含一个master进程和多个worker进程。</p>
+<p><strong>master</strong>进程：<br>主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态，当worker进程退出后(异常情况下)，会自动重新启动新的worker进程</p>
+<p><strong>worker</strong>进程：<br>处理基本的网络事件，各进程互相之间是独立的。worker进程的个数，一般与机器cpu核数一致.</p>
+<h3 id="Nginx-的进程模型"><a href="#Nginx-的进程模型" class="headerlink" title="Nginx 的进程模型"></a><blockquote class="question">Nginx 的进程模型</blockquote></h3><p>从进程模型图可以看出，我们想要操作nginx，只需要与master通信即可。</p>
+<p><img src="/2019/03/02/LINUX-nginx服务安装/1.png" alt></p>
+<p>master进程在接受信号是怎么做的呢？<br>输入如下命令行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -HUP pid</span><br></pre></td></tr></table></figure>
+<p>这个命令是优雅地重启nginx。当master进程收到信号后，因为是优雅地重启，所以服务器不会中断。而是重新加载配置文件，然后新开worker进程，再向旧的worker进程发送关闭指令。这种直接发送信号给master进程的操作方式已经显得有些老了，在0.8版本后，引入了一系列命令行参数。<br>如</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">nginx -s reload</span></span><br></pre></td></tr></table></figure>
+<p>这是一个重新加载配置的命令。在执行命令时，它会向master进程发送信号，同样也是启动一个新的worker进程，再关闭掉旧的worker进程。</p>
+<p>worker 进程又是怎么做的??</p>
+<p>首先，在master进程里，比方说一个80端口的http服务，会建立好需要listen的sokcet(listenfd),然后再fork出多个worker进程。在新的请求到来时，所有worker进程的listenfd变为可读，然后开始抢锁，抢到互斥锁的那个进程注册listenfd读事件，在读事件里调用accept接受该连接,开始读取请求，解析请求，处理请求，产生数据后，再返回给客户端。一个请求，完全由worker进程来处理，而且只在一个worker进程中处理。</p>
+<p>好处：独立进程，不需要加锁，所以省掉了锁带来的开销。其次，worker进程间互相之间不会影响。</p>
+<h3 id="nginx事件模型"><a href="#nginx事件模型" class="headerlink" title="nginx事件模型"></a><blockquote class="question">nginx事件模型</blockquote></h3><p>对于一个基本的web服务器来说，事件通常有三种类型，<strong>网络事件、信号、定时器</strong>。</p>
+<p><strong>网络事件</strong></p>
+<p>nginx采用了异步非阻塞的方式来处理请求，可以同时处理成千上万个请求。</p>
+<p>请求的完整过程：请求过来，建立连接，然后再接收数据，接收数据后，再发送数据。具体到系统底层，就是读写事件，而当读写事件没有准备好时，必然不可操作。</p>
+<table>
+<thead>
+<tr>
+<th>网络事件模型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>阻塞式</td>
+<td>事件没准备好，等。在等待中，cpu会让出去。 那么，会造成，网络事件一多，大家都在等，cpu都让出去了但是没人用，cpu使用率都不高,还谈高并发？？？ 尤其是单线程的worker了，更不合适。</td>
+</tr>
+<tr>
+<td>非阻塞式</td>
+<td>事件没准备好，马上返回<strong>EAGAIN</strong>，然后间断性再次访问，直到事件准备完成。 好处是确实可以做更多其他的事情，但开销也增加了。</td>
+</tr>
+<tr>
+<td>异步非阻塞</td>
+<td>对于事件，它是阻塞的。但是，它不是盲目的等待，而是设定了一段超时时间。 在超时时间内事件准备好了，就返回</td>
+</tr>
+</tbody>
+</table>
+<p>以<strong>epoll</strong>(一个异步非阻塞机制的函数)为例：</p>
+<blockquote>
+<p>1 当事件没准备好时，放到epoll里面；<br>2 事件准备好了，就去读写；<br>3 当读写返回EAGAIN时，将它再次加入到epoll里面；<br>4 线程只有一个，所以只能处理一个请求。但可以在请求里切换，再多的并发数，zhi会占用更多的内存而已；</p>
+</blockquote>
+<p>所以说，worker数等于cpu数的原因。就是因为如此，反而事更多的worker数，只会导致cpu资源的竞争，从而带来不必要的上下文切换。</p>
+<p><strong>信号</strong></p>
+<p>信号会中断掉程序当前的运行，在改变状态后，继续执行。如果是系统调用，则可能会导致系统调用的失败，需要重入。关于信号的处理，大家可以学习一些专业书籍，这里不多说。对于nginx来说，如果nginx正在等待事件（epoll_wait时），如果程序收到信号，在信号处理函数处理完后，epoll_wait会返回错误，然后程序可再次进入epoll_wait调用。</p>
+<p><strong>Nginx定时器</strong></p>
+<p>由于epoll_wait等函数在调用的时候是可以设置一个超时时间的，所以nginx借助这个超时时间来实现定时器。nginx里面的定时器事件是放在一颗维护定时器的红黑树里面，每次在进入epoll_wait前，先从该红黑树里面拿到所有定时器事件的最小时间，在计算出epoll_wait的超时时间后进入epoll_wait。所以，当没有事件产生，也没有中断信号时，epoll_wait会超时，也就是说，定时器事件到了。这时，nginx会检查所有的超时事件，将他们的状态设置为超时，然后再去处理网络事件。由此可以看出，当我们写nginx代码时，在处理网络事件的回调函数时，通常做的第一个事情就是判断超时，然后再去处理网络事件。</p>
+<p><strong>Nginx事件处理伪代码</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> <span class="string">run_tasks:</span></span><br><span class="line">        t.handler();</span><br><span class="line">    update_time(&amp;now);</span><br><span class="line">    timeout = ETERNITY;</span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> <span class="string">wait_tasks:</span> <span class="comment">/* sorted already */</span></span><br><span class="line">        <span class="keyword">if</span> (t.time &lt;= now) &#123;</span><br><span class="line">            t.timeout_handler();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            timeout = t.time - now;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    nevents = poll_function(events, timeout);</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">nevents:</span></span><br><span class="line">        task t;</span><br><span class="line">        <span class="keyword">if</span> (events[i].type == READ) &#123;</span><br><span class="line">            t.handler = read_handler;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">/* events[i].type == WRITE */</span></span><br><span class="line">            t.handler = write_handler;</span><br><span class="line">        &#125;</span><br><span class="line">        run_tasks_add(t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a><blockquote class="question">Connection</blockquote></h3><p>在nginx中connection就是对tcp连接的封装，其中包括连接的socket，读事件，写事件</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a><blockquote class="question">安装</blockquote></h3><h4 id="一、安装编译工具及库文件"><a href="#一、安装编译工具及库文件" class="headerlink" title="一、安装编译工具及库文件"></a>一、安装编译工具及库文件</h4><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install make <span class="literal">zlib</span> <span class="literal">zlib</span>-devel gcc-c++ libtool  openssl openssl-devel</span><br></pre></td></tr></table></figure>
+<h4 id="二、首先要安装-PCRE"><a href="#二、首先要安装-PCRE" class="headerlink" title="二、首先要安装 PCRE"></a>二、首先要安装 PCRE</h4><p>PCRE 作用是让 Nginx 支持 Rewrite 功能。</p>
+<p>1、下载 PCRE 安装包，下载地址： <a href="http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz" target="_blank" rel="noopener">http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz</a></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@bogon</span> src]<span class="meta"># cd /usr/local/src/</span></span><br><span class="line">[root<span class="symbol">@bogon</span> src]<span class="meta"># wget http://downloads.sourceforge.net/project/pcre/pcre/8.35/pcre-8.35.tar.gz</span></span><br></pre></td></tr></table></figure>
+<p>2、解压安装包:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@bogon src]</span># <span class="selector-tag">tar</span> <span class="selector-tag">zxvf</span> <span class="selector-tag">pcre-8</span><span class="selector-class">.35</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
+<p>3、进入安装包目录</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@bogon</span> src]<span class="meta"># cd pcre-8.35</span></span><br></pre></td></tr></table></figure>
+<p>4、编译安装 </p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@bogon</span> pcre<span class="number">-8.35</span>]<span class="meta"># ./configure</span></span><br><span class="line">[root<span class="symbol">@bogon</span> pcre<span class="number">-8.35</span>]<span class="meta"># make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<p>5、查看pcre版本</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@bogon</span> pcre<span class="number">-8.35</span>]<span class="meta"># pcre-config --version</span></span><br></pre></td></tr></table></figure>
+<h4 id="三、安装-Nginx"><a href="#三、安装-Nginx" class="headerlink" title="三、安装 Nginx"></a>三、安装 Nginx</h4><p>1、下载 Nginx，下载地址：<a href="http://nginx.org/download/nginx-1.6.2.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.6.2.tar.gz</a></p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@bogon</span> src]<span class="meta"># cd /usr/local/src/</span></span><br><span class="line">[root<span class="symbol">@bogon</span> src]<span class="meta"># wget http://nginx.org/download/nginx-1.6.2.tar.gz</span></span><br></pre></td></tr></table></figure>
+<p> 2、解压安装包</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@bogon src]</span># <span class="selector-tag">tar</span> <span class="selector-tag">zxvf</span> <span class="selector-tag">nginx-1</span><span class="selector-class">.6</span><span class="selector-class">.2</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
+<p>3、进入安装包目录</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@bogon src]</span># <span class="selector-tag">cd</span> <span class="selector-tag">nginx-1</span><span class="selector-class">.6</span><span class="selector-class">.2</span></span><br></pre></td></tr></table></figure>
+<p>4、编译安装</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="meta">@bogon</span> nginx<span class="number">-1.6</span><span class="number">.2</span>]# ./configure --prefix=<span class="regexp">/usr/</span>local/webserver/nginx --<span class="keyword">with</span>-http_stub_status_module --<span class="keyword">with</span>-http_ssl_module --<span class="keyword">with</span>-pcre=<span class="regexp">/usr/</span>local/src/pcre<span class="number">-8.35</span></span><br><span class="line">[root<span class="meta">@bogon</span> nginx<span class="number">-1.6</span><span class="number">.2</span>]# make</span><br><span class="line">[root<span class="meta">@bogon</span> nginx<span class="number">-1.6</span><span class="number">.2</span>]# make install</span><br></pre></td></tr></table></figure>
+<p>5、查看nginx版本</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon nginx-<span class="number">1.6</span>.<span class="number">2</span>]# <span class="regexp">/usr/</span>local<span class="regexp">/webserver/</span>nginx<span class="regexp">/sbin/</span>nginx -v</span><br></pre></td></tr></table></figure>
+<p>到此，nginx安装完成。</p>
+<h3 id="Nginx-配置"><a href="#Nginx-配置" class="headerlink" title="Nginx 配置"></a><blockquote class="question">Nginx 配置</blockquote></h3><p>创建 Nginx 运行使用的用户 www：</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@bogon</span> conf]<span class="meta"># /usr/sbin/groupadd www </span></span><br><span class="line">[root<span class="symbol">@bogon</span> conf]<span class="meta"># /usr/sbin/useradd -g www www</span></span><br></pre></td></tr></table></figure>
+<p>配置nginx.conf ，将/usr/local/webserver/nginx/conf/nginx.conf替换为以下内容</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon conf]<span class="comment">#  cat /usr/local/webserver/nginx/conf/nginx.conf</span></span><br><span class="line"></span><br><span class="line">user www www;</span><br><span class="line">worker_processes <span class="number">2</span>; <span class="comment">#设置值和CPU核心数一致</span></span><br><span class="line">error_log /usr/<span class="keyword">local</span>/webserver/nginx/logs/nginx_error.<span class="built_in">log</span> crit; <span class="comment">#日志位置和日志级别</span></span><br><span class="line">pid /usr/<span class="keyword">local</span>/webserver/nginx/nginx.pid;</span><br><span class="line"><span class="comment">#Specifies the value for maximum file descriptors that can be opened by this process.</span></span><br><span class="line">worker_rlimit_nofile <span class="number">65535</span>;</span><br><span class="line">events</span><br><span class="line">&#123;</span><br><span class="line">  use epoll;</span><br><span class="line">  worker_connections <span class="number">65535</span>;</span><br><span class="line">&#125;</span><br><span class="line">http</span><br><span class="line">&#123;</span><br><span class="line">  include mime.types;</span><br><span class="line">  default_type <span class="built_in">application</span>/octet-stream;</span><br><span class="line">  log_format main  '$remote_addr - $remote_user [$time_local] <span class="string">"$request"</span> '</span><br><span class="line">               '$status $body_bytes_sent <span class="string">"$http_referer"</span> '</span><br><span class="line">               '<span class="string">"$http_user_agent"</span> $http_x_forwarded_for';</span><br><span class="line">  </span><br><span class="line"><span class="comment">#charset gb2312;</span></span><br><span class="line">     </span><br><span class="line">  server_names_hash_bucket_size <span class="number">128</span>;</span><br><span class="line">  client_header_buffer_size <span class="number">32</span>k;</span><br><span class="line">  large_client_header_buffers <span class="number">4</span> <span class="number">32</span>k;</span><br><span class="line">  client_max_body_size <span class="number">8</span>m;</span><br><span class="line">     </span><br><span class="line">  sendfile <span class="keyword">on</span>;</span><br><span class="line">  tcp_nopush <span class="keyword">on</span>;</span><br><span class="line">  keepalive_timeout <span class="number">60</span>;</span><br><span class="line">  tcp_nodelay <span class="keyword">on</span>;</span><br><span class="line">  fastcgi_connect_timeout <span class="number">300</span>;</span><br><span class="line">  fastcgi_send_timeout <span class="number">300</span>;</span><br><span class="line">  fastcgi_read_timeout <span class="number">300</span>;</span><br><span class="line">  fastcgi_buffer_size <span class="number">64</span>k;</span><br><span class="line">  fastcgi_buffers <span class="number">4</span> <span class="number">64</span>k;</span><br><span class="line">  fastcgi_busy_buffers_size <span class="number">128</span>k;</span><br><span class="line">  fastcgi_temp_file_write_size <span class="number">128</span>k;</span><br><span class="line">  gzip <span class="keyword">on</span>; </span><br><span class="line">  gzip_min_length <span class="number">1</span>k;</span><br><span class="line">  gzip_buffers <span class="number">4</span> <span class="number">16</span>k;</span><br><span class="line">  gzip_http_version <span class="number">1.0</span>;</span><br><span class="line">  gzip_comp_level <span class="number">2</span>;</span><br><span class="line">  gzip_types <span class="built_in">text</span>/plain <span class="built_in">application</span>/x-javascript <span class="built_in">text</span>/css <span class="built_in">application</span>/xml;</span><br><span class="line">  gzip_vary <span class="keyword">on</span>;</span><br><span class="line"> </span><br><span class="line">  <span class="comment">#limit_zone crawler $binary_remote_addr 10m;</span></span><br><span class="line"> <span class="comment">#下面是server虚拟主机的配置</span></span><br><span class="line"> server</span><br><span class="line">  &#123;</span><br><span class="line">    listen <span class="number">80</span>;<span class="comment">#监听端口</span></span><br><span class="line">    server_name localhost;<span class="comment">#域名</span></span><br><span class="line">    index index.html index.htm index.php;</span><br><span class="line">    root /usr/<span class="keyword">local</span>/webserver/nginx/html;<span class="comment">#站点目录</span></span><br><span class="line">      location ~ .*\.(php|php5)?$</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="comment">#fastcgi_pass unix:/tmp/php-cgi.sock;</span></span><br><span class="line">      fastcgi_pass <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">      fastcgi_index index.php;</span><br><span class="line">      include fastcgi.conf;</span><br><span class="line">    &#125;</span><br><span class="line">    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf|ico)$</span><br><span class="line">    &#123;</span><br><span class="line">      expires <span class="number">30</span>d;</span><br><span class="line">  <span class="comment"># access_log off;</span></span><br><span class="line">    &#125;</span><br><span class="line">    location ~ .*\.(js|css)?$</span><br><span class="line">    &#123;</span><br><span class="line">      expires <span class="number">15</span>d;</span><br><span class="line">   <span class="comment"># access_log off;</span></span><br><span class="line">    &#125;</span><br><span class="line">    access_log off;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>配置文件详解</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">########### 每个指令必须有分号结束。#################</span></span><br><span class="line"><span class="comment">#user administrator administrators;  #配置用户或者组，默认为nobody nobody。</span></span><br><span class="line"><span class="comment">#worker_processes 2;  #允许生成的进程数，默认为1</span></span><br><span class="line"><span class="comment">#pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址</span></span><br><span class="line"><span class="attribute">error_log</span> log/error.log <span class="literal">debug</span>;  <span class="comment">#制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg</span></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">accept_mutex</span> <span class="literal">on</span>;   <span class="comment">#设置网路连接序列化，防止惊群现象发生，默认为on</span></span><br><span class="line">    <span class="attribute">multi_accept</span> <span class="literal">on</span>;  <span class="comment">#设置一个进程是否同时接受多个网络连接，默认为off</span></span><br><span class="line">    <span class="comment">#use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport</span></span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;    <span class="comment">#最大连接数，默认为512</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;   <span class="comment">#文件扩展名与文件类型映射表</span></span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream; <span class="comment">#默认文件类型，默认为text/plain</span></span><br><span class="line">    <span class="comment">#access_log off; #取消服务日志    </span></span><br><span class="line">    <span class="attribute">log_format</span> myFormat <span class="string">'<span class="variable">$remote_addr</span>–<span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] <span class="variable">$request</span> <span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> <span class="variable">$http_referer</span> <span class="variable">$http_user_agent</span> <span class="variable">$http_x_forwarded_for</span>'</span>; <span class="comment">#自定义格式</span></span><br><span class="line">    <span class="attribute">access_log</span> log/access.log myFormat;  <span class="comment">#combined为日志格式的默认值</span></span><br><span class="line">    <span class="attribute">sendfile</span> <span class="literal">on</span>;   <span class="comment">#允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span></span><br><span class="line">    <span class="attribute">sendfile_max_chunk</span> <span class="number">100k</span>;  <span class="comment">#每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span></span><br><span class="line">    <span class="attribute">keepalive_timeout</span> <span class="number">65</span>;  <span class="comment">#连接超时时间，默认为75s，可以在http，server，location块。</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">upstream</span> mysvr &#123;   </span><br><span class="line">      <span class="attribute">server</span> <span class="number">127.0.0.1:7878</span>;</span><br><span class="line">      <span class="attribute">server</span> <span class="number">192.168.10.121:3333</span> backup;  <span class="comment">#热备</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="attribute">error_page</span> <span class="number">404</span> https://www.baidu.com; <span class="comment">#错误页</span></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">keepalive_requests</span> <span class="number">120</span>; <span class="comment">#单连接请求上限次数。</span></span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">4545</span>;   <span class="comment">#监听端口</span></span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">127.0.0.1</span>;   <span class="comment">#监听地址       </span></span><br><span class="line">        <span class="attribute">location</span>  ~*^.+$ &#123;       <span class="comment">#请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。</span></span><br><span class="line">           <span class="comment">#root path;  #根目录</span></span><br><span class="line">           <span class="comment">#index vv.txt;  #设置默认页</span></span><br><span class="line">           <span class="attribute">proxy_pass</span>  http://mysvr;  <span class="comment">#请求转向mysvr 定义的服务器列表</span></span><br><span class="line">           <span class="attribute">deny</span> <span class="number">127.0.0.1</span>;  <span class="comment">#拒绝的ip</span></span><br><span class="line">           <span class="attribute">allow</span> <span class="number">172.18.5.54</span>; <span class="comment">#允许的ip           </span></span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>检查配置文件nginx.conf的正确性命令：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon conf]# <span class="regexp">/usr/</span>local<span class="regexp">/webserver/</span>nginx<span class="regexp">/sbin/</span>nginx -t</span><br></pre></td></tr></table></figure>
+<p>修改完conf文件，则应重启nginx软件(不推荐)</p>
+<p>systemctl restart nginx</p>
+<p>一般重新加载nginx软件</p>
+<p>systemctl reload nginx</p>
+<p>然后关闭防火墙</p>
+<p>systemctl stop firewalld</p>
+<p>开机启动nginx</p>
+<p>systemctl enable nginx</p>
+<p>关闭开机启动nginx</p>
+<p>systemctl disable nginx</p>
+<p>防火墙同理</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/02/python并发编程之多线程/" rel="next" title="python并发编程之多线程">
+                <i class="fa fa-chevron-left"></i> python并发编程之多线程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/">
+              <img class="site-author-image" itemprop="image" src="/images/mianma.jpg" alt="Messiless">
+               </a>
+            
+              <p class="site-author-name" itemprop="name">Messiless</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Messiless" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangzc946971@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#了解Nginx"><span class="nav-text">了解Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx-的进程模型"><span class="nav-text">Nginx 的进程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx事件模型"><span class="nav-text">nginx事件模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connection"><span class="nav-text">Connection</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、安装编译工具及库文件"><span class="nav-text">一、安装编译工具及库文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、首先要安装-PCRE"><span class="nav-text">二、首先要安装 PCRE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、安装-Nginx"><span class="nav-text">三、安装 Nginx</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx-配置"><span class="nav-text">Nginx 配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Messiless</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
