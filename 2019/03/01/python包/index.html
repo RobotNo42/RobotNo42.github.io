@@ -118,7 +118,7 @@
 <meta property="og:description" content="包介绍1、什么是包？ 官网解释Packages are a way of structuring Python’s module namespace by using “dotted module names”包是一种通过使用‘.模块名’来组织python模块名称空间的方式。 具体的：包就是一个包含有__init__.py文件的文件夹，所以其实我们创建包的目的就是为了用文件夹将文件/模块组织起来">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://robotno42.github.io/2019/03/01/python包/1.png">
-<meta property="og:updated_time" content="2019-03-01T14:39:29.540Z">
+<meta property="og:updated_time" content="2019-03-02T03:14:48.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python包">
 <meta name="twitter:description" content="包介绍1、什么是包？ 官网解释Packages are a way of structuring Python’s module namespace by using “dotted module names”包是一种通过使用‘.模块名’来组织python模块名称空间的方式。 具体的：包就是一个包含有__init__.py文件的文件夹，所以其实我们创建包的目的就是为了用文件夹将文件/模块组织起来">
@@ -360,8 +360,8 @@
            
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-03-01T22:39:29+08:00" content="2019-03-01">
-      2019-03-01
+    <time itemprop="dateUpdated" datetime="2019-03-02T11:14:48+08:00" content="2019-03-02">
+      2019-03-02
     </time>
   </span>
 
@@ -432,32 +432,17 @@
 <p>2、import导入文件时，产生名称空间中的名字来源于文件，import 包，产生的名称空间的名字同样来源于文件，即包下的<strong>init</strong>.py，导入包本质就是在导入该文件</p>
 <p>3、包A和包B下有同名模块也不会冲突，如A.a与B.a来自俩个命名空间</p>
 <h3 id="包的使用"><a href="#包的使用" class="headerlink" title="包的使用"></a><blockquote class="question">包的使用</blockquote></h3><p><strong>1、示范文件</strong></p>
-<p><strong>glance/                   #Top-level package</strong></p>
-<p><strong>├── <strong>init</strong>.py      #Initialize the glance package</strong></p>
-<p><strong>├── api                  #Subpackage for api</strong></p>
-<p><strong>│   ├── <strong>init</strong>.py</strong></p>
-<p><strong>│   ├── policy.py</strong></p>
-<p><strong>│   └── versions.py</strong></p>
-<p><strong>├── cmd                #Subpackage for cmd</strong></p>
-<p><strong>│   ├── <strong>init</strong>.py</strong></p>
-<p><strong>│   └── manage.py</strong></p>
-<p><strong>└── db                  #Subpackage for db</strong></p>
-<p>​    <strong>├── <strong>init</strong>.py</strong></p>
-<p>​    <strong>└── models.py</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">glance/                   <span class="selector-id">#Top-level</span> package</span><br><span class="line"></span><br><span class="line">├── __init__<span class="selector-class">.py</span>      <span class="selector-id">#Initialize</span> the glance package</span><br><span class="line"></span><br><span class="line">├── api                  <span class="selector-id">#Subpackage</span> <span class="keyword">for</span> api</span><br><span class="line"></span><br><span class="line">│   ├── __init__.py</span><br><span class="line"></span><br><span class="line">│   ├── policy.py</span><br><span class="line"></span><br><span class="line">│   └── versions.py</span><br><span class="line"></span><br><span class="line">├── cmd                <span class="selector-id">#Subpackage</span> <span class="keyword">for</span> cmd</span><br><span class="line"></span><br><span class="line">│   ├── __init__.py</span><br><span class="line"></span><br><span class="line">│   └── manage.py</span><br><span class="line"></span><br><span class="line">└── db                  <span class="selector-id">#Subpackage</span> <span class="keyword">for</span> db</span><br><span class="line"></span><br><span class="line">    ├── __init__.py</span><br><span class="line"></span><br><span class="line">    └── models.py</span><br></pre></td></tr></table></figure>
 <p><strong>包所包含的文件内容</strong></p>
 <p><strong>文件内容</strong></p>
 <p><strong>#policy.py</strong></p>
-<p>def get():  </p>
-<p>​     print(‘from policy.py’)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">()</span>:</span>  </span><br><span class="line">	print(<span class="string">'from policy.py'</span>)</span><br></pre></td></tr></table></figure>
 <p><strong>#versions.py</strong></p>
-<p>def create_resource(conf):    </p>
-<p>​    print(‘from version.py: ‘,conf)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_resource</span><span class="params">(conf)</span>:</span>    </span><br><span class="line">	print(<span class="string">'from version.py: '</span>,conf)</span><br></pre></td></tr></table></figure>
 <p><strong>#manage.py</strong></p>
-<p>def main():  </p>
-<p>​    print(‘from manage.py’)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span>  </span><br><span class="line">	print(<span class="string">'from manage.py'</span>)</span><br></pre></td></tr></table></figure>
 <p><strong>#models.py</strong></p>
-<p>def register_models(engine):    </p>
-<p>​    print(‘from models.py: ‘,engine)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">register_models</span><span class="params">(engine)</span>:</span>    </span><br><span class="line">	print(<span class="string">'from models.py:'</span>,engine)</span><br></pre></td></tr></table></figure>
 <p>执行文件与示范文件在同级目录下</p>
 <p><strong>2、包的使用之import</strong> </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> glance.db.models</span><br><span class="line">glance.db.models.register_models(<span class="string">'mysql'</span>)</span><br></pre></td></tr></table></figure>
@@ -480,8 +465,10 @@
 <p>相对导入：用.或者..的方式最为起始（只能在一个包中使用，不能用于不同目录内）</p>
 <p>例如：我们在glance/api/version.py中想要导入glance/cmd/manage.py</p>
 <p>在glance/api/version.py</p>
-<p>#绝对导入<br>from glance.cmd import manage<br>manage.main()</p>
-<p>#相对导入<br>from ..cmd import manage<br>manage.main()</p>
+<p>#绝对导入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> glance.cmd <span class="keyword">import</span> manage</span><br><span class="line">manage.main()</span><br></pre></td></tr></table></figure>
+<p>#相对导入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> ..cmd <span class="keyword">import</span> manage</span><br><span class="line">manage.main()</span><br></pre></td></tr></table></figure>
 <p>测试结果：注意一定要在于glance同级的文件中测试</p>
 <p><strong>6、包以及包所包含的模块都是用来被导入的，而不是被直接执行的。而环境变量都是以执行文件为准的</strong></p>
 <p>比如我们想在glance/api/versions.py中导入glance/api/policy.py，有的同学一抽这俩模块是在同一个目录下，十分开心的就去做了，它直接这么做</p>
@@ -627,7 +614,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
