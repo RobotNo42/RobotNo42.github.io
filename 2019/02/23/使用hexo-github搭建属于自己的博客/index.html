@@ -130,7 +130,9 @@
 <meta property="og:image" content="https://messilessblog.com/2019/02/23/使用hexo-github搭建属于自己的博客/github5.png">
 <meta property="og:image" content="https://messilessblog.com/2019/02/23/使用hexo-github搭建属于自己的博客/git2.png">
 <meta property="og:image" content="https://messilessblog.com/2019/02/23/使用hexo-github搭建属于自己的博客/hexo1.png">
-<meta property="og:updated_time" content="2019-02-25T13:43:08.980Z">
+<meta property="og:image" content="https://messilessblog.com/2019/02/23/使用hexo-github搭建属于自己的博客/web.png">
+<meta property="og:image" content="https://messilessblog.com/2019/02/23/使用hexo-github搭建属于自己的博客/github6.png">
+<meta property="og:updated_time" content="2019-03-02T14:22:10.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用hexo+github搭建属于自己的博客">
 <meta name="twitter:description" content="一、注册GitHub账号（已经有GitHub账号的请忽略这一步）先在Github注册一个账号:https://github.com/ 新建项目，项目必须要遵守格式：账户名.github.io，不然接下来会有很多麻烦。并且需要勾选Initialize this repository with a README  在建好的项目右侧有个settings按钮，点击它，向下拉到GitHub Pages，你会">
@@ -372,8 +374,8 @@
            
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-02-25T21:43:08+08:00" content="2019-02-25">
-      2019-02-25
+    <time itemprop="dateUpdated" datetime="2019-03-02T22:22:10+08:00" content="2019-03-02">
+      2019-03-02
     </time>
   </span>
 
@@ -490,6 +492,21 @@
 <p><img src="/2019/02/23/使用hexo-github搭建属于自己的博客/git2.png" alt="你想输入的替代文字"></p>
 <p>等待10分钟左右，打开用户名.github.io,会出现如下界面（代表成功搭建博客）：</p>
 <p><img src="/2019/02/23/使用hexo-github搭建属于自己的博客/hexo1.png" alt="你想输入的替代文字"></p>
+<h3 id="五、绑定自己域名"><a href="#五、绑定自己域名" class="headerlink" title="五、绑定自己域名"></a><blockquote class="question">五、绑定自己域名</blockquote></h3><h4 id="申请域名"><a href="#申请域名" class="headerlink" title="申请域名"></a>申请域名</h4><p>自己去阿里云或者腾讯云等网站购买域名</p>
+<h4 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h4><p>添加如下的解析<br>得到域名之后，到<strong>控制台</strong>进行解析<br>控制台-&gt;域名-&gt;域名列表-&gt;解析</p>
+<p><img src="/2019/02/23/使用hexo-github搭建属于自己的博客/web.png" alt></p>
+<p>在腾讯云控制台，设置主机记录<code>www</code>，记录类型为<code>A</code>，记录值是IP<code>185.199.111.153</code>。其中185.199.111.153是Github Pages服务器指定的IP地址，访问该IP地址即表示访问Github Pages。</p>
+<p>在阿里云控制台，设置主机记录<code>@</code>，记录类型为<code>CNAME</code>，记录值是<code>robotno42.github.io</code>。表示将<code>http://messilessblog.com这个主域名映射robotno42.github.io</code></p>
+<p>如何知道知道的 Github Pages IP<br>在<code>命令提示符</code>中输入<code>ping -4 robotno42.github.io</code></p>
+<h4 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h4><ul>
+<li>在<code>博客</code>的<code>source</code>文件夹下建立一个<code>CNAME</code>的文件</li>
+<li>内容写入你的域名信息，比如我这里是<code>messilessblog.com</code></li>
+</ul>
+<p>打开博客下的_config.yml文件</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site <span class="keyword">is</span> <span class="keyword">put</span> in <span class="keyword">a</span> subdirectory, <span class="keyword">set</span> url <span class="keyword">as</span> <span class="string">'http://yoursite.com/child'</span> <span class="built_in">and</span> root <span class="keyword">as</span> <span class="string">'/child/'</span></span><br><span class="line">ur<span class="variable">l:</span> http<span class="variable">s:</span>//messilessblog.<span class="keyword">com</span></span><br><span class="line">roo<span class="variable">t:</span> /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_default<span class="variable">s:</span></span><br></pre></td></tr></table></figure>
+<p>将url后面改成自己的域名地址，<strong>注意！不这样做每次提交github那边都要重新设置自定义域名</strong></p>
+<h4 id="Github-设置"><a href="#Github-设置" class="headerlink" title="Github 设置"></a>Github 设置</h4><p>进入<code>博客</code>-&gt;点击<code>Setting</code>，找到 <code>Custom domain</code> 添加域名后保存即可</p>
+<p><img src="/2019/02/23/使用hexo-github搭建属于自己的博客/github6.png" alt></p>
 
       
     </div>
@@ -684,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、注册GitHub账号（已经有GitHub账号的请忽略这一步）"><span class="nav-text">一、注册GitHub账号（已经有GitHub账号的请忽略这一步）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、环境搭建"><span class="nav-text">二、环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载Node-js安装文件"><span class="nav-text">下载Node.js安装文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Git："><span class="nav-text">安装Git：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Hexo安装"><span class="nav-text">三、Hexo安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo简介"><span class="nav-text">Hexo简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Git"><span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载Hexo"><span class="nav-text">下载Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化"><span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、将Hexo与Github-page联系起来"><span class="nav-text">四、将Hexo与Github page联系起来</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装插件"><span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置SSH"><span class="nav-text">配置SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署"><span class="nav-text">部署</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、注册GitHub账号（已经有GitHub账号的请忽略这一步）"><span class="nav-text">一、注册GitHub账号（已经有GitHub账号的请忽略这一步）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、环境搭建"><span class="nav-text">二、环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载Node-js安装文件"><span class="nav-text">下载Node.js安装文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Git："><span class="nav-text">安装Git：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、Hexo安装"><span class="nav-text">三、Hexo安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo简介"><span class="nav-text">Hexo简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Git"><span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载Hexo"><span class="nav-text">下载Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化"><span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、将Hexo与Github-page联系起来"><span class="nav-text">四、将Hexo与Github page联系起来</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装插件"><span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置SSH"><span class="nav-text">配置SSH</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#部署"><span class="nav-text">部署</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、绑定自己域名"><span class="nav-text">五、绑定自己域名</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#申请域名"><span class="nav-text">申请域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解析域名"><span class="nav-text">解析域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-1"><span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Github-设置"><span class="nav-text">Github 设置</span></a></li></ol></li></ol></div>
             
 
           </div>
