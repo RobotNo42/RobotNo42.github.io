@@ -125,7 +125,7 @@
 <meta property="og:image" content="https://messilessblog.com/2019/03/02/python并发编程之多线程/6.png">
 <meta property="og:image" content="https://messilessblog.com/2019/03/02/python并发编程之多线程/7.png">
 <meta property="og:image" content="https://messilessblog.com/2019/03/02/python并发编程之多线程/8.png">
-<meta property="og:updated_time" content="2019-03-02T09:39:19.015Z">
+<meta property="og:updated_time" content="2019-03-11T08:45:25.005Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python并发编程之多线程">
 <meta name="twitter:description" content="threading模块介绍multiprocess模块的完全模仿了threading模块的接口，二者在使用层面，有很大的相似性，因而不再详细介绍 开启线程的两种方式Thread类直接创建12345678910from threading import Threadimport timedef sayhi(name):    time.sleep(2)    print(&apos;%s say hello&apos;">
@@ -367,8 +367,8 @@
            
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-03-02T17:39:19+08:00" content="2019-03-02">
-      2019-03-02
+    <time itemprop="dateUpdated" datetime="2019-03-11T16:45:25+08:00" content="2019-03-11">
+      2019-03-11
     </time>
   </span>
 
@@ -592,9 +592,11 @@
 <p><img src="/2019/03/02/python并发编程之多线程/8.png" alt></p>
 <p>经过上面的介绍，会发现non-blocking IO和asynchronous IO的区别还是很明显的。在non-blocking IO中，虽然进程大部分时间都不会被block，但是它仍然要求进程去主动的check，并且当数据准备完成以后，也需要进程主动的再次调用recvfrom来将数据拷贝到用户内存。而asynchronous IO则完全不同。它就像是用户进程将整个IO操作交给了他人（kernel）完成，然后他人做完后发信号通知。在此期间，用户进程不需要去检查IO操作的状态，也不需要主动的去拷贝数据。</p>
 <p><strong>IO模型</strong></p>
-<p><strong>1 阻塞IO:全程阻塞2 非阻塞IO:</strong></p>
+<p><strong>1 阻塞IO:全程阻塞</strong></p>
+<p><strong>2 非阻塞IO:</strong></p>
 <p><strong>发送多次系统调用；优点：wait for data时无阻塞</strong></p>
-<p><strong>缺点：1 系统调用太多 2 数据不是实时接受的        两个阶段：wait for data:非阻塞                          copy data   :阻塞           3 IO多路复用（监听多个连接）</strong></p>
+<p><strong>缺点：1 系统调用太多 2 数据不是实时接受的        两个阶段：wait for data:非阻塞                          copy data   :阻塞          </strong></p>
+<p><strong>3 IO多路复用（监听多个连接）</strong></p>
 <p><strong>sock::sock &lt;socket.socket fd=224, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=(‘127.0.0.1’, 8800)&gt;</strong></p>
 <p><strong>对于文件描述符（套接字对象）：</strong></p>
 <p><strong>1 是一个非零整数，不会变</strong></p>
