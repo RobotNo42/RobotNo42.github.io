@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="css," />
 
 
 
@@ -109,18 +109,19 @@
 
 
 
-<meta name="description" content="CSS 语法CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。 123456selector &amp;#123;                 property: value;                 property: value;            ...  property: value                 &amp;#125; 例如： 1`h1 &amp;#123;colo">
+<meta name="description" content="CSS 语法CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。 123456selector &amp;#123;                 property: value;                 property: value;            ...  property: value                 &amp;#125; 例如： 1h1 &amp;#123;color">
+<meta name="keywords" content="css">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css基础">
 <meta property="og:url" content="https://messilessblog.com/2019/03/13/css基础/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="CSS 语法CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。 123456selector &amp;#123;                 property: value;                 property: value;            ...  property: value                 &amp;#125; 例如： 1`h1 &amp;#123;colo">
+<meta property="og:description" content="CSS 语法CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。 123456selector &amp;#123;                 property: value;                 property: value;            ...  property: value                 &amp;#125; 例如： 1h1 &amp;#123;color">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://messilessblog.com/2019/03/13/css基础/1.png">
-<meta property="og:updated_time" content="2019-03-14T02:48:22.292Z">
+<meta property="og:updated_time" content="2019-03-14T02:51:26.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css基础">
-<meta name="twitter:description" content="CSS 语法CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。 123456selector &amp;#123;                 property: value;                 property: value;            ...  property: value                 &amp;#125; 例如： 1`h1 &amp;#123;colo">
+<meta name="twitter:description" content="CSS 语法CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。 123456selector &amp;#123;                 property: value;                 property: value;            ...  property: value                 &amp;#125; 例如： 1h1 &amp;#123;color">
 <meta name="twitter:image" content="https://messilessblog.com/2019/03/13/css基础/1.png">
 
 
@@ -361,11 +362,33 @@
            
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-03-14T10:48:22+08:00" content="2019-03-14">
+    <time itemprop="dateUpdated" datetime="2019-03-14T10:51:26+08:00" content="2019-03-14">
       2019-03-14
     </time>
   </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index">
+                    <span itemprop="name">css</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -397,7 +420,7 @@
         <h3 id="CSS-语法"><a href="#CSS-语法" class="headerlink" title="CSS 语法"></a><blockquote class="question">CSS 语法</blockquote></h3><p>CSS 规则由两个主要的部分构成：选择器，以及一条或多条声明。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">selector</span> &#123;</span><br><span class="line">                 <span class="attribute">property</span>: value;</span><br><span class="line">                 <span class="attribute">property</span>: value;</span><br><span class="line">            ...  property: value</span><br><span class="line">        </span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
 <p>例如：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`h1 &#123;color:red; font``-``size:``14px``;&#125;`</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;<span class="attribute">color</span>:red; <span class="attribute">font-size</span>:<span class="number">14px</span>;&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/2019/03/13/css基础/1.png" alt></p>
 <h3 id="css的四种引入方式"><a href="#css的四种引入方式" class="headerlink" title="css的四种引入方式"></a><blockquote class="question">css的四种引入方式</blockquote></h3><h4 id="1-行内式"><a href="#1-行内式" class="headerlink" title="1.行内式"></a>1.行内式</h4><p>行内式是在标记的style属性中设定CSS样式。这种方式没有体现出CSS的优势，不推荐使用。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p style="background-color: rebeccapurple"&gt;hello yuan&lt;/p&gt;</span><br></pre></td></tr></table></figure>
@@ -574,6 +597,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
 
       
       
@@ -685,7 +714,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -696,7 +725,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
