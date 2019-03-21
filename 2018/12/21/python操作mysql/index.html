@@ -109,19 +109,19 @@
 
 
 
-<meta name="description" content="本篇对于Python操作MySQL主要使用两种方式：  原生模块 pymsql ORM框架 SQLAchemy  pymsqlpymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。 下载安装1`pip3 install pymysql` 使用操作1、执行SQL 1234567891011121314151617181920212223242526#!/usr/bin">
+<meta name="description" content="本篇对于Python操作MySQL主要使用两种方式：  原生模块 pymsql ORM框架 SQLAchemy  pymsqlpymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。 下载安装1pip3 install pymysql 使用操作1、执行SQL 1234567891011121314151617181920212223242526#!/usr/bin/e">
 <meta name="keywords" content="mysql,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python操作mysql">
 <meta property="og:url" content="https://messilessblog.com/2018/12/21/python操作mysql/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="本篇对于Python操作MySQL主要使用两种方式：  原生模块 pymsql ORM框架 SQLAchemy  pymsqlpymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。 下载安装1`pip3 install pymysql` 使用操作1、执行SQL 1234567891011121314151617181920212223242526#!/usr/bin">
+<meta property="og:description" content="本篇对于Python操作MySQL主要使用两种方式：  原生模块 pymsql ORM框架 SQLAchemy  pymsqlpymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。 下载安装1pip3 install pymysql 使用操作1、执行SQL 1234567891011121314151617181920212223242526#!/usr/bin/e">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://messilessblog.com/2018/12/21/python操作mysql/1.png">
-<meta property="og:updated_time" content="2019-03-21T07:41:50.817Z">
+<meta property="og:updated_time" content="2019-03-21T09:42:42.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python操作mysql">
-<meta name="twitter:description" content="本篇对于Python操作MySQL主要使用两种方式：  原生模块 pymsql ORM框架 SQLAchemy  pymsqlpymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。 下载安装1`pip3 install pymysql` 使用操作1、执行SQL 1234567891011121314151617181920212223242526#!/usr/bin">
+<meta name="twitter:description" content="本篇对于Python操作MySQL主要使用两种方式：  原生模块 pymsql ORM框架 SQLAchemy  pymsqlpymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。 下载安装1pip3 install pymysql 使用操作1、执行SQL 1234567891011121314151617181920212223242526#!/usr/bin/e">
 <meta name="twitter:image" content="https://messilessblog.com/2018/12/21/python操作mysql/1.png">
 
 
@@ -413,7 +413,7 @@
 <li>ORM框架 SQLAchemy</li>
 </ul>
 <h3 id="pymsql"><a href="#pymsql" class="headerlink" title="pymsql"></a><blockquote class="question">pymsql</blockquote></h3><p>pymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。</p>
-<h4 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h4><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`pip3 install pymysql`</span><br></pre></td></tr></table></figure>
+<h4 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install</span> pymysql</span><br></pre></td></tr></table></figure>
 <h4 id="使用操作"><a href="#使用操作" class="headerlink" title="使用操作"></a>使用操作</h4><p><strong>1、执行SQL</strong></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 创建连接</span></span><br><span class="line">conn = pymysql.connect(host=<span class="string">'127.0.0.1'</span>, port=<span class="number">3306</span>, user=<span class="string">'root'</span>, passwd=<span class="string">'123'</span>, db=<span class="string">'t1'</span>)</span><br><span class="line"><span class="comment"># 创建游标</span></span><br><span class="line">cursor = conn.cursor()</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 执行SQL，并返回收影响行数</span></span><br><span class="line">effect_row = cursor.execute(<span class="string">"update hosts set host = '1.1.1.2'"</span>)</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 执行SQL，并返回受影响行数</span></span><br><span class="line"><span class="comment">#effect_row = cursor.execute("update hosts set host = '1.1.1.2' where nid &gt; %s", (1,))</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 执行SQL，并返回受影响行数</span></span><br><span class="line"><span class="comment">#effect_row = cursor.executemany("insert into hosts(host,color_id)values(%s,%s)", [("1.1.1.11",1),("1.1.1.11",2)])</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 提交，不然无法保存新建或者修改的数据</span></span><br><span class="line">conn.commit()</span><br><span class="line">  </span><br><span class="line"><span class="comment"># 关闭游标</span></span><br><span class="line">cursor.close()</span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
 <p><strong>2、获取新创建数据自增ID</strong></p>
