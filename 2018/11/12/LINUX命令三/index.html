@@ -109,20 +109,18 @@
 
 
 
-<meta name="description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
+<meta name="description" content="网络相关配置ifconfig 查看ip信息 远程复制 scp /etc/h.txt 192.168.1.1:/tmp 配置ssh（之后访问无需密码）： ssh-keygen ssh-copy-id -i 192.168.1.16 赋值变量 x=2 调用x echo $x 取消变量 unset x 设置别名 alias x=‘ls /’ 将命令得到的结果赋值到变量 x=$(ls) 搜索文件 ls [">
 <meta name="keywords" content="linux命令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LINUX命令二">
-<meta property="og:url" content="https://messilessblog.com/2019/02/22/LINUX命令二/index.html">
+<meta property="og:title" content="LINUX命令三">
+<meta property="og:url" content="https://messilessblog.com/2018/11/12/LINUX命令三/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
+<meta property="og:description" content="网络相关配置ifconfig 查看ip信息 远程复制 scp /etc/h.txt 192.168.1.1:/tmp 配置ssh（之后访问无需密码）： ssh-keygen ssh-copy-id -i 192.168.1.16 赋值变量 x=2 调用x echo $x 取消变量 unset x 设置别名 alias x=‘ls /’ 将命令得到的结果赋值到变量 x=$(ls) 搜索文件 ls [">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://messilessblog.com/2019/02/22/LINUX命令二/1.png">
-<meta property="og:updated_time" content="2019-02-25T13:54:43.513Z">
+<meta property="og:updated_time" content="2019-03-21T07:15:28.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LINUX命令二">
-<meta name="twitter:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
-<meta name="twitter:image" content="https://messilessblog.com/2019/02/22/LINUX命令二/1.png">
+<meta name="twitter:title" content="LINUX命令三">
+<meta name="twitter:description" content="网络相关配置ifconfig 查看ip信息 远程复制 scp /etc/h.txt 192.168.1.1:/tmp 配置ssh（之后访问无需密码）： ssh-keygen ssh-copy-id -i 192.168.1.16 赋值变量 x=2 调用x echo $x 取消变量 unset x 设置别名 alias x=‘ls /’ 将命令得到的结果赋值到变量 x=$(ls) 搜索文件 ls [">
 
 
 
@@ -152,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://messilessblog.com/2019/02/22/LINUX命令二/">
+  <link rel="canonical" href="https://messilessblog.com/2018/11/12/LINUX命令三/">
 
 
 
 
 
-  <title>LINUX命令二 | Messiless Blog</title>
+  <title>LINUX命令三 | Messiless Blog</title>
   
 
 
@@ -319,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://messilessblog.com/2019/02/22/LINUX命令二/">
+    <link itemprop="mainEntityOfPage" href="https://messilessblog.com/2018/11/12/LINUX命令三/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Messiless">
@@ -336,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LINUX命令二</h1>
+          <h1 class="post-title" itemprop="name headline">LINUX命令三</h1>
         
 
         <div class="post-meta">
@@ -348,8 +346,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-22T23:16:24+08:00">
-                2019-02-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-12T11:00:47+08:00">
+                2018-11-12
               </time>
             
 
@@ -360,8 +358,8 @@
 
   <span class="post-updated">
     &nbsp; | &nbsp; Edited on
-    <time itemprop="dateUpdated" datetime="2019-02-25T21:54:43+08:00" content="2019-02-25">
-      2019-02-25
+    <time itemprop="dateUpdated" datetime="2019-03-21T15:15:28+08:00" content="2019-03-21">
+      2019-03-21
     </time>
   </span>
 
@@ -415,88 +413,106 @@
       
 
       
-        <h3 id="打包压缩"><a href="#打包压缩" class="headerlink" title="打包压缩"></a><blockquote class="question">打包压缩</blockquote></h3><p>打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt</p>
-<p>查看包内的内容 tar -tf /test.tar</p>
-<p>解压包到当前目录 tar -xvf /test.tar</p>
-<p>解压包到指定目录 tar -xvf /test.tar -C /try</p>
-<p>压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小）</p>
-<p>解压文件 tar -xf /test.tar.zp tar-xf /test.tar.bz2</p>
-<p>打包并同时压缩文件tar -cvzf /test.tar.zp /a.txt /b.txt /c.txt</p>
-<p>或 tar -cvjf /test.tar.bz2 /a.txt /b.txt /c.txt</p>
-<p>如果要连同目录一起压缩则最后用/ 如果只想压缩目录下面的文件则/*</p>
-<h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a><blockquote class="question">vi</blockquote></h3><p>查看并编辑文档 vim 按a 编辑 按 :wq 保存并退出</p>
-<p>q！不保存</p>
-<p>x    小写的x表示向后删除一个字符,也就是删除光标所在字符</p>
-<p>nx  n表示数字，表示向后删除每个字符，例如：10x表示删除包括光标在内的后面10个字符</p>
-<p>dd 删除当前一行 ,就是截切</p>
-<p>ndd删除n行（例如3dd删除3行）</p>
-<p>yy复制一行</p>
-<p>nyy复制n行</p>
-<p>p 粘贴到目标位置的下一行</p>
-<p>P 粘贴到目标位置的上一行</p>
-<p>u 撤销上一步操作</p>
-<p>ctrl+r 返回前一步</p>
-<p>gg 光标移动到文件的第一行</p>
-<p>G 光标移动到文件的最后一行</p>
-<p>nG 光标移动到文件的第n行</p>
-<p>dgg  删除光标所在行到第一行数据</p>
-<p>dG     删除光标所在行到最后一行数据</p>
-<h3 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a><blockquote class="question">磁盘分区</blockquote></h3><p>/dev</p>
-<p>fdisk -l /dev/sda 查看磁盘信息</p>
-<p>fdisk /dev/sdb 进入磁盘分区</p>
-<p>p 输出目前磁盘分区信息</p>
-<p>n 分区 分为p主分区 e扩展分区</p>
-<p>d 删除分区</p>
-<p>给分区装装指定系统 mkfs.xfs /dev/sdb1</p>
-<p>挂载一个目录 mount /dev/sdb1 /test</p>
-<p>卸除挂载目录 umount /dev/sdb1</p>
-<p>一个分区挂载两个目录时，则两个目录同时指向该分区，即同步</p>
-<p>df 查看磁盘分区信息 df-Th</p>
-<h3 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a><blockquote class="question">创建软连接</blockquote></h3><p>相当于创建快捷方式ln -s /test/a.txt /sb/a.txt 前面是被创建的软连接</p>
-<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a><blockquote class="question">内存</blockquote></h3><p>查看内存信息 swapon -s</p>
-<p>增加内存区 mkswap /dev/sdb2</p>
-<p>swapon -a /dev/sdb2</p>
-<p>删除内存区swapoff /dev/sdb2</p>
-<p>查看内存 free</p>
-<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a><blockquote class="question">进程</blockquote></h3><p>firefox &amp; 后台运行程序</p>
-<p>ps aux 查看全部进程</p>
-<p>ps aux|grep fire 查找带fire的进程</p>
-<p>pgrep firefox 查找firefox进程号</p>
-<p>kill -9 3315 强制杀死进程(3315代表进程编号)</p>
-<p>pkill -9 firefox 指定名称的杀死进程</p>
-<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a><blockquote class="question">软件安装</blockquote></h3><h4 id="二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><a href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm" class="headerlink" title="二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm"></a>二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</h4><p>覆盖安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm –force</p>
-<p>查看系统中所有安装的rpm包 rpm -qa</p>
-<p>查看指定的包 rpm -qa|grep vsf</p>
-<p>查看rpm包安装在哪 rpm -ql vsf</p>
-<p>查看rmp包详细信息 rpm -qi vsf</p>
-<p>查看文件是由那个包产生 rpm -qf /test/b1.txt</p>
-<p>删除rmp包 rmp -e vsf</p>
-<p>使用yum安装和卸载软件，有个前提是yum安装的软件包都是rpm格式的</p>
-<p> yum update  升级系统</p>
-<p> yum install  ～ 安装指定软件包</p>
-<p> yum update ～ 升级指定软件包</p>
-<p> yum remove ～ 卸载指定软件</p>
-<p> yum grouplist   查看系统中已经安装的和可用的软件组，可用的可以安装</p>
-<p> yum grooupinstall ～安装上一个命令显示的可用的软件组中的一个</p>
-<h4 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h4><p>python安装</p>
-<p>python官网下载file源代码</p>
-<p>安装环境</p>
-<p>查看group列表 yum grouplist</p>
-<p>安装组包 yum groupinstall ‘开发工具’ -y</p>
-<p>解压文件 tar -xvf pytho-3.7.0.tgz</p>
-<p>cd到解压好的文件目录，更改源码包安装路径 ./configure –prefix=/usr/local/python3.7</p>
-<p>编码 make</p>
-<p>安装 make install（安装时会出现下面两种错误</p>
-<p>1.<img src="/2019/02/22/LINUX命令二/1.png" alt="你想输入的替代文字"></p>
-<p>需要安装zlib包 yum install zlib*</p>
-<p>2.ModuleNotFoundError: No module named ‘_ctypes’</p>
-<p>解决方法：3.7版本需要一个新的包libffi-devel，安装此包之后再次进行编译安装即可</p>
-<p>yum install libffi-*</p>
-<p>把python3.7加到path环境中</p>
-<p>更改profile文件 vim /etc/profile</p>
-<p>在文件的最后面加上 PATH=$PATH:/usr/local/python3.7/bin</p>
-<p>export PATH</p>
-<p>netstat -tunapl 查看网络状态</p>
+        <h3 id="网络相关配置"><a href="#网络相关配置" class="headerlink" title="网络相关配置"></a><blockquote class="question">网络相关配置</blockquote></h3><p>ifconfig 查看ip信息</p>
+<p>远程复制 scp /etc/h.txt 192.168.1.1:/tmp</p>
+<p>配置ssh（之后访问无需密码）：</p>
+<p>ssh-keygen</p>
+<p>ssh-copy-id -i 192.168.1.16</p>
+<p>赋值变量 x=2</p>
+<p>调用x echo $x</p>
+<p>取消变量 unset x</p>
+<p>设置别名 alias x=‘ls /’</p>
+<p>将命令得到的结果赋值到变量 x=$(ls)</p>
+<p>搜索文件 ls [a-z][0-9].txt []代表在中间取一个值, a-z代表aAbBcC…..z不包含Z</p>
+<p>ls [!0-9],txt 查找不以数字开头的文件</p>
+<p>执行历史命令 ！638</p>
+<p>查看上条命令执行是否成功 echo $? 成功则为0</p>
+<p>注释</p>
+<p>|| 前面命令成功，则后面不执行 ；只有前面命令失败后面才执行</p>
+<p>&amp;&amp; 只有前面的命令执行成功才会执行后面的命令</p>
+<p>\ 转义符号</p>
+<p>? 匹配一个任意字符 例： ls ???.txt</p>
+<h3 id="固化命令"><a href="#固化命令" class="headerlink" title="固化命令"></a><blockquote class="question">固化命令</blockquote></h3><p>在登录时就加载出命令 在/etc/bashrc 文件中添加想要的命令 </p>
+<h3 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a><blockquote class="question">grep命令</blockquote></h3><p>grep -A 2 ‘fuck’ /etc/passwd 显示查询结果及后两行</p>
+<p>grep -B 2 ‘fuck’ /etc/passwd 显示查询结果及前两行</p>
+<p>grep -C 2 ‘fuck’ /etc/passwd 显示查询结果及前后两行</p>
+<p>grep -c ‘fuck’ /etc/passwd 显示查询行数</p>
+<p>grep -i ‘fuck’ /etc/passwd 无视大小写查询</p>
+<p>grep -v ‘fuck’ /etc/passwd 取目标之外的剩余结果</p>
+<p>grep -w ‘fuck’ /etc/passwd 单词匹配</p>
+<p>grep -rl ‘fuck’ /etc/passwd 匹配文件内容中带fuck的文件路径</p>
+<h3 id="正则"><a href="#正则" class="headerlink" title="正则"></a><blockquote class="question">正则</blockquote></h3><p>grep ‘^root’ 匹配以root开头的</p>
+<p>grep ‘root$’ 匹配以root结尾的</p>
+<p>grep ‘a.b’ .代表任意一个字符</p>
+<p>grep ‘ab<em>‘ </em>代表b有0个或者多个</p>
+<p>grep ‘ab?’ 代表b有0个或者1个</p>
+<p>egrep ‘ab+’ 必须用egrep +代表b有1个或者多个</p>
+<p>egrep ‘ab{2}’ 2个b</p>
+<p>egrep ‘ab{2，4}’ 2到4个b</p>
+<p>egrep ‘ab{2，}’ 2个以上b</p>
+<p>egrep ‘[abc\ / -]’ 含abc/-中一个字符的</p>
+<p>[a-z] 代表所有的小写字母</p>
+<p>[A-Z] 代表所有的大写字母</p>
+<p>[a-Z] 代表所有的大小写字母</p>
+<p>注意点如果要匹配的是-本身，则必须放到最后[asd-]</p>
+<p>echo ^[^0-9] 匹配不是数字开头的</p>
+<h3 id="sed命令"><a href="#sed命令" class="headerlink" title="sed命令"></a><blockquote class="question">sed命令</blockquote></h3><p>sed ‘3d’ 删除第三行</p>
+<p>sed ‘1,4d’ 删除1-4行</p>
+<p>sed ‘1;4d’ 删除第1行和第4行</p>
+<p>sed ‘s/sb/fuck’ 把所有行的第一个sb换成fuck</p>
+<p>sed ‘s/sb/fuck/g’ 把所有行的所有sb换成fuck</p>
+<p>sed ‘3p’ 打印第三行</p>
+<p>sed ‘3c 123456’ 把第三行改成123456</p>
+<p>sed ‘3a 123’ 在第三行后插入123</p>
+<p>sed ‘3i 123’ 在第三行前插入123</p>
+<p>sed’/^root/d’ 加入正则法</p>
+<p>sed -r ‘/^[0-9][a-Z]+sb$/ s/sb/SB/g’ r为扩展模式</p>
+<p>sed -ri 多加一个i则是直接将文件内容改掉，而不是仅仅输入到终端</p>
+<p>sed -r ‘s/^([a-Z]+)([^a-Z])([a-Z]+)([^a-Z])/\3\2\1\4/‘ 将第一个单词和第三个单词换位置</p>
+<p>sed -r ‘s/ //g’ 将所有的空格去掉</p>
+<p>sed -r ‘s/[0-9]//g’ 将所有的数字去掉</p>
+<h3 id="awk文本处理"><a href="#awk文本处理" class="headerlink" title="awk文本处理"></a><blockquote class="question">awk文本处理</blockquote></h3><p>awk -F: ‘{print $1,$7}’ 打印以：为分隔符取第1段和第7段 (:后面加空格)</p>
+<p>awk -F: ‘{print $1,$NF}’ 打印以：为分隔符取第1段和最后一段</p>
+<p>awk -F: ‘NR&lt;=3{print $1,NR}’ 打印前三行的第一段</p>
+<p>awk -F: ‘NR&lt;=3{print NR,”—–”,$1}’ 打印出前三段 1——root 的样式</p>
+<p>awk -F: ‘/log$/{print $1}’ 匹配有log的行，打印第1段</p>
+<p>awk -F: ‘$1~/^r.*t$/{print $3}’ 匹配第一段中以r开头t结尾的行，并打印出这些行的第三段</p>
+<p>awk -F: ‘$1==”root”{print $3,NR}’ 匹配第一段是root的行，并打印出这些行的第三段和行号</p>
+<p>awk -v x=$count -F: ‘$3&gt;=x{print NR,$1}’ 匹配第三段大于参数x的行，打印行号和第一段</p>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a><blockquote class="question">其他命令</blockquote></h3><p>cat a.txt |sort |uniq</p>
+<p>排序 去重</p>
+<p>du -sh 统计文件大小</p>
+<p>find /file -name “*.txt” 查找file文件夹中以txt结尾的文件</p>
+<p>find /file -size +30M 查找file文件夹中大于30M的文件</p>
+<p>find /file -size +10M -30M 查找file文件夹中大于10M小于30M的文件</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a><blockquote class="question">变量</blockquote></h3><p>linux 没有数据类型之分</p>
+<p>set 显示所有变量</p>
+<p>env 显示环境变量</p>
+<h3 id="变量关系操作"><a href="#变量关系操作" class="headerlink" title="变量关系操作"></a><blockquote class="question">变量关系操作</blockquote></h3><p>test</p>
+<p>[] 括号里前后要空格</p>
+<h4 id="测试数值"><a href="#测试数值" class="headerlink" title="测试数值"></a>测试数值</h4><p>[ $x -gt $y ] 判断x的值大于y</p>
+<p>[ $x -ge $y ] 判断x大于等于y</p>
+<p>[ $x -lt $y ] 判断x小于y</p>
+<p>[ $x -le $y ] 判断x小于等于y</p>
+<p>[ $x -eq $y ] 判断x等于y</p>
+<p>[ $x -ne $y ] 判断x不等于y</p>
+<p>[ $x -gt $y -a $a -eq $b ] 判断x大于y并且a等于b</p>
+<p>[ $x -gt $y -o $a -eq $b ] 判断x大于y或者a等于b</p>
+<h4 id="测试文件状态"><a href="#测试文件状态" class="headerlink" title="测试文件状态"></a>测试文件状态</h4><p>-d 目录</p>
+<p>-f 普通文件-</p>
+<p>-w 可写</p>
+<p>-r 可读</p>
+<p>-x 可执行</p>
+<p>3.字符串测试</p>
+<p>= 两字符串相等</p>
+<p>!= 两字符串不相等</p>
+<p>-z 空串</p>
+<p>-n 非空串</p>
+<p>赋值运算符</p>
+<p>((x=x+1)) ——–((x+=1))</p>
+<p>echo $((x-=2))</p>
+<p>expr $x + $y</p>
+<p>echo “scale=2;20/100” | bc -l 保留两位小数 bc要先安装</p>
 
       
     </div>
@@ -527,7 +543,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/22/LINUX命令一/" rel="next" title="LINUX命令一">
+              <a href="/2018/11/11/LINUX命令一/" rel="next" title="LINUX命令一">
                 <i class="fa fa-chevron-left"></i> LINUX命令一
               </a>
             
@@ -537,8 +553,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/23/LINUX命令三/" rel="prev" title="LINUX命令三">
-                LINUX命令三 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/13/LINUX命令二/" rel="prev" title="LINUX命令二">
+                LINUX命令二 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -691,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打包压缩"><span class="nav-text">打包压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vi"><span class="nav-text">vi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘分区"><span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建软连接"><span class="nav-text">创建软连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存"><span class="nav-text">内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件安装"><span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><span class="nav-text">二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码安装"><span class="nav-text">源代码安装</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#网络相关配置"><span class="nav-text">网络相关配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#固化命令"><span class="nav-text">固化命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep命令"><span class="nav-text">grep命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则"><span class="nav-text">正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sed命令"><span class="nav-text">sed命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#awk文本处理"><span class="nav-text">awk文本处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他命令"><span class="nav-text">其他命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量关系操作"><span class="nav-text">变量关系操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#测试数值"><span class="nav-text">测试数值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试文件状态"><span class="nav-text">测试文件状态</span></a></li></ol></li></ol></div>
             
 
           </div>
