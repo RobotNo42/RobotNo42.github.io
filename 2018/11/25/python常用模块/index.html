@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.css.network/css?family=Lato:300,300italic,400,400italic,700,700italic|Iosevka:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="常用模块,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="time模块时间表示形式在Python中，通常有这三种方式来表示时间：时间戳、元组(struct_time)、格式化的时间字符串：(1)时间戳(timestamp) ：通常来说，时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。我们运行“type(time.time())”，返回的是float类型。 (2)格式化的时间字符串(Format String)： ‘1988-03-">
+<meta name="keywords" content="常用模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python常用模块">
+<meta property="og:url" content="https://messilessblog.com/2018/11/25/python常用模块/index.html">
+<meta property="og:site_name" content="Messiless Blog">
+<meta property="og:description" content="time模块时间表示形式在Python中，通常有这三种方式来表示时间：时间戳、元组(struct_time)、格式化的时间字符串：(1)时间戳(timestamp) ：通常来说，时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。我们运行“type(time.time())”，返回的是float类型。 (2)格式化的时间字符串(Format String)： ‘1988-03-">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://messilessblog.com/2018/11/25/python常用模块/1.png">
+<meta property="og:image" content="https://messilessblog.com/2018/11/25/python常用模块/2.png">
+<meta property="og:image" content="https://messilessblog.com/2018/11/25/python常用模块/3.png">
+<meta property="og:image" content="https://messilessblog.com/2018/11/25/python常用模块/4.png">
+<meta property="og:image" content="https://messilessblog.com/2018/11/25/python常用模块/5.png">
+<meta property="og:image" content="https://messilessblog.com/2018/11/25/python常用模块/6.png">
+<meta property="og:updated_time" content="2019-03-21T07:32:42.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python常用模块">
+<meta name="twitter:description" content="time模块时间表示形式在Python中，通常有这三种方式来表示时间：时间戳、元组(struct_time)、格式化的时间字符串：(1)时间戳(timestamp) ：通常来说，时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。我们运行“type(time.time())”，返回的是float类型。 (2)格式化的时间字符串(Format String)： ‘1988-03-">
+<meta name="twitter:image" content="https://messilessblog.com/2018/11/25/python常用模块/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://messilessblog.com/2018/11/25/python常用模块/">
+
+
+
+
+
+  <title>python常用模块 | Messiless Blog</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Messiless Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://messilessblog.com/2018/11/25/python常用模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Messiless">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mianma.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Messiless Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python常用模块</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-25T12:01:40+08:00">
+                2018-11-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+  <span class="post-updated">
+    &nbsp; | &nbsp; Edited on
+    <time itemprop="dateUpdated" datetime="2019-03-21T15:32:42+08:00" content="2019-03-21">
+      2019-03-21
+    </time>
+  </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="time模块"><a href="#time模块" class="headerlink" title="time模块"></a><blockquote class="question">time模块</blockquote></h3><h4 id="时间表示形式"><a href="#时间表示形式" class="headerlink" title="时间表示形式"></a>时间表示形式</h4><p>在Python中，通常有这三种方式来表示时间：时间戳、元组(struct_time)、格式化的时间字符串：<br>(1)时间戳(timestamp) ：通常来说，时间戳表示的是从1970年1月1日00:00:00开始按秒计算的偏移量。我们运行“type(time.time())”，返回的是float类型。</p>
+<p>(2)格式化的时间字符串(Format String)： ‘1988-03-16’</p>
+<p>(3)元组(struct_time) ：struct_time元组共有9个元素共九个元素:(年，月，日，时，分，秒，一年中第几周，一年中第几天等）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># &lt;1&gt; 时间戳</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> time</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.time()      <span class="comment">#--------------返回当前时间的时间戳</span></span><br><span class="line"><span class="number">1493136727.099066</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># &lt;2&gt; 时间字符串</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.strftime(<span class="string">"%Y-%m-%d %X"</span>)</span><br><span class="line"><span class="string">'2017-04-26 00:32:18'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># &lt;3&gt; 时间元组</span></span><br><span class="line"> </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time.localtime()</span><br><span class="line">time.struct_time(tm_year=<span class="number">2017</span>, tm_mon=<span class="number">4</span>, tm_mday=<span class="number">26</span>,</span><br><span class="line">                 tm_hour=<span class="number">0</span>, tm_min=<span class="number">32</span>, tm_sec=<span class="number">42</span>, tm_wday=<span class="number">2</span>,</span><br><span class="line">                 tm_yday=<span class="number">116</span>, tm_isdst=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>小结：时间戳是计算机能够识别的时间；时间字符串是人能够看懂的时间；元组则是用来操作时间的</p>
+<h4 id="几种时间形式的转换"><a href="#几种时间形式的转换" class="headerlink" title="几种时间形式的转换"></a>几种时间形式的转换</h4><p>(1)</p>
+<p><img src="/2018/11/25/python常用模块/1.png" alt></p>
+<p>#一 时间戳&lt;－－－－&gt;结构化时间：  <code>localtime/gmtime   mktime</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">time.localtime(<span class="number">3600</span>*<span class="number">24</span>)</span><br><span class="line">time.gmtime(<span class="number">3600</span>*<span class="number">24</span>)</span><br><span class="line"></span><br><span class="line">time.mktime(time.localtime())</span><br></pre></td></tr></table></figure>
+<p>#字符串时间&lt;－－－－&gt;结构化时间： <code>strftime／strptime</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ime.strftime(<span class="string">"%Y-%m-%d %X"</span>, time.localtime())</span><br><span class="line">time.strptime(<span class="string">"2017-03-16"</span>,<span class="string">"%Y-%m-%d"</span>)</span><br></pre></td></tr></table></figure>
+<p>(2)</p>
+<p><img src="/2018/11/25/python常用模块/2.png" alt></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="selector-tag">time</span>.asctime(<span class="selector-tag">time</span>.localtime(<span class="number">312343423</span>))</span><br><span class="line"><span class="string">'Sun Nov 25 10:03:43 1979'</span></span><br><span class="line">&gt;&gt;&gt;<span class="selector-tag">time</span>.ctime(<span class="number">312343423</span>)</span><br><span class="line"><span class="string">'Sun Nov 25 10:03:43 1979'</span></span><br></pre></td></tr></table></figure>
+<h3 id="random模块"><a href="#random模块" class="headerlink" title="random模块"></a><blockquote class="question">random模块</blockquote></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"> </span><br><span class="line">print(random.random())<span class="comment">#(0,1)----float    大于0且小于1之间的小数</span></span><br><span class="line"> </span><br><span class="line">print(random.randint(<span class="number">1</span>,<span class="number">3</span>))  <span class="comment">#[1,3]    大于等于1且小于等于3之间的整数</span></span><br><span class="line"> </span><br><span class="line">print(random.randrange(<span class="number">1</span>,<span class="number">3</span>)) <span class="comment">#[1,3)    大于等于1且小于3之间的整数</span></span><br><span class="line"> </span><br><span class="line">print(random.choice([<span class="number">1</span>,<span class="string">'23'</span>,[<span class="number">4</span>,<span class="number">5</span>]]))<span class="comment">#1或者23或者[4,5]，choice()中只能放列表格式</span></span><br><span class="line"> </span><br><span class="line">print(random.sample([<span class="number">1</span>,<span class="string">'23'</span>,[<span class="number">4</span>,<span class="number">5</span>]],<span class="number">2</span>))<span class="comment">#列表元素任意2个组合</span></span><br><span class="line"> </span><br><span class="line">print(random.uniform(<span class="number">1</span>,<span class="number">3</span>))<span class="comment">#大于1小于3的小数，如1.927109612082716 </span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">item=[<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]</span><br><span class="line">random.shuffle(item) <span class="comment">#打乱item的顺序,相当于"洗牌"</span></span><br><span class="line">print(item)</span><br></pre></td></tr></table></figure>
+<p>实例：5位随机验证码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">import</span> random</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    s = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        r1 = random.randint(<span class="number">0</span>, <span class="number">9</span>)</span><br><span class="line">        r2 = chr(random.randint(<span class="number">65</span>, <span class="number">90</span>))   <span class="comment">#ASCII表对应A-Z</span></span><br><span class="line">        r3 = chr(random.randint(<span class="number">97</span>, <span class="number">122</span>))  <span class="comment">#ASCII表对应a-z</span></span><br><span class="line">        r4 = random.choice([str(r1), r2, r3])   <span class="comment">#三选一</span></span><br><span class="line">        s += r4</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"> </span><br><span class="line">print(test())</span><br></pre></td></tr></table></figure>
+<h3 id="hash模块"><a href="#hash模块" class="headerlink" title="hash模块"></a><blockquote class="question">hash模块</blockquote></h3><h4 id="1-什么叫hash"><a href="#1-什么叫hash" class="headerlink" title="1.什么叫hash:"></a>1.什么叫hash:</h4><p>hash是一种算法,3.x里代替了md5模块和sha模块，主要提供 SHA1, SHA224, SHA256, SHA384, SHA512 ，MD5 算法，该算法接受传入的内容，经过运算得到一串hash值</p>
+<h4 id="2-hash值的特点是："><a href="#2-hash值的特点是：" class="headerlink" title="2.hash值的特点是："></a>2.hash值的特点是：</h4><p>1 只要传入的内容一样，得到的hash值必然一样=====&gt;要用明文传输密码文件完整性校验<br>2 不能由hash值返解成内容=======》把密码做成hash值，不应该在网络传输明文密码</p>
+<p>3 只要使用的hash算法不变，无论校验的内容有多大，得到的hash值长度是固定的</p>
+<p>hash算法就像一座工厂，工厂接收你送来的原材料（可以用m.update()为工厂运送原材料），经过加工返回的产品就是hash值</p>
+<p><img src="/2018/11/25/python常用模块/3.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"> </span><br><span class="line">m=hashlib.md5()<span class="comment"># m=hashlib.sha256()</span></span><br><span class="line"> </span><br><span class="line">m.update(<span class="string">'hello'</span>.encode(<span class="string">'utf8'</span>))</span><br><span class="line">print(m.hexdigest())  <span class="comment">#5d41402abc4b2a76b9719d911017c592</span></span><br><span class="line"> </span><br><span class="line">m.update(<span class="string">'alvin'</span>.encode(<span class="string">'utf8'</span>))</span><br><span class="line"> </span><br><span class="line">print(m.hexdigest())  <span class="comment">#92a7e713c30abbb0319fa07da2a5c4af</span></span><br><span class="line"> </span><br><span class="line">m2=hashlib.md5()</span><br><span class="line">m2.update(<span class="string">'helloalvin'</span>.encode(<span class="string">'utf8'</span>))</span><br><span class="line">print(m2.hexdigest()) <span class="comment">#92a7e713c30abbb0319fa07da2a5c4af</span></span><br><span class="line"> </span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">注意：把一段很长的数据update多次，与一次update这段长数据，得到的结果一样</span></span><br><span class="line"><span class="string">但是update多次为校验大文件提供了可能。</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p>以上加密算法虽然依然非常厉害，但时候存在缺陷，即：通过撞库可以反解。所以，有必要对加密算法中添加自定义key再来做加密。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"> </span><br><span class="line">hash = hashlib.sha256(<span class="string">'898oaFs09f'</span>.encode(<span class="string">'utf8'</span>))</span><br><span class="line">hash.update(<span class="string">'alvin'</span>.encode(<span class="string">'utf8'</span>))</span><br><span class="line"><span class="keyword">print</span> (hash.hexdigest())<span class="comment">#e79e68f070cdedcfe63eaf1a2e92c83b4cfb1b5c6bc452d214c1b7e77cdfd1c7</span></span><br></pre></td></tr></table></figure>
+<p>模拟撞库破解密码 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line">passwds=[</span><br><span class="line">    <span class="string">'alex3714'</span>,</span><br><span class="line">    <span class="string">'alex1313'</span>,</span><br><span class="line">    <span class="string">'alex94139413'</span>,</span><br><span class="line">    <span class="string">'alex123456'</span>,</span><br><span class="line">    <span class="string">'123456alex'</span>,</span><br><span class="line">    <span class="string">'a123lex'</span>,</span><br><span class="line">    ]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_passwd_dic</span><span class="params">(passwds)</span>:</span></span><br><span class="line">    dic=&#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> passwd <span class="keyword">in</span> passwds:</span><br><span class="line">        m=hashlib.md5()</span><br><span class="line">        m.update(passwd.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        dic[passwd]=m.hexdigest()</span><br><span class="line">    <span class="keyword">return</span> dic</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">break_code</span><span class="params">(cryptograph,passwd_dic)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> k,v <span class="keyword">in</span> passwd_dic.items():</span><br><span class="line">        <span class="keyword">if</span> v == cryptograph:</span><br><span class="line">            print(<span class="string">'密码是===&gt;\033[46m%s\033[0m'</span> %k)</span><br><span class="line"> </span><br><span class="line">cryptograph=<span class="string">'aee949757a2e698417463d47acac93df'</span></span><br><span class="line">break_code(cryptograph,make_passwd_dic(passwds))</span><br></pre></td></tr></table></figure>
+<h3 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a><blockquote class="question">os模块</blockquote></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">os.getcwd() <span class="comment">#获取当前工作目录，即当前python脚本工作的目录路径</span></span><br><span class="line">os.chdir(<span class="string">"dirname"</span>)  <span class="comment">#改变当前脚本工作目录；相当于shell下cd</span></span><br><span class="line">os.curdir  <span class="comment">#返回当前目录: ('.')</span></span><br><span class="line">os.pardir  <span class="comment">#获取当前目录的父目录字符串名：('..')</span></span><br><span class="line">os.makedirs(<span class="string">'dirname1/dirname2'</span>)    <span class="comment">#可生成多层递归目录</span></span><br><span class="line">os.removedirs(<span class="string">'dirname1'</span>)    <span class="comment">#若目录为空，则删除，并递归到上一级目录，如若也为空，则删除，依此类推</span></span><br><span class="line">os.mkdir(<span class="string">'dirname'</span>)    <span class="comment">#生成单级目录；相当于shell中mkdir dirname</span></span><br><span class="line">os.rmdir(<span class="string">'dirname'</span>)    <span class="comment">#删除单级空目录，若目录不为空则无法删除，报错；相当于shell中rmdir dirname</span></span><br><span class="line">os.listdir(<span class="string">'dirname'</span>)    <span class="comment">#列出指定目录下的所有文件和子目录，包括隐藏文件，并以列表方式打印</span></span><br><span class="line">os.remove()  <span class="comment">#删除一个文件</span></span><br><span class="line">os.rename(<span class="string">"oldname"</span>,<span class="string">"newname"</span>)  <span class="comment">#重命名文件/目录</span></span><br><span class="line">os.stat(<span class="string">'path/filename'</span>)  <span class="comment">#获取文件/目录信息</span></span><br><span class="line">os.sep    <span class="comment">#输出操作系统特定的路径分隔符，win下为"\\",Linux下为"/"</span></span><br><span class="line">os.linesep    <span class="comment">#输出当前平台使用的行终止符，win下为"\t\n",Linux下为"\n"</span></span><br><span class="line">os.pathsep    <span class="comment">#输出用于分割文件路径的字符串 win下为;,Linux下为:</span></span><br><span class="line">os.name    <span class="comment">#输出字符串指示当前使用平台。win-&gt;'nt'; Linux-&gt;'posix'</span></span><br><span class="line">os.system(<span class="string">"bash command"</span>)  <span class="comment">#运行shell命令，直接显示</span></span><br><span class="line">os.environ  <span class="comment">#获取系统环境变量</span></span><br><span class="line">os.path.abspath(path)  <span class="comment">#返回path规范化的绝对路径</span></span><br><span class="line">os.path.split(path)  <span class="comment">#将path分割成目录和文件名二元组返回</span></span><br><span class="line">os.path.dirname(path)  <span class="comment">#返回path的目录。其实就是os.path.split(path)的第一个元素</span></span><br><span class="line">os.path.basename(path)  <span class="comment">#返回path最后的文件名。如何path以／或\结尾，那么就会返回空值。即os.path.split(path)的第二个元素</span></span><br><span class="line">os.path.exists(path)  <span class="comment">#如果path存在，返回True；如果path不存在，返回False</span></span><br><span class="line">os.path.isabs(path)  <span class="comment">#如果path是绝对路径，返回True</span></span><br><span class="line">os.path.isfile(path)  <span class="comment">#如果path是一个存在的文件，返回True。否则返回False</span></span><br><span class="line">os.path.isdir(path)  <span class="comment">#如果path是一个存在的目录，则返回True。否则返回False</span></span><br><span class="line">os.path.join(path1[, path2[, ...]])  <span class="comment">#将多个路径组合后返回，第一个绝对路径之前的参数将被忽略</span></span><br><span class="line">os.path.getatime(path)  <span class="comment">#返回path所指向的文件或者目录的最后存取时间</span></span><br><span class="line">os.path.getmtime(path)  <span class="comment">#返回path所指向的文件或者目录的最后修改时间</span></span><br><span class="line">os.path.getsize(path) <span class="comment">#返回path的大小</span></span><br></pre></td></tr></table></figure>
+<h3 id="sys模块"><a href="#sys模块" class="headerlink" title="sys模块"></a><blockquote class="question">sys模块</blockquote></h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sys.argv           命令行参数List，第一个元素是程序本身路径</span><br><span class="line">sys.<span class="keyword">exit</span>(n)        退出程序，正常退出时<span class="keyword">exit</span>(<span class="number">0</span>)</span><br><span class="line">sys.version        获取Python解释程序的版本信息</span><br><span class="line">sys.maxint         最大的Int值</span><br><span class="line">sys.path           返回模块的搜索路径，初始化时使用PYTHONPATH环境变量的值</span><br><span class="line"></span><br><span class="line">sys.platform       返回操作系统平台名称</span><br></pre></td></tr></table></figure>
+<h3 id="logging模块"><a href="#logging模块" class="headerlink" title=" logging模块"></a><blockquote class="question"> logging模块</blockquote></h3><h4 id="1-函数式简单配置"><a href="#1-函数式简单配置" class="headerlink" title="1 函数式简单配置"></a>1 函数式简单配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging </span><br><span class="line">logging.debug(<span class="string">'debug message'</span>) </span><br><span class="line">logging.info(<span class="string">'info message'</span>) </span><br><span class="line">logging.warning(<span class="string">'warning message'</span>) </span><br><span class="line">logging.error(<span class="string">'error message'</span>) </span><br><span class="line">logging.critical(<span class="string">'critical message'</span>)</span><br></pre></td></tr></table></figure>
+<p>默认情况下Python的logging模块将日志打印到了标准输出中，且只显示了大于等于WARNING级别的日志，这说明默认的日志级别设置为WARNING（日志级别等级CRITICAL &gt; ERROR &gt; WARNING &gt; INFO &gt; DEBUG），默认的日志格式为日志级别：Logger名称：用户输出消息。</p>
+<p>灵活配置日志级别，日志格式，输出位置:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging  </span><br><span class="line">logging.basicConfig(level=logging.DEBUG,  </span><br><span class="line">                    format=<span class="string">'%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s'</span>,  </span><br><span class="line">                    datefmt=<span class="string">'%a, %d %b %Y %H:%M:%S'</span>,  </span><br><span class="line">                    filename=<span class="string">'/tmp/test.log'</span>,  </span><br><span class="line">                    filemode=<span class="string">'w'</span>)  </span><br><span class="line">  </span><br><span class="line">logging.debug(<span class="string">'debug message'</span>)  </span><br><span class="line">logging.info(<span class="string">'info message'</span>)  </span><br><span class="line">logging.warning(<span class="string">'warning message'</span>)  </span><br><span class="line">logging.error(<span class="string">'error message'</span>)  </span><br><span class="line">logging.critical(<span class="string">'critical message'</span>)</span><br></pre></td></tr></table></figure>
+<p>配置参数：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">logging.basicConfig()函数中可通过具体参数来更改logging模块默认行为，可用参数有：</span><br><span class="line"> </span><br><span class="line">filename：用指定的文件名创建FiledHandler，这样日志会被存储在指定的文件中。</span><br><span class="line">filemode：文件打开方式，在指定了filename时使用这个参数，默认值为“a”还可指定为“w”。</span><br><span class="line">format：指定handler使用的日志显示格式。</span><br><span class="line">datefmt：指定日期时间格式。</span><br><span class="line">level：设置rootlogger（后边会讲解具体概念）的日志级别</span><br><span class="line">stream：用指定的stream创建StreamHandler。可以指定输出到sys.stderr,sys.stdout或者文件(f=open(‘test.log’,’w’))，默认为sys.stderr。若同时列出了filename和stream两个参数，则stream参数会被忽略。</span><br><span class="line"> </span><br><span class="line">format参数中可能用到的格式化串：</span><br><span class="line"><span class="tag">%(name)<span class="selector-tag">s</span></span> Logger的名字</span><br><span class="line"><span class="tag">%(levelno)<span class="selector-tag">s</span></span> 数字形式的日志级别</span><br><span class="line"><span class="tag">%(levelname)<span class="selector-tag">s</span></span> 文本形式的日志级别</span><br><span class="line"><span class="tag">%(pathname)<span class="selector-tag">s</span></span> 调用日志输出函数的模块的完整路径名，可能没有</span><br><span class="line"><span class="tag">%(filename)<span class="selector-tag">s</span></span> 调用日志输出函数的模块的文件名</span><br><span class="line"><span class="tag">%(module)<span class="selector-tag">s</span></span> 调用日志输出函数的模块名</span><br><span class="line"><span class="tag">%(funcName)<span class="selector-tag">s</span></span> 调用日志输出函数的函数名</span><br><span class="line"><span class="tag">%(lineno)<span class="selector-tag">d</span></span> 调用日志输出函数的语句所在的代码行</span><br><span class="line"><span class="tag">%(created)<span class="selector-tag">f</span></span> 当前时间，用UNIX标准的表示时间的浮 点数表示</span><br><span class="line"><span class="tag">%(relativeCreated)<span class="selector-tag">d</span></span> 输出日志信息时的，自Logger创建以 来的毫秒数</span><br><span class="line"><span class="tag">%(asctime)<span class="selector-tag">s</span></span> 字符串形式的当前时间。默认格式是 “2003-07-08 16:49:45,896”。逗号后面的是毫秒</span><br><span class="line"><span class="tag">%(thread)<span class="selector-tag">d</span></span> 线程ID。可能没有</span><br><span class="line"><span class="tag">%(threadName)<span class="selector-tag">s</span></span> 线程名。可能没有</span><br><span class="line"><span class="tag">%(process)<span class="selector-tag">d</span></span> 进程ID。可能没有</span><br><span class="line"><span class="tag">%(message)<span class="selector-tag">s</span></span>用户输出的消息</span><br></pre></td></tr></table></figure>
+<h4 id="2-logger对象配置（推荐）"><a href="#2-logger对象配置（推荐）" class="headerlink" title="2 logger对象配置（推荐）"></a>2 logger对象配置（推荐）</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 1、创建一个logger</span></span><br><span class="line">    log = logging.getLogger()</span><br><span class="line">    log.setLevel(logging.DEBUG)</span><br><span class="line">    <span class="comment"># 2.创建一个handler，用于写入日志文件</span></span><br><span class="line">    file = logging.FileHandler(<span class="string">"test.txt"</span>)</span><br><span class="line">    file.setLevel(logging.DEBUG)</span><br><span class="line">    <span class="comment"># 再创建一个handler，用于输出到控制台</span></span><br><span class="line">    stream = logging.StreamHandler()</span><br><span class="line">    stream.setLevel(logging.DEBUG)</span><br><span class="line">    <span class="comment"># 3.定义handler的输出格式（formatter）</span></span><br><span class="line">    formatter = logging.Formatter(<span class="string">"%(asctime)s - %(name)s - %(levelname)s - %(message)s"</span>)</span><br><span class="line">    <span class="comment"># 4.给handler添加formatter</span></span><br><span class="line">    file.setFormatter(formatter) </span><br><span class="line">    stream.setFormatter(formatter)</span><br><span class="line">    <span class="comment"># 5.给logger添加handler</span></span><br><span class="line">    log.addHandler(file)       <span class="comment"># logger对象可以添加多个file和stream对象</span></span><br><span class="line">    log.addHandler(stream)</span><br><span class="line">    <span class="keyword">return</span> log</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">l = test()</span><br><span class="line">l.debug(<span class="string">"debug"</span>)</span><br><span class="line">l.info(<span class="string">"info"</span>)</span><br><span class="line">l.warning(<span class="string">"warning"</span>)</span><br><span class="line">l.error(<span class="string">"error"</span>)</span><br><span class="line">l.critical(<span class="string">"critical"</span>)</span><br></pre></td></tr></table></figure>
+<p>ogging库提供了多个组件：Logger、Handler、Filter、Formatter。Logger对象提供应用程序可直接使用的接口，Handler发送日志到适当的目的地，Filter提供了过滤日志信息的方法，Formatter指定日志显示格式。另外，可以通过：logger.setLevel(logging.Debug)设置级别,当然，也可以通过</p>
+<p>fh.setLevel(logging.Debug)单对文件流设置某个级别。</p>
+<h3 id="序列化模块"><a href="#序列化模块" class="headerlink" title=" 序列化模块"></a><blockquote class="question"> 序列化模块</blockquote></h3><h4 id="什么是序列化？"><a href="#什么是序列化？" class="headerlink" title="什么是序列化？"></a>什么是序列化？</h4><p>我们把对象(变量)从内存中变成可存储或传输的过程称之为序列化，在Python中叫pickling，在其他语言中也被称之为serialization，marshalling，flattening等等，都是一个意思。序列化之后，就可以把序列化后的内容写入磁盘，或者通过网络传输到别的机器上。反过来，把变量内容从序列化的对象重新读到内存里称之为反序列化，即unpickling。</p>
+<h4 id="json模块"><a href="#json模块" class="headerlink" title="json模块"></a>json模块</h4><p>如果我们要在不同的编程语言之间传递对象，就必须把对象序列化为标准格式，比如XML，但更好的方法是序列化为JSON，因为JSON表示出来就是一个字符串，可以被所有语言读取，也可以方便地存储到磁盘或者通过网络传输。JSON不仅是标准格式，并且比XML更快，而且可以直接在Web页面中读取，非常方便。</p>
+<p>JSON表示的对象就是标准的JavaScript语言的对象一个子集，JSON和Python内置的数据类型对应如下：</p>
+<p><img src="/2018/11/25/python常用模块/4.png" alt></p>
+<p>python在文本中的使用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"> </span><br><span class="line">dic=&#123;<span class="string">'name'</span>:<span class="string">'alvin'</span>,<span class="string">'age'</span>:<span class="number">23</span>,<span class="string">'sex'</span>:<span class="string">'male'</span>&#125;</span><br><span class="line">print(type(dic))<span class="comment">#&lt;class 'dict'&gt;</span></span><br><span class="line"> </span><br><span class="line">data=json.dumps(dic)</span><br><span class="line">print(<span class="string">"type"</span>,type(data))<span class="comment">#&lt;class 'str'&gt;</span></span><br><span class="line">print(<span class="string">"data"</span>,data)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">f=open(<span class="string">'序列化对象'</span>,<span class="string">'w'</span>)</span><br><span class="line">f.write(data)  <span class="comment">#-------------------等价于json.dump(dic,f)</span></span><br><span class="line">f.close()</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#-----------------------------反序列化&lt;br&gt;</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">f=open(<span class="string">'序列化对象'</span>)</span><br><span class="line">new_data=json.loads(f.read())<span class="comment">#  等价于data=json.load(f)</span></span><br><span class="line"> </span><br><span class="line">print(type(new_data))</span><br></pre></td></tr></table></figure>
+<h3 id="pickle模块"><a href="#pickle模块" class="headerlink" title=" pickle模块"></a><blockquote class="question"> pickle模块</blockquote></h3><p><img src="/2018/11/25/python常用模块/5.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##----------------------------序列化</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"> </span><br><span class="line">dic=&#123;<span class="string">'name'</span>:<span class="string">'alvin'</span>,<span class="string">'age'</span>:<span class="number">23</span>,<span class="string">'sex'</span>:<span class="string">'male'</span>&#125;</span><br><span class="line"> </span><br><span class="line">print(type(dic))<span class="comment">#&lt;class 'dict'&gt;</span></span><br><span class="line"> </span><br><span class="line">j=pickle.dumps(dic)</span><br><span class="line">print(type(j))<span class="comment">#&lt;class 'bytes'&gt;</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">f=open(<span class="string">'序列化对象_pickle'</span>,<span class="string">'wb'</span>)<span class="comment">#注意是w是写入str,wb是写入bytes,j是'bytes'</span></span><br><span class="line">f.write(j)  <span class="comment">#-------------------等价于pickle.dump(dic,f)</span></span><br><span class="line"> </span><br><span class="line">f.close()</span><br><span class="line"><span class="comment">#-------------------------反序列化</span></span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">f=open(<span class="string">'序列化对象_pickle'</span>,<span class="string">'rb'</span>)</span><br><span class="line"> </span><br><span class="line">data=pickle.loads(f.read())<span class="comment">#  等价于data=pickle.load(f)</span></span><br><span class="line"> </span><br><span class="line">print(data[<span class="string">'age'</span>])</span><br></pre></td></tr></table></figure>
+<p>Pickle的问题和所有其他编程语言特有的序列化问题一样，就是它只能用于Python，并且可能不同版本的Python彼此都不兼容，因此，只能用Pickle保存那些不重要的数据，不能成功地反序列化也没关系</p>
+<h3 id="shelve模块"><a href="#shelve模块" class="headerlink" title="shelve模块"></a><blockquote class="question">shelve模块</blockquote></h3><p>shelve模块比pickle模块简单，只有一个open函数，返回类似字典的对象，可读可写;key必须为字符串，而值可以是python所支持的数据类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> shelve</span><br><span class="line"> </span><br><span class="line">f=shelve.open(<span class="string">r'sheve.txt'</span>)</span><br><span class="line"><span class="comment"># f['stu1_info']=&#123;'name':'egon','age':18,'hobby':['piao','smoking','drinking']&#125;</span></span><br><span class="line"><span class="comment"># f['stu2_info']=&#123;'name':'gangdan','age':53&#125;</span></span><br><span class="line"><span class="comment"># f['school_info']=&#123;'website':'http://www.pypy.org','city':'beijing'&#125;</span></span><br><span class="line"> </span><br><span class="line">print(f[<span class="string">'stu1_info'</span>][<span class="string">'hobby'</span>])</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h3 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a><blockquote class="question">re模块</blockquote></h3><p>一：什么是正则？</p>
+<p>正则就是用一些具有特殊含义的符号组合到一起（称为正则表达式）来描述字符或者字符串的方法。或者说：正则就是用来描述一类事物的规则。（在Python中）它内嵌在Python中，并通过 re 模块实现。正则表达式模式被编译成一系列的字节码，然后由用 C 编写的匹配引擎执行。</p>
+<p>生活中处处都是正则：</p>
+<pre><code>比如我们描述：4条腿
+你可能会想到的是四条腿的动物或者桌子，椅子等
+继续描述：4条腿，活的
+就只剩下四条腿的动物这一类了
+</code></pre><p>二：常用匹配模式(元字符)</p>
+<p><img src="/2018/11/25/python常用模块/6.png" alt></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># =================================匹配模式=================================</span></span><br><span class="line"><span class="comment">#一对一的匹配</span></span><br><span class="line"><span class="comment"># 'hello'.replace(old,new)</span></span><br><span class="line"><span class="comment"># 'hello'.find('pattern')</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#正则匹配</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment">#\w与\W</span></span><br><span class="line">print(re.findall(<span class="string">'\w'</span>,<span class="string">'hello egon 123'</span>)) <span class="comment">#['h', 'e', 'l', 'l', 'o', 'e', 'g', 'o', 'n', '1', '2', '3']</span></span><br><span class="line">print(re.findall(<span class="string">'\W'</span>,<span class="string">'hello egon 123'</span>)) <span class="comment">#[' ', ' ']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#\s与\S</span></span><br><span class="line">print(re.findall(<span class="string">'\s'</span>,<span class="string">'hello  egon  123'</span>)) <span class="comment">#[' ', ' ', ' ', ' ']</span></span><br><span class="line">print(re.findall(<span class="string">'\S'</span>,<span class="string">'hello  egon  123'</span>)) <span class="comment">#['h', 'e', 'l', 'l', 'o', 'e', 'g', 'o', 'n', '1', '2', '3']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#\n \t都是空,都可以被\s匹配</span></span><br><span class="line">print(re.findall(<span class="string">'\s'</span>,<span class="string">'hello \n egon \t 123'</span>)) <span class="comment">#[' ', '\n', ' ', ' ', '\t', ' ']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#\n与\t</span></span><br><span class="line">print(re.findall(<span class="string">r'\n'</span>,<span class="string">'hello egon \n123'</span>)) <span class="comment">#['\n']</span></span><br><span class="line">print(re.findall(<span class="string">r'\t'</span>,<span class="string">'hello egon\t123'</span>)) <span class="comment">#['\n']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#\d与\D</span></span><br><span class="line">print(re.findall(<span class="string">'\d'</span>,<span class="string">'hello egon 123'</span>)) <span class="comment">#['1', '2', '3']</span></span><br><span class="line">print(re.findall(<span class="string">'\D'</span>,<span class="string">'hello egon 123'</span>)) <span class="comment">#['h', 'e', 'l', 'l', 'o', ' ', 'e', 'g', 'o', 'n', ' ']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#\A与\Z</span></span><br><span class="line">print(re.findall(<span class="string">'\Ahe'</span>,<span class="string">'hello egon 123'</span>)) <span class="comment">#['he'],\A==&gt;^</span></span><br><span class="line">print(re.findall(<span class="string">'123\Z'</span>,<span class="string">'hello egon 123'</span>)) <span class="comment">#['he'],\Z==&gt;$</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#^与$</span></span><br><span class="line">print(re.findall(<span class="string">'^h'</span>,<span class="string">'hello egon 123'</span>)) <span class="comment">#['h']</span></span><br><span class="line">print(re.findall(<span class="string">'3$'</span>,<span class="string">'hello egon 123'</span>)) <span class="comment">#['3']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 重复匹配：| . | * | ? | .* | .*? | + | &#123;n,m&#125; |</span></span><br><span class="line"><span class="comment">#.</span></span><br><span class="line">print(re.findall(<span class="string">'a.b'</span>,<span class="string">'a1b'</span>)) <span class="comment">#['a1b']</span></span><br><span class="line">print(re.findall(<span class="string">'a.b'</span>,<span class="string">'a1b a*b a b aaab'</span>)) <span class="comment">#['a1b', 'a*b', 'a b', 'aab']</span></span><br><span class="line">print(re.findall(<span class="string">'a.b'</span>,<span class="string">'a\nb'</span>)) <span class="comment">#[]</span></span><br><span class="line">print(re.findall(<span class="string">'a.b'</span>,<span class="string">'a\nb'</span>,re.S)) <span class="comment">#['a\nb']</span></span><br><span class="line">print(re.findall(<span class="string">'a.b'</span>,<span class="string">'a\nb'</span>,re.DOTALL)) <span class="comment">#['a\nb']同上一条意思一样</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#*</span></span><br><span class="line">print(re.findall(<span class="string">'ab*'</span>,<span class="string">'bbbbbbb'</span>)) <span class="comment">#[]</span></span><br><span class="line">print(re.findall(<span class="string">'ab*'</span>,<span class="string">'a'</span>)) <span class="comment">#['a']</span></span><br><span class="line">print(re.findall(<span class="string">'ab*'</span>,<span class="string">'abbbb'</span>)) <span class="comment">#['abbbb']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#?</span></span><br><span class="line">print(re.findall(<span class="string">'ab?'</span>,<span class="string">'a'</span>)) <span class="comment">#['a']</span></span><br><span class="line">print(re.findall(<span class="string">'ab?'</span>,<span class="string">'abbb'</span>)) <span class="comment">#['ab']</span></span><br><span class="line"><span class="comment">#匹配所有包含小数在内的数字</span></span><br><span class="line">print(re.findall(<span class="string">'\d+\.?\d*'</span>,<span class="string">"asdfasdf123as1.13dfa12adsf1asdf3"</span>)) <span class="comment">#['123', '1.13', '12', '1', '3']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#.*默认为贪婪匹配</span></span><br><span class="line">print(re.findall(<span class="string">'a.*b'</span>,<span class="string">'a1b22222222b'</span>)) <span class="comment">#['a1b22222222b']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#.*?为非贪婪匹配：推荐使用</span></span><br><span class="line">print(re.findall(<span class="string">'a.*?b'</span>,<span class="string">'a1b22222222b'</span>)) <span class="comment">#['a1b']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#+</span></span><br><span class="line">print(re.findall(<span class="string">'ab+'</span>,<span class="string">'a'</span>)) <span class="comment">#[]</span></span><br><span class="line">print(re.findall(<span class="string">'ab+'</span>,<span class="string">'abbb'</span>)) <span class="comment">#['abbb']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#&#123;n,m&#125;</span></span><br><span class="line">print(re.findall(<span class="string">'ab&#123;2&#125;'</span>,<span class="string">'abbb'</span>)) <span class="comment">#['abb']</span></span><br><span class="line">print(re.findall(<span class="string">'ab&#123;2,4&#125;'</span>,<span class="string">'abbb'</span>)) <span class="comment">#['abb']</span></span><br><span class="line">print(re.findall(<span class="string">'ab&#123;1,&#125;'</span>,<span class="string">'abbb'</span>)) <span class="comment">#'ab&#123;1,&#125;' ===&gt; 'ab+'</span></span><br><span class="line">print(re.findall(<span class="string">'ab&#123;0,&#125;'</span>,<span class="string">'abbb'</span>)) <span class="comment">#'ab&#123;0,&#125;' ===&gt; 'ab*'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#[]</span></span><br><span class="line">print(re.findall(<span class="string">'a[1*-]b'</span>,<span class="string">'a1b a*b a-b'</span>)) <span class="comment">#[]内的都为普通字符了，且如果-没有被转意的话，应该放到[]的开头或结尾</span></span><br><span class="line">print(re.findall(<span class="string">'a[^1*-]b'</span>,<span class="string">'a1b a*b a-b a=b'</span>)) <span class="comment">#[]内的^代表的意思是取反，所以结果为['a=b']</span></span><br><span class="line">print(re.findall(<span class="string">'a[0-9]b'</span>,<span class="string">'a1b a*b a-b a=b'</span>)) <span class="comment"># 结果为['a1b']</span></span><br><span class="line">print(re.findall(<span class="string">'a[a-z]b'</span>,<span class="string">'a1b a*b a-b a=b aeb'</span>)) <span class="comment"># 结果为['aeb']</span></span><br><span class="line">print(re.findall(<span class="string">'a[a-zA-Z]b'</span>,<span class="string">'a1b a*b a-b a=b aeb aEb'</span>)) <span class="comment"># 结果为['aeb','aEb']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#\# print(re.findall('a\\c','a\c')) #对于正则来说a\\c确实可以匹配到a\c,但是在python解释器读取a\\c时，会发生转义，然后交给re去执行，所以抛出异常</span></span><br><span class="line">print(re.findall(<span class="string">r'a\\c'</span>,<span class="string">'a\c'</span>)) <span class="comment">#r代表告诉解释器使用rawstring，即原生字符串，把我们正则内的所有符号都当普通字符处理，不要转义</span></span><br><span class="line">print(re.findall(<span class="string">'a\\\\c'</span>,<span class="string">'a\c'</span>)) <span class="comment">#同上面的意思一样，和上面的结果一样都是['a\\c']</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#():分组</span></span><br><span class="line">print(re.findall(<span class="string">'ab+'</span>,<span class="string">'ababab123'</span>)) <span class="comment">#['ab', 'ab', 'ab']</span></span><br><span class="line">print(re.findall(<span class="string">'(ab)+123'</span>,<span class="string">'ababab123'</span>)) <span class="comment">#['ab']，匹配到末尾的ab123中的ab</span></span><br><span class="line">print(re.findall(<span class="string">'(?:ab)+123'</span>,<span class="string">'ababab123'</span>)) <span class="comment">#findall的结果不是匹配的全部内容，而是组内的内容,?:可以让结果为匹配的全部内容</span></span><br><span class="line">print(re.findall(<span class="string">'href="(.*?)"'</span>,<span class="string">'&lt;a href="http://www.baidu.com"&gt;点击&lt;/a&gt;'</span>))<span class="comment">#['http://www.baidu.com']</span></span><br><span class="line">print(re.findall(<span class="string">'href="(?:.*?)"'</span>,<span class="string">'&lt;a href="http://www.baidu.com"&gt;点击&lt;/a&gt;'</span>))<span class="comment">#['href="http://www.baidu.com"']</span></span><br><span class="line"><span class="comment"># 给分组加上名字，可以用名字来取组值</span></span><br><span class="line">s = re.search(<span class="string">'(?P&lt;w&gt;\w+)\.(?P&lt;fuck&gt;\w+)\.(?P&lt;com&gt;\w+)'</span>, <span class="string">'www.buleone.com'</span>)</span><br><span class="line">print(s.group(<span class="string">'fuck'</span>))</span><br><span class="line"><span class="comment">#|</span></span><br><span class="line">print(re.findall(<span class="string">'compan(?:y|ies)'</span>,<span class="string">'Too many companies have gone bankrupt, and the next one is my company'</span>))</span><br></pre></td></tr></table></figure>
+<p>re模块提供的方法介绍</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="comment">#1</span></span><br><span class="line">print(re.findall(<span class="string">'e'</span>,<span class="string">'alex make love'</span>) )   <span class="comment">#['e', 'e', 'e'],返回所有满足匹配条件的结果,放在列表里</span></span><br><span class="line"><span class="comment">#2</span></span><br><span class="line">print(re.search(<span class="string">'e'</span>,<span class="string">'alex make love'</span>).group()) <span class="comment">#e,只到找到第一个匹配然后返回一个包含匹配信息的对象,该对象可以通过调用group()方法得到匹配的字符串,如果字符串没有匹配，则返回None。</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#3</span></span><br><span class="line">print(re.match(<span class="string">'e'</span>,<span class="string">'alex make love'</span>))    <span class="comment">#None,同search,不过在字符串开始处进行匹配,完全可以用search+^代替match</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#4</span></span><br><span class="line">print(re.split(<span class="string">'[ab]'</span>,<span class="string">'abcd'</span>))     <span class="comment">#['', '', 'cd']，先按'a'分割得到''和'bcd',再对''和'bcd'分别按'b'分割</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#5</span></span><br><span class="line">print(<span class="string">'===&gt;'</span>,re.sub(<span class="string">'a'</span>,<span class="string">'A'</span>,<span class="string">'alex make love'</span>)) <span class="comment">#===&gt; Alex mAke love，不指定n，默认替换所有</span></span><br><span class="line">print(<span class="string">'===&gt;'</span>,re.sub(<span class="string">'a'</span>,<span class="string">'A'</span>,<span class="string">'alex make love'</span>,<span class="number">1</span>)) <span class="comment">#===&gt; Alex make love</span></span><br><span class="line">print(<span class="string">'===&gt;'</span>,re.sub(<span class="string">'a'</span>,<span class="string">'A'</span>,<span class="string">'alex make love'</span>,<span class="number">2</span>)) <span class="comment">#===&gt; Alex mAke love</span></span><br><span class="line">print(<span class="string">'===&gt;'</span>,re.sub(<span class="string">'^(\w+)(.*?\s)(\w+)(.*?\s)(\w+)(.*?)$'</span>,<span class="string">r'\5\2\3\4\1'</span>,<span class="string">'alex make love'</span>)) <span class="comment">#===&gt; love make alex</span></span><br><span class="line"> </span><br><span class="line">print(<span class="string">'===&gt;'</span>,re.subn(<span class="string">'a'</span>,<span class="string">'A'</span>,<span class="string">'alex make love'</span>)) <span class="comment">#===&gt; ('Alex mAke love', 2),结果带有总共替换的个数</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">#6</span></span><br><span class="line">obj=re.compile(<span class="string">'\d&#123;2&#125;'</span>)</span><br><span class="line"> </span><br><span class="line">print(obj.search(<span class="string">'abc123eeee'</span>).group()) <span class="comment">#12</span></span><br><span class="line">print(obj.findall(<span class="string">'abc123eeee'</span>)) <span class="comment">#['12'],重用了obj</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/常用模块/" rel="tag"># 常用模块</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/23/python面向对象高级/" rel="next" title="python面向对象高级">
+                <i class="fa fa-chevron-left"></i> python面向对象高级
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/27/python异常处理/" rel="prev" title="python异常处理">
+                python异常处理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/">
+              <img class="site-author-image" itemprop="image" src="/images/mianma.jpg" alt="Messiless">
+               </a>
+            
+              <p class="site-author-name" itemprop="name">Messiless</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Messiless" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangzc946971@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#time模块"><span class="nav-text">time模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#时间表示形式"><span class="nav-text">时间表示形式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几种时间形式的转换"><span class="nav-text">几种时间形式的转换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#random模块"><span class="nav-text">random模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash模块"><span class="nav-text">hash模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-什么叫hash"><span class="nav-text">1.什么叫hash:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-hash值的特点是："><span class="nav-text">2.hash值的特点是：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os模块"><span class="nav-text">os模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys模块"><span class="nav-text">sys模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logging模块"><span class="nav-text"> logging模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-函数式简单配置"><span class="nav-text">1 函数式简单配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-logger对象配置（推荐）"><span class="nav-text">2 logger对象配置（推荐）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列化模块"><span class="nav-text"> 序列化模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是序列化？"><span class="nav-text">什么是序列化？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#json模块"><span class="nav-text">json模块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pickle模块"><span class="nav-text"> pickle模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shelve模块"><span class="nav-text">shelve模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#re模块"><span class="nav-text">re模块</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Messiless</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

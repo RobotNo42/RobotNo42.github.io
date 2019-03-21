@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.css.network/css?family=Lato:300,300italic,400,400italic,700,700italic|Iosevka:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="模块,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="模块介绍1、什么是模块？ 模块就是一组功能的集合体，我们的程序可以导入模块来复用模块里的功能。 123456常见的场景：一个模块就是一个包含了一组功能的python文件,比如spam.py，模块名为spam，可以通过import spam使用。在python中，模块的使用方式都是一样的，但其实细说的话，模块可以分为四个通用类别：　　　1 使用python编写的.py文件　　2 已被编译为共享库或D">
+<meta name="keywords" content="模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python模块">
+<meta property="og:url" content="https://messilessblog.com/2018/11/27/python模块/index.html">
+<meta property="og:site_name" content="Messiless Blog">
+<meta property="og:description" content="模块介绍1、什么是模块？ 模块就是一组功能的集合体，我们的程序可以导入模块来复用模块里的功能。 123456常见的场景：一个模块就是一个包含了一组功能的python文件,比如spam.py，模块名为spam，可以通过import spam使用。在python中，模块的使用方式都是一样的，但其实细说的话，模块可以分为四个通用类别：　　　1 使用python编写的.py文件　　2 已被编译为共享库或D">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-21T07:33:37.671Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python模块">
+<meta name="twitter:description" content="模块介绍1、什么是模块？ 模块就是一组功能的集合体，我们的程序可以导入模块来复用模块里的功能。 123456常见的场景：一个模块就是一个包含了一组功能的python文件,比如spam.py，模块名为spam，可以通过import spam使用。在python中，模块的使用方式都是一样的，但其实细说的话，模块可以分为四个通用类别：　　　1 使用python编写的.py文件　　2 已被编译为共享库或D">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://messilessblog.com/2018/11/27/python模块/">
+
+
+
+
+
+  <title>python模块 | Messiless Blog</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Messiless Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://messilessblog.com/2018/11/27/python模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Messiless">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mianma.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Messiless Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python模块</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-27T20:40:50+08:00">
+                2018-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+  <span class="post-updated">
+    &nbsp; | &nbsp; Edited on
+    <time itemprop="dateUpdated" datetime="2019-03-21T15:33:37+08:00" content="2019-03-21">
+      2019-03-21
+    </time>
+  </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="模块介绍"><a href="#模块介绍" class="headerlink" title="模块介绍"></a><blockquote class="question">模块介绍</blockquote></h3><p><strong>1、什么是模块？</strong></p>
+<p>模块就是一组功能的集合体，我们的程序可以导入模块来复用模块里的功能。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">常见的场景：一个模块就是一个包含了一组功能的python文件,比如spam.py，模块名为spam，可以通过import spam使用。</span><br><span class="line">在python中，模块的使用方式都是一样的，但其实细说的话，模块可以分为四个通用类别：　</span><br><span class="line">　　1 使用python编写的.py文件</span><br><span class="line">　　2 已被编译为共享库或DLL的C或C++扩展</span><br><span class="line">　　3 把一系列模块组织到一起的文件夹（注：文件夹下有一个__init__.py文件，该文件夹称之为包）</span><br><span class="line">　　4 使用C编写并链接到python解释器的内置模块</span><br></pre></td></tr></table></figure>
+<p><strong>2、为何要使用模块？</strong></p>
+<p>1、从文件级别组织程序，更方便管理 随着程序的发展，功能越来越多，为了方便管理，我们通常将程序分成一个个的文件，这样做程序的结构更清晰，方便管理。这时我们不仅仅可以把这些文件当做脚本去执行，还可以把他们当做模块来导入到其他的模块中，实现了功能的重复利用</p>
+<p>2、拿来主义，提升开发效率 同样的原理，我们也可以下载别人写好的模块然后导入到自己的项目中使用，这种拿来主义，可以极大地提升我们的开发效率</p>
+<p>ps： 如果你退出python解释器然后重新进入，那么你之前定义的函数或者变量都将丢失，因此我们通常将程序写到文件中以便永久保存下来，需要时就通过python test.py方式去执行，此时test.py被称为脚本script。</p>
+<p><strong>3、以spam.py为例来介绍模块的使用：</strong><code>文件名spam.py,模块名spam</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#spam.py</span></span><br><span class="line">print(<span class="string">'from the spam.py'</span>)</span><br><span class="line"> </span><br><span class="line">money=<span class="number">1000</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read1</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'spam模块：'</span>,money)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read2</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'spam模块'</span>)</span><br><span class="line">    read1()</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> money</span><br><span class="line">    money=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用模块之import"><a href="#使用模块之import" class="headerlink" title="使用模块之import"></a><blockquote class="question">使用模块之import</blockquote></h3><p><strong>1、模块可以包含可执行的语句和函数的定义</strong></p>
+<p>这些语句的目的是初始化模块，它们只在模块名第一次遇到导入import语句时才执行（import语句是可以在程序中的任意位置使用的,且针对同一个模块很import多次,为了防止你重复导入，python的优化手段是：第一次导入后就将模块名加载到内存了，后续的import语句仅是对已经加载到内存中的模块对象增加了一次引用，不会重新执行模块内的语句），如下 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#test.py</span></span><br><span class="line"><span class="keyword">import</span> spam <span class="comment">#只在第一次导入时才执行spam.py内代码,此处的显式效果是只打印一次'from the spam.py',当然其他的顶级代码也都被执行了,只不过没有显示效果.</span></span><br><span class="line"><span class="keyword">import</span> spam</span><br><span class="line"><span class="keyword">import</span> spam</span><br><span class="line"><span class="keyword">import</span> spam</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br>from the spam.py</p>
+<p><strong>2、在第一次导入模块时会做三件事，重复导入会直接引用内存中已经加载好的结果</strong></p>
+<p>1.为源文件(spam模块)创建新的名称空间，在spam中定义的函数和方法若是使用到了global时访问的就是这个名称空间。</p>
+<p>2.在新创建的命名空间中执行模块中包含的代码，见初始导入import spam 提示:导入模块时到底执行了什么？ In fact function definitions are also ‘statements’ that are ‘executed’; the execution of a module-level function definition enters the function name in the module’s global symbol table. 事实上函数定义也是“被执行”的语句，模块级别函数定义的执行将函数名放 入模块全局名称空间表，用globals()可以查看</p>
+<p>3.创建名字spam来引用该命名空间 这个名字和变量名没什么区别，都是‘第一类的’，且使用spam.名字的方式 可以访问spam.py文件中定义的名字，spam.名字与test.py中的名字来自 两个完全不同的地方。</p>
+<p><strong>3、被导入模块有独立的名称空间</strong></p>
+<p>每个模块都是一个独立的名称空间，定义在这个模块中的函数，把这个模块的名称空间当做全局名称空间，这样我们在编写自己的模块时，就不用担心我们定义在自己模块中全局变量会在被导入时，与使用者的全局变量冲突</p>
+<p>测试一:money与spam.money不冲突</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#test.py</span></span><br><span class="line"><span class="keyword">import</span> spam </span><br><span class="line">money=<span class="number">10</span></span><br><span class="line">print(spam.money)</span><br><span class="line"> </span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">执行结果：</span></span><br><span class="line"><span class="string">from the spam.py</span></span><br><span class="line"><span class="string">1000</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p>测试二：read1与spam.read1不冲突</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#test.py</span></span><br><span class="line"><span class="keyword">import</span> spam</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read1</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'========'</span>)</span><br><span class="line">spam.read1()</span><br><span class="line"> </span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">执行结果:</span></span><br><span class="line"><span class="string">from the spam.py</span></span><br><span class="line"><span class="string">spam模块：1000</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p>测试三：执行spam.change()操作的全局变量money仍然是spam中的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#test.py</span></span><br><span class="line"><span class="keyword">import</span> spam</span><br><span class="line">money=<span class="number">1</span></span><br><span class="line">spam.change()</span><br><span class="line">print(money)</span><br><span class="line"> </span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">执行结果：</span></span><br><span class="line"><span class="string">from the spam.py</span></span><br><span class="line"><span class="string">1</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p><strong>4、为模块名起别名</strong></p>
+<p>为已经导入的模块起别名的方式对编写可扩展的代码很有用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> spam <span class="keyword">as</span> sm</span><br><span class="line">print(sm.money)</span><br></pre></td></tr></table></figure>
+<p>有两中sql模块mysql和oracle，根据用户的输入，选择不同的sql功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#mysql.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sqlparse</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'from mysql sqlparse'</span>)</span><br><span class="line"><span class="comment">#oracle.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sqlparse</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'from oracle sqlparse'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">#test.py</span></span><br><span class="line">db_type=input(<span class="string">'&gt;&gt;: '</span>)</span><br><span class="line"><span class="keyword">if</span> db_type == <span class="string">'mysql'</span>:</span><br><span class="line">    <span class="keyword">import</span> mysql <span class="keyword">as</span> db</span><br><span class="line"><span class="keyword">elif</span> db_type == <span class="string">'oracle'</span>:</span><br><span class="line">    <span class="keyword">import</span> oracle <span class="keyword">as</span> db</span><br><span class="line"> </span><br><span class="line">db.sqlparse()</span><br></pre></td></tr></table></figure>
+<p>假设有两个模块xmlreader.py和csvreader.py，它们都定义了函数read_data(filename):用来从文件中读取一些数据，但采用不同的输入格式。可以编写代码来选择性地挑选读取模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> file_format == <span class="string">'xml'</span>:</span><br><span class="line">    <span class="keyword">import</span> xmlreader <span class="keyword">as</span> reader</span><br><span class="line"><span class="keyword">elif</span> file_format == <span class="string">'csv'</span>:</span><br><span class="line">    <span class="keyword">import</span> csvreader <span class="keyword">as</span> reader</span><br><span class="line">data=reader.read_date(filename)</span><br></pre></td></tr></table></figure>
+<p><strong>5、在一行导入多个模块（不推荐）</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys,os,re</span><br></pre></td></tr></table></figure>
+<h3 id="使用模块之from-…-import…"><a href="#使用模块之from-…-import…" class="headerlink" title="使用模块之from … import…"></a><blockquote class="question">使用模块之from … import…</blockquote></h3><p><strong>1、from…import…的使用</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> spam <span class="keyword">import</span> read1,read2</span><br></pre></td></tr></table></figure>
+<p><strong>2、from…import 与import的对比</strong></p>
+<p>唯一的区别就是：使用from…import…则是将spam中的名字直接导入到当前的名称空间中，所以在当前名称空间中，直接使用名字就可以了、无需加前缀：spam.</p>
+<p><code>from...import...</code>的方式有好处也有坏处</p>
+<p>好处：使用起来方便了</p>
+<p>坏处：容易与当前执行文件中的名字冲突</p>
+<p>验证一：当前位置直接使用read1和read2就好了，执行时，仍然以spam.py文件全局名称空间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#测试一：导入的函数read1，执行时仍然回到spam.py中寻找全局变量money</span></span><br><span class="line"><span class="comment">#test.py</span></span><br><span class="line"><span class="keyword">from</span> spam <span class="keyword">import</span> read1</span><br><span class="line">money=<span class="number">1000</span></span><br><span class="line">read1()</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">执行结果:</span></span><br><span class="line"><span class="string">from the spam.py</span></span><br><span class="line"><span class="string">spam-&gt;read1-&gt;money 1000</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">#测试二:导入的函数read2，执行时需要调用read1(),仍然回到spam.py中找read1()</span></span><br><span class="line"><span class="comment">#test.py</span></span><br><span class="line"><span class="keyword">from</span> spam <span class="keyword">import</span> read2</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read1</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'=========='</span>)</span><br><span class="line">read2()</span><br><span class="line"> </span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">执行结果:</span></span><br><span class="line"><span class="string">from the spam.py</span></span><br><span class="line"><span class="string">spam-&gt;read2 calling read</span></span><br><span class="line"><span class="string">spam-&gt;read1-&gt;money 1000</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p>验证二：如果当前有重名read1或者read2，那么会有覆盖效果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#test.py</span></span><br><span class="line"><span class="keyword">from</span> spam <span class="keyword">import</span> read1</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read1</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'=========='</span>)</span><br><span class="line">read1()</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">执行结果:</span></span><br><span class="line"><span class="string">from the spam.py</span></span><br><span class="line"><span class="string">==========</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p>验证三：导入的方法在执行时，始终是以源文件为准的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> spam <span class="keyword">import</span> money,read1</span><br><span class="line">money=<span class="number">100</span> <span class="comment">#将当前位置的名字money绑定到了100</span></span><br><span class="line">print(money) <span class="comment">#打印当前的名字</span></span><br><span class="line">read1() <span class="comment">#读取spam.py中的名字money,仍然为1000</span></span><br><span class="line"> </span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">from the spam.py</span></span><br><span class="line"><span class="string">100</span></span><br><span class="line"><span class="string">spam-&gt;read1-&gt;money 1000</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p><strong>3、也支持as</strong></p>
+<p><code>from spam import read1 as read</code></p>
+<p><strong>4、一行导入多个名字</strong></p>
+<p><code>from spam import read1,read2,money</code></p>
+<p><strong>5、from…import *</strong></p>
+<p><code>from spam import *</code> 把spam中所有的不是以下<a href="https://www.baidu.com/s?wd=%E5%88%92%E7%BA%BF&amp;tn=24004469_oem_dg&amp;rsv_dl=gh_pl_sl_csd" target="_blank" rel="noopener">划线</a>(_)开头的名字都导入到当前位置</p>
+<p>大部分情况下我们的python程序不应该使用这种导入方式，因为*你不知道你导入什么名字，很有可能会覆盖掉你之前已经定义的名字。而且可读性极其的差，在交互式环境中导入时没有问题。</p>
+<p>可以使用<code>__all__</code>来控制*（用来发布新版本），在spam.py中新增一行</p>
+<p><code>__all__=[&#39;money&#39;,&#39;read1&#39;]</code>#这样在另外一个文件中用<code>from spam import *</code>就这能导入列表中规定的两个名字</p>
+<h3 id="模块的重载-了解"><a href="#模块的重载-了解" class="headerlink" title="模块的重载 (了解)"></a><blockquote class="question">模块的重载 (了解)</blockquote></h3><p>考虑到性能的原因，每个模块只被导入一次,放入字典sys.module中，如果你改变了模块的内容，你必须重启程序，python不支持重新加载或卸载之前导入的模块，</p>
+<p>有的同学可能会想到直接从sys.module中删除一个模块不就可以卸载了吗，注意了，你删了sys.module中的模块对象仍然可能被其他程序的组件所引用，因而不会被清楚。</p>
+<p>特别的对于我们引用了这个模块中的一个类，用这个类产生了很多对象，因而这些对象都有关于这个模块的引用。</p>
+<p>编写好的一个python文件可以有两种用途：<br>    一：脚本，一个文件就是整个程序，用来被执行<br>    二：模块，文件中存放着一堆功能，用来被导入使用</p>
+<p>python为我们内置了全局变量<code>__name__</code>，<br>    当文件被当做脚本执行时：<code>__name__</code> 等于<code>__main__</code><br>    当文件被当做模块导入时：<code>__name__</code>等于模块名</p>
+<p>作用：用来控制.py文件在不同的应用场景下执行不同的逻辑</p>
+<p>  <code>if __name__ == &#39;__main__&#39;:</code></p>
+<h3 id="模块搜索路径"><a href="#模块搜索路径" class="headerlink" title="模块搜索路径"></a><blockquote class="question">模块搜索路径</blockquote></h3><p><strong>模块的查找顺序是：内存中已经加载的模块-&gt;内置模块-&gt;sys.path路径中包含的模块</strong></p>
+<p>搜索路径：<br>当一个命名为spam的模块被导入时<br>    解释器首先会从内建模块中寻找该名字<br>    找不到，则去sys.path中找该名字</p>
+<p>sys.path从以下位置初始化<br>    1 执行文件所在的当前目录<br>    2 PTYHONPATH（包含一系列目录名，与shell变量PATH语法一样）<br>    3 依赖安装时默认指定的</p>
+<p>注意：在支持软连接的文件系统中，执行脚本所在的目录是在软连接之后被计算的，换句话说，包含软连接的目录不会被添加到模块的搜索路径中</p>
+<p>在初始化后，我们也可以在python程序中修改sys.path,执行文件所在的路径默认是sys.path的第一个目录，在所有标准库路径的前面。这意味着，当前目录是优先于标准库目录的，需要强调的是：我们自定义的模块名不要跟python标准库的模块名重复，除非你是故意的。</p>
+<h3 id="编译python文件（了解）"><a href="#编译python文件（了解）" class="headerlink" title="编译python文件（了解）"></a><blockquote class="question">编译python文件（了解）</blockquote></h3><p>为了提高加载模块的速度，强调强调强调：提高的是加载速度而绝非运行速度。python解释器会在<strong>pycache</strong>目录中下缓存每个模块编译后的版本，格式为：module.version.pyc。通常会包含python的版本号。例如，在CPython3.3版本下，spam.py模块会被缓存成<strong>pycache</strong>/spam.cpython-33.pyc。这种命名规范保证了编译后的结果多版本共存。</p>
+<p>Python检查源文件的修改时间与编译的版本进行对比，如果过期就需要重新编译。这是完全自动的过程。并且编译的模块是平台独立的，所以相同的库可以在不同的架构的系统之间共享，即pyc使一种跨平台的字节码，类似于JAVA火.NET,是由python虚拟机来执行的，但是pyc的内容跟python的版本相关，不同的版本编译后的pyc文件不同，2.5编译的pyc文件不能到3.5上执行，并且pyc文件是可以反编译的，因而它的出现仅仅是用来提升模块的加载速度的，不是用来加密的。</p>
+<p>python解释器在以下两种情况下不检测缓存<br>1 如果是在命令行中被直接导入模块，则按照这种方式，每次导入都会重新编译，并且不会存储编译后的结果（python3.3以前的版本应该是这样）</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">python</span> -<span class="keyword">m</span> spam.<span class="keyword">py</span></span><br></pre></td></tr></table></figure>
+<p>2 如果源文件不存在，那么缓存的结果也不会被使用，如果想在没有源文件的情况下来使用编译后的结果，则编译后的结果必须在源目录下</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sh</span>-<span class="number">3.2</span># <span class="keyword">ls</span></span><br><span class="line">__pycache__ spam.<span class="keyword">py</span></span><br><span class="line"><span class="keyword">sh</span>-<span class="number">3.2</span># rm -rf spam.<span class="keyword">py</span> </span><br><span class="line"><span class="keyword">sh</span>-<span class="number">3.2</span># mv __pycache__/spam.cpython-<span class="number">36</span>.pyc ./spam.pyc</span><br><span class="line"><span class="keyword">sh</span>-<span class="number">3.2</span># <span class="keyword">python3</span> spam.pyc </span><br><span class="line">spam</span><br></pre></td></tr></table></figure>
+<p>提示：<br>1.模块名区分大小写，foo.py与FOO.py代表的是两个模块<br>2.你可以使用-O或者-OO转换python命令来减少编译模块的大小<br>    -O转换会帮你去掉assert语句<br>    -OO转换会帮你去掉assert语句和<code>__doc__</code>文档字符串<br>    由于一些程序可能依赖于assert语句或文档字符串，你应该在在确认需要<br>    的情况下使用这些选项。<br>3.在速度上从.pyc文件中读指令来执行不会比从.py文件中读指令执行更快，只有在模块被加载时，.pyc文件才是更快的</p>
+<p>4.只有使用import语句是才将文件自动编译为.pyc文件，在命令行或标准输入中指定运行脚本则不会生成这类文件，因而我们可以使用compieall模块为一个目录中的所有模块创建.pyc文件</p>
+<p>模块可以作为一个脚本（使用python -m compileall）编译Python源<br>python -m compileall /module_directory 递归着编译<br>如果使用python -O -m compileall /module_directory -l则只一层</p>
+<p>命令行里使用compile()函数时，自动使用python -O -m compileall</p>
+<p>详见：<a href="https://docs.python.org/3/library/compileall.html#module-compileall" target="_blank" rel="noopener">https://docs.python.org/3/library/compileall.html#module-compileall</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/模块/" rel="tag"># 模块</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/27/python异常处理/" rel="next" title="python异常处理">
+                <i class="fa fa-chevron-left"></i> python异常处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/29/python包/" rel="prev" title="python包">
+                python包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/">
+              <img class="site-author-image" itemprop="image" src="/images/mianma.jpg" alt="Messiless">
+               </a>
+            
+              <p class="site-author-name" itemprop="name">Messiless</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Messiless" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangzc946971@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块介绍"><span class="nav-text">模块介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用模块之import"><span class="nav-text">使用模块之import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用模块之from-…-import…"><span class="nav-text">使用模块之from … import…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块的重载-了解"><span class="nav-text">模块的重载 (了解)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块搜索路径"><span class="nav-text">模块搜索路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译python文件（了解）"><span class="nav-text">编译python文件（了解）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Messiless</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
