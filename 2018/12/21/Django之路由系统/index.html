@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="路由系统,">
 
 
 
@@ -110,6 +110,7 @@
 
 
 <meta name="description" content="路由系统简而言之，django的路由系统作用就是使views里面处理数据的函数与请求的url建立映射关系。使请求到来之后，根据urls.py里的关系条目，去查找到与请求对应的处理方法，从而返回给客户端http页面数据  Django2.0中，url得匹配规则更新了，在django1.0中，url是用正则表达式书写得，相对来说比较繁琐一些，在django2.0中进行了升级优化，描写url配置的有两个">
+<meta name="keywords" content="路由系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Django之(URL)路由系统">
 <meta property="og:url" content="https://messilessblog.com/2018/12/21/Django之路由系统/index.html">
@@ -118,7 +119,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://messilessblog.com/2018/12/21/Django之路由系统/1.png">
 <meta property="og:image" content="https://messilessblog.com/2018/12/21/Django之路由系统/2.png">
-<meta property="og:updated_time" content="2019-03-27T15:31:01.039Z">
+<meta property="og:updated_time" content="2019-03-27T15:34:57.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django之(URL)路由系统">
 <meta name="twitter:description" content="路由系统简而言之，django的路由系统作用就是使views里面处理数据的函数与请求的url建立映射关系。使请求到来之后，根据urls.py里的关系条目，去查找到与请求对应的处理方法，从而返回给客户端http页面数据  Django2.0中，url得匹配规则更新了，在django1.0中，url是用正则表达式书写得，相对来说比较繁琐一些，在django2.0中进行了升级优化，描写url配置的有两个">
@@ -358,6 +359,28 @@
             
           </span>
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -428,7 +451,7 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [ </span><br><span class="line">     re_path(<span class="string">r'^user_list/(?P&lt;v1&gt;\d+)/(?P&lt;v2&gt;\d+)$'</span>,views.user_list), </span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
 <p>然后将此参数传递到views里对应的函数，可以不按照顺序</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def user_list(request,v2,v1):</span><br><span class="line"> </span><br><span class="line">    <span class="built_in"> return </span>HttpResponse(v1+v2)</span><br><span class="line">参数v1 = (?P&lt;v1&gt;\d+)</span><br><span class="line">参数v2 = (?P&lt;v2&gt;\d+)</span><br></pre></td></tr></table></figure>
-<h2 id="根据不同的app来分发不同的url"><a href="#根据不同的app来分发不同的url" class="headerlink" title="根据不同的app来分发不同的url"></a><blockquote class="question">根据不同的app来分发不同的url</blockquote></h2><p>如果一个项目下有很多的app，那么在urls.py里面就要写巨多的urls映射关系。这样看起来很不灵活，而且杂乱无章。<br>我们可以根据不同的app来分类不同的url请求。<br>首先，在urls.py里写入urls映射条目。注意要导入include方法</p>
+<h2 id="路由分发"><a href="#路由分发" class="headerlink" title="路由分发"></a><blockquote class="question">路由分发</blockquote></h2><p>如果一个项目下有很多的app，那么在urls.py里面就要写巨多的urls映射关系。这样看起来很不灵活，而且杂乱无章。<br>我们可以根据不同的app来分类不同的url请求。<br>首先，在urls.py里写入urls映射条目。注意要导入include方法</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> <span class="keyword">include</span>, url</span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line"></span><br><span class="line">    path(<span class="string">'app01/'</span>, <span class="keyword">include</span>(<span class="string">'app01.urls'</span>)),</span><br><span class="line">    path(<span class="string">'app02/'</span>, <span class="keyword">include</span>(<span class="string">'app02.urls'</span>)),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>这条关系的意思是将url为”app01/“的请求都交给app01下的urls去处理</p>
 <p>其次，在app01下创建一个urls.py文件，用来处理请求的url，使之与views建立映射</p>
@@ -448,6 +471,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/路由系统/" rel="tag"># 路由系统</a>
+          
+        </div>
       
 
       
@@ -573,7 +602,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -622,7 +651,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由系统"><span class="nav-text">路由系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#path"><span class="nav-text">path()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#re-path"><span class="nav-text">re_path()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按照顺序放置的动态路由"><span class="nav-text">按照顺序放置的动态路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传参形势的路由"><span class="nav-text">传参形势的路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据不同的app来分发不同的url"><span class="nav-text">根据不同的app来分发不同的url</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由系统"><span class="nav-text">路由系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#path"><span class="nav-text">path()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#re-path"><span class="nav-text">re_path()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按照顺序放置的动态路由"><span class="nav-text">按照顺序放置的动态路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传参形势的路由"><span class="nav-text">传参形势的路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由分发"><span class="nav-text">路由分发</span></a></li></ol></div>
             
 
           </div>
