@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="linux命令,">
+  <meta name="keywords" content="跨站请求伪造,">
 
 
 
@@ -109,20 +109,18 @@
 
 
 
-<meta name="description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
-<meta name="keywords" content="linux命令">
+<meta name="description" content="一、简介jango为用户实现防止跨站请求伪造的功能，通过中间件 django.middleware.csrf.CsrfViewMiddleware 来完成。而对于django中设置防跨站请求伪造功能有分为全局和局部。 全局： 　　中间件 django.middleware.csrf.CsrfViewMiddleware 局部：  @csrf_protect，为当前函数强制设置防跨站请求伪造功能，即">
+<meta name="keywords" content="跨站请求伪造">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LINUX命令二">
-<meta property="og:url" content="https://messilessblog.com/2018/11/11/LINUX命令二/index.html">
+<meta property="og:title" content="Django之跨站请求伪造">
+<meta property="og:url" content="https://messilessblog.com/2018/12/23/Django之跨站请求伪造/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
+<meta property="og:description" content="一、简介jango为用户实现防止跨站请求伪造的功能，通过中间件 django.middleware.csrf.CsrfViewMiddleware 来完成。而对于django中设置防跨站请求伪造功能有分为全局和局部。 全局： 　　中间件 django.middleware.csrf.CsrfViewMiddleware 局部：  @csrf_protect，为当前函数强制设置防跨站请求伪造功能，即">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://messilessblog.com/2018/11/11/LINUX命令二/1.png">
-<meta property="og:updated_time" content="2019-03-23T04:04:51.401Z">
+<meta property="og:updated_time" content="2019-04-03T15:13:08.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LINUX命令二">
-<meta name="twitter:description" content="打包压缩打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt 查看包内的内容 tar -tf /test.tar 解压包到当前目录 tar -xvf /test.tar 解压包到指定目录 tar -xvf /test.tar -C /try 压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小） 解压文件 ta">
-<meta name="twitter:image" content="https://messilessblog.com/2018/11/11/LINUX命令二/1.png">
+<meta name="twitter:title" content="Django之跨站请求伪造">
+<meta name="twitter:description" content="一、简介jango为用户实现防止跨站请求伪造的功能，通过中间件 django.middleware.csrf.CsrfViewMiddleware 来完成。而对于django中设置防跨站请求伪造功能有分为全局和局部。 全局： 　　中间件 django.middleware.csrf.CsrfViewMiddleware 局部：  @csrf_protect，为当前函数强制设置防跨站请求伪造功能，即">
 
 
 
@@ -152,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://messilessblog.com/2018/11/11/LINUX命令二/">
+  <link rel="canonical" href="https://messilessblog.com/2018/12/23/Django之跨站请求伪造/">
 
 
 
 
 
-  <title>LINUX命令二 | Messiless Blog</title>
+  <title>Django之跨站请求伪造 | Messiless Blog</title>
   
 
 
@@ -319,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://messilessblog.com/2018/11/11/LINUX命令二/">
+    <link itemprop="mainEntityOfPage" href="https://messilessblog.com/2018/12/23/Django之跨站请求伪造/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Messiless">
@@ -336,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LINUX命令二</h1>
+          <h1 class="post-title" itemprop="name headline">Django之跨站请求伪造</h1>
         
 
         <div class="post-meta">
@@ -348,8 +346,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-11T23:16:24+08:00">
-                2018-11-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-23T23:04:44+08:00">
+                2018-12-23
               </time>
             
 
@@ -370,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
                   </a>
                 </span>
 
@@ -407,88 +405,21 @@
       
 
       
-        <h3 id="打包压缩"><a href="#打包压缩" class="headerlink" title="打包压缩"></a><blockquote class="question">打包压缩</blockquote></h3><p>打包命令 tar -cvf /test.tar /a.txt /b.txt /c.txt</p>
-<p>查看包内的内容 tar -tf /test.tar</p>
-<p>解压包到当前目录 tar -xvf /test.tar</p>
-<p>解压包到指定目录 tar -xvf /test.tar -C /try</p>
-<p>压缩文件 gzip /test.tar (压缩快但大) 或者bzip2 /test.tar （压缩慢但小）</p>
-<p>解压文件 tar -xf /test.tar.zp tar-xf /test.tar.bz2</p>
-<p>打包并同时压缩文件tar -cvzf /test.tar.zp /a.txt /b.txt /c.txt</p>
-<p>或 tar -cvjf /test.tar.bz2 /a.txt /b.txt /c.txt</p>
-<p>如果要连同目录一起压缩则最后用/ 如果只想压缩目录下面的文件则/*</p>
-<h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a><blockquote class="question">vi</blockquote></h3><p>查看并编辑文档 vim 按a 编辑 按 :wq 保存并退出</p>
-<p>q！不保存</p>
-<p>x    小写的x表示向后删除一个字符,也就是删除光标所在字符</p>
-<p>nx  n表示数字，表示向后删除每个字符，例如：10x表示删除包括光标在内的后面10个字符</p>
-<p>dd 删除当前一行 ,就是截切</p>
-<p>ndd删除n行（例如3dd删除3行）</p>
-<p>yy复制一行</p>
-<p>nyy复制n行</p>
-<p>p 粘贴到目标位置的下一行</p>
-<p>P 粘贴到目标位置的上一行</p>
-<p>u 撤销上一步操作</p>
-<p>ctrl+r 返回前一步</p>
-<p>gg 光标移动到文件的第一行</p>
-<p>G 光标移动到文件的最后一行</p>
-<p>nG 光标移动到文件的第n行</p>
-<p>dgg  删除光标所在行到第一行数据</p>
-<p>dG     删除光标所在行到最后一行数据</p>
-<h3 id="磁盘分区"><a href="#磁盘分区" class="headerlink" title="磁盘分区"></a><blockquote class="question">磁盘分区</blockquote></h3><p>/dev</p>
-<p>fdisk -l /dev/sda 查看磁盘信息</p>
-<p>fdisk /dev/sdb 进入磁盘分区</p>
-<p>p 输出目前磁盘分区信息</p>
-<p>n 分区 分为p主分区 e扩展分区</p>
-<p>d 删除分区</p>
-<p>给分区装装指定系统 mkfs.xfs /dev/sdb1</p>
-<p>挂载一个目录 mount /dev/sdb1 /test</p>
-<p>卸除挂载目录 umount /dev/sdb1</p>
-<p>一个分区挂载两个目录时，则两个目录同时指向该分区，即同步</p>
-<p>df 查看磁盘分区信息 df-Th</p>
-<h3 id="创建软连接"><a href="#创建软连接" class="headerlink" title="创建软连接"></a><blockquote class="question">创建软连接</blockquote></h3><p>相当于创建快捷方式ln -s /test/a.txt /sb/a.txt 前面是被创建的软连接</p>
-<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a><blockquote class="question">内存</blockquote></h3><p>查看内存信息 swapon -s</p>
-<p>增加内存区 mkswap /dev/sdb2</p>
-<p>swapon -a /dev/sdb2</p>
-<p>删除内存区swapoff /dev/sdb2</p>
-<p>查看内存 free</p>
-<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a><blockquote class="question">进程</blockquote></h3><p>firefox &amp; 后台运行程序</p>
-<p>ps aux 查看全部进程</p>
-<p>ps aux|grep fire 查找带fire的进程</p>
-<p>pgrep firefox 查找firefox进程号</p>
-<p>kill -9 3315 强制杀死进程(3315代表进程编号)</p>
-<p>pkill -9 firefox 指定名称的杀死进程</p>
-<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a><blockquote class="question">软件安装</blockquote></h3><h4 id="二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><a href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm" class="headerlink" title="二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm"></a>二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</h4><p>覆盖安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm –force</p>
-<p>查看系统中所有安装的rpm包 rpm -qa</p>
-<p>查看指定的包 rpm -qa|grep vsf</p>
-<p>查看rpm包安装在哪 rpm -ql vsf</p>
-<p>查看rmp包详细信息 rpm -qi vsf</p>
-<p>查看文件是由那个包产生 rpm -qf /test/b1.txt</p>
-<p>删除rmp包 rmp -e vsf</p>
-<p>使用yum安装和卸载软件，有个前提是yum安装的软件包都是rpm格式的</p>
-<p> yum update  升级系统</p>
-<p> yum install  ～ 安装指定软件包</p>
-<p> yum update ～ 升级指定软件包</p>
-<p> yum remove ～ 卸载指定软件</p>
-<p> yum grouplist   查看系统中已经安装的和可用的软件组，可用的可以安装</p>
-<p> yum groupinstall ～安装上一个命令显示的可用的软件组中的一个</p>
-<h4 id="源代码安装"><a href="#源代码安装" class="headerlink" title="源代码安装"></a>源代码安装</h4><p>python安装</p>
-<p>python官网下载file源代码</p>
-<p>安装环境</p>
-<p>查看group列表 yum grouplist</p>
-<p>安装组包 yum groupinstall ‘开发工具’ -y</p>
-<p>解压文件 tar -xvf pytho-3.7.0.tgz</p>
-<p>cd到解压好的文件目录，更改源码包安装路径 ./configure –prefix=/usr/local/python3.7</p>
-<p>编码 make</p>
-<p>安装 make install（安装时会出现下面两种错误</p>
-<p>1.<img src="/2018/11/11/LINUX命令二/1.png" alt="你想输入的替代文字"></p>
-<p>需要安装zlib包 yum install zlib*</p>
-<p>2.ModuleNotFoundError: No module named ‘_ctypes’</p>
-<p>解决方法：3.7版本需要一个新的包libffi-devel，安装此包之后再次进行编译安装即可</p>
-<p>yum install libffi-*</p>
-<p>把python3.7加到path环境中</p>
-<p>更改profile文件 vim /etc/profile</p>
-<p>在文件的最后面加上 PATH=$PATH:/usr/local/python3.7/bin</p>
-<p>export PATH</p>
-<p>netstat -tunapl 查看网络状态</p>
+        <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a><blockquote class="question">一、简介</blockquote></h2><p>jango为用户实现防止跨站请求伪造的功能，通过中间件 django.middleware.csrf.CsrfViewMiddleware 来完成。而对于django中设置防跨站请求伪造功能有分为全局和局部。</p>
+<p>全局：</p>
+<p>　　中间件 django.middleware.csrf.CsrfViewMiddleware</p>
+<p>局部：</p>
+<ul>
+<li>@csrf_protect，为当前函数强制设置防跨站请求伪造功能，即便settings中没有设置全局中间件。</li>
+<li>@csrf_exempt，取消当前函数防跨站请求伪造功能，即便settings中设置了全局中间件。</li>
+</ul>
+<p>注：from django.views.decorators.csrf import csrf_exempt,csrf_protect</p>
+<h2 id="二、应用"><a href="#二、应用" class="headerlink" title="二、应用"></a><blockquote class="question">二、应用</blockquote></h2><h3 id="1、普通表单"><a href="#1、普通表单" class="headerlink" title="1、普通表单"></a>1、普通表单</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">veiw中设置返回值：</span><br><span class="line">　　<span class="keyword">return</span> render_to_response(<span class="string">'Account/Login.html'</span>,<span class="keyword">data</span>,context_instance=RequestContext(request))　　</span><br><span class="line">     或者</span><br><span class="line">     <span class="keyword">return</span> render(request, <span class="string">'xxx.html'</span>, <span class="keyword">data</span>)</span><br><span class="line">  </span><br><span class="line">html中设置Token:</span><br><span class="line">　　&#123;% csrf_token %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2、Ajax"><a href="#2、Ajax" class="headerlink" title="2、Ajax"></a>2、Ajax</h3><p>对于传统的form，可以通过表单的方式将token再次发送到服务端，而对于ajax的话，使用如下方式。</p>
+<p>view.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.template.context <span class="keyword">import</span> RequestContext</span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(request)</span>:</span></span><br><span class="line">  </span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        <span class="keyword">print</span> request.POST</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">'ok'</span>)</span><br><span class="line">    <span class="keyword">return</span>  render_to_response(<span class="string">'app01/test.html'</span>,context_instance=RequestContext(request))</span><br></pre></td></tr></table></figure>
+<p>text.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    &#123;% csrf_token %&#125;</span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"Do();"</span>  <span class="attr">value</span>=<span class="string">"Do it"</span>/&gt;</span></span><br><span class="line">  </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/static/plugin/jquery/jquery-1.8.0.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/static/plugin/jquery/jquery.cookie.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">        <span class="function"><span class="keyword">function</span> <span class="title">Do</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> csrftoken = $.cookie(<span class="string">'csrftoken'</span>);</span></span><br><span class="line"><span class="javascript">            $.ajax(&#123;</span></span><br><span class="line"><span class="actionscript">                url:<span class="string">"/app01/test/"</span>,</span></span><br><span class="line"><span class="undefined">                data:&#123;id:1&#125;,</span></span><br><span class="line"><span class="actionscript">                headers:&#123;<span class="string">"X-CSRFToken"</span>:csrftoken&#125;</span></span><br><span class="line"><span class="actionscript">                type:<span class="string">'POST'</span>,</span></span><br><span class="line"><span class="actionscript">                success:<span class="function"><span class="keyword">function</span><span class="params">(data)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(data);</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;);</span></span><br><span class="line"><span class="undefined">  </span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -506,7 +437,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux命令/" rel="tag"># linux命令</a>
+            <a href="/tags/跨站请求伪造/" rel="tag"># 跨站请求伪造</a>
           
         </div>
       
@@ -519,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/11/LINUX命令一/" rel="next" title="LINUX命令一">
-                <i class="fa fa-chevron-left"></i> LINUX命令一
+              <a href="/2018/12/23/Django分页/" rel="next" title="Django分页">
+                <i class="fa fa-chevron-left"></i> Django分页
               </a>
             
           </div>
@@ -529,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/12/LINUX命令三/" rel="prev" title="LINUX命令三">
-                LINUX命令三 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/29/冒泡排序/" rel="prev" title="冒泡排序">
+                冒泡排序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -683,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#打包压缩"><span class="nav-text">打包压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vi"><span class="nav-text">vi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁盘分区"><span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建软连接"><span class="nav-text">创建软连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存"><span class="nav-text">内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程"><span class="nav-text">进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件安装"><span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二进制软件安装-rpm-ivh-vsf-3-0-2-9-e17-x86-64-rpm"><span class="nav-text">二进制软件安装 rpm -ivh /vsf-3.0.2-9.e17.x86_64.rpm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码安装"><span class="nav-text">源代码安装</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、简介"><span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、应用"><span class="nav-text">二、应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、普通表单"><span class="nav-text">1、普通表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Ajax"><span class="nav-text">2、Ajax</span></a></li></ol></li></ol></div>
             
 
           </div>
