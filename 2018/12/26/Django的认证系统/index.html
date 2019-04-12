@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="生成器表达式,">
+  <meta name="keywords" content="Django,">
 
 
 
@@ -109,18 +109,18 @@
 
 
 
-<meta name="description" content="生成器表达式相比列表表达式，将[]换成了()，返回对象不是一个列表，而是一个生成器，相比列表更加省内存 实例1： 列表表达式写法： 12l = [&apos;apple%s&apos; % i for i in range(10000)]print(l) 生成器表达式写法： 123g = (&apos;apple%s&apos; % i for i in range(10000))for i in g:    print(i) 实例2:">
-<meta name="keywords" content="生成器表达式">
+<meta name="description" content="Django自带的用户认证我们在开发一个网站的时候，无可避免的需要设计实现网站的用户系统。此时我们需要实现包括用户注册、用户登录、用户认证、注销、修改密码等功能，这还真是个麻烦的事情呢。 Django作为一个完美主义者的终极框架，当然也会想到用户的这些痛点。它内置了强大的用户认证系统–auth，它默认使用 auth_user 表来存储用户数据。 auth模块1from django.contrib">
+<meta name="keywords" content="Django">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python生成器表达式">
-<meta property="og:url" content="https://messilessblog.com/2018/11/20/python生成器表达式/index.html">
+<meta property="og:title" content="Django的认证系统">
+<meta property="og:url" content="https://messilessblog.com/2018/12/26/Django的认证系统/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="生成器表达式相比列表表达式，将[]换成了()，返回对象不是一个列表，而是一个生成器，相比列表更加省内存 实例1： 列表表达式写法： 12l = [&apos;apple%s&apos; % i for i in range(10000)]print(l) 生成器表达式写法： 123g = (&apos;apple%s&apos; % i for i in range(10000))for i in g:    print(i) 实例2:">
+<meta property="og:description" content="Django自带的用户认证我们在开发一个网站的时候，无可避免的需要设计实现网站的用户系统。此时我们需要实现包括用户注册、用户登录、用户认证、注销、修改密码等功能，这还真是个麻烦的事情呢。 Django作为一个完美主义者的终极框架，当然也会想到用户的这些痛点。它内置了强大的用户认证系统–auth，它默认使用 auth_user 表来存储用户数据。 auth模块1from django.contrib">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-21T07:27:44.110Z">
+<meta property="og:updated_time" content="2019-04-12T08:16:48.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python生成器表达式">
-<meta name="twitter:description" content="生成器表达式相比列表表达式，将[]换成了()，返回对象不是一个列表，而是一个生成器，相比列表更加省内存 实例1： 列表表达式写法： 12l = [&apos;apple%s&apos; % i for i in range(10000)]print(l) 生成器表达式写法： 123g = (&apos;apple%s&apos; % i for i in range(10000))for i in g:    print(i) 实例2:">
+<meta name="twitter:title" content="Django的认证系统">
+<meta name="twitter:description" content="Django自带的用户认证我们在开发一个网站的时候，无可避免的需要设计实现网站的用户系统。此时我们需要实现包括用户注册、用户登录、用户认证、注销、修改密码等功能，这还真是个麻烦的事情呢。 Django作为一个完美主义者的终极框架，当然也会想到用户的这些痛点。它内置了强大的用户认证系统–auth，它默认使用 auth_user 表来存储用户数据。 auth模块1from django.contrib">
 
 
 
@@ -150,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://messilessblog.com/2018/11/20/python生成器表达式/">
+  <link rel="canonical" href="https://messilessblog.com/2018/12/26/Django的认证系统/">
 
 
 
 
 
-  <title>python生成器表达式 | Messiless Blog</title>
+  <title>Django的认证系统 | Messiless Blog</title>
   
 
 
@@ -317,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://messilessblog.com/2018/11/20/python生成器表达式/">
+    <link itemprop="mainEntityOfPage" href="https://messilessblog.com/2018/12/26/Django的认证系统/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Messiless">
@@ -334,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python生成器表达式</h1>
+          <h1 class="post-title" itemprop="name headline">Django的认证系统</h1>
         
 
         <div class="post-meta">
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-20T20:03:39+08:00">
-                2018-11-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T16:06:55+08:00">
+                2018-12-26
               </time>
             
 
@@ -368,8 +368,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/" itemprop="url" rel="index">
-                    <span itemprop="name">python</span>
+                  <a href="/categories/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
                   </a>
                 </span>
 
@@ -405,17 +405,75 @@
       
 
       
-        <h3 id="生成器表达式"><a href="#生成器表达式" class="headerlink" title="生成器表达式"></a><blockquote class="question">生成器表达式</blockquote></h3><p>相比列表表达式，将[]换成了()，返回对象不是一个列表，而是一个生成器，相比列表更加省内存</p>
-<p>实例1：</p>
-<p>列表表达式写法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l = [<span class="string">'apple%s'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>)]</span><br><span class="line">print(l)</span><br></pre></td></tr></table></figure>
-<p>生成器表达式写法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">g = (<span class="string">'apple%s'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> g:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
-<p>实例2:</p>
-<p>一般写法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">res = []</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test1.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        l = line.split(<span class="string">','</span>)</span><br><span class="line">        d = &#123;&#125;</span><br><span class="line">        d[<span class="string">'name'</span>] = l[<span class="number">0</span>]</span><br><span class="line">        d[<span class="string">'price'</span>] = l[<span class="number">1</span>]</span><br><span class="line">        d[<span class="string">'count'</span>] = l[<span class="number">2</span>]</span><br><span class="line">        res.append(d)</span><br><span class="line">        print(d)</span><br></pre></td></tr></table></figure>
-<p>生成器表达式写法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'test1.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    res = (line.split(<span class="string">','</span>) <span class="keyword">for</span> line <span class="keyword">in</span> f)</span><br><span class="line">    dic_g = (&#123;<span class="string">'name'</span>: i[<span class="number">0</span>], <span class="string">'price'</span>: i[<span class="number">1</span>], <span class="string">'count'</span>: i[<span class="number">2</span>]&#125; <span class="keyword">for</span> i <span class="keyword">in</span> res)</span><br><span class="line">    apple_dic = next(dic_g)   <span class="comment">#只有调用next才会往外拿一个,大大节省内存</span></span><br><span class="line">    print(apple_dic)</span><br></pre></td></tr></table></figure>
+        <h2 id="Django自带的用户认证"><a href="#Django自带的用户认证" class="headerlink" title="Django自带的用户认证"></a><blockquote class="question">Django自带的用户认证</blockquote></h2><p>我们在开发一个网站的时候，无可避免的需要设计实现网站的用户系统。此时我们需要实现包括用户注册、用户登录、用户认证、注销、修改密码等功能，这还真是个麻烦的事情呢。</p>
+<p>Django作为一个完美主义者的终极框架，当然也会想到用户的这些痛点。它内置了强大的用户认证系统–auth，它默认使用 auth_user 表来存储用户数据。</p>
+<h2 id="auth模块"><a href="#auth模块" class="headerlink" title="auth模块"></a><blockquote class="question">auth模块</blockquote></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> auth</span><br></pre></td></tr></table></figure>
+<p>auth中提供了许多实用方法：</p>
+<h3 id="authenticate"><a href="#authenticate" class="headerlink" title="authenticate()"></a>authenticate()</h3><p>提供了用户认证功能，即验证用户名以及密码是否正确，一般需要username 、password两个关键字参数。</p>
+<p>如果认证成功（用户名和密码正确有效），便会返回一个 User 对象。</p>
+<p>authenticate()会在该 User 对象上设置一个属性来标识后端已经认证了该用户，且该信息在后续的登录过程中是需要的。</p>
+<p>用法：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">user</span> = authenticate(username=<span class="string">'theuser'</span>,password=<span class="string">'thepassword'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="login-HttpRequest-user"><a href="#login-HttpRequest-user" class="headerlink" title="login(HttpRequest, user)"></a>login(HttpRequest, user)</h3><p>该函数接受一个HttpRequest对象，以及一个经过认证的User对象。</p>
+<p>该函数实现一个用户登录的功能。它本质上会在后端为该用户生成相关session数据。</p>
+<p>用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> authenticate, login</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_view</span><span class="params">(request)</span>:</span></span><br><span class="line">  username = request.POST[<span class="string">'username'</span>]</span><br><span class="line">  password = request.POST[<span class="string">'password'</span>]</span><br><span class="line">  user_obj = authenticate(username=username, password=password)</span><br><span class="line">  <span class="keyword">if</span> user_obj:</span><br><span class="line">    login(request, user_obj)</span><br><span class="line">    <span class="comment"># Redirect to a success page.</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># Return an 'invalid login' error message.</span></span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
+<p>只要使用login(request, user_obj)之后，request.user就能拿到当前登录的用户对象。否则request.user得到的是一个匿名用户对象（AnonymousUser Object）。</p>
+<p>详细原理请查看 AuthenticationMiddleware 中间件源码。</p>
+<h3 id="logout-request"><a href="#logout-request" class="headerlink" title="logout(request)"></a><strong>logout(request)</strong></h3><p>该函数接受一个HttpRequest对象，无返回值。</p>
+<p>当调用该函数时，当前请求的session信息会全部清除。该用户即使没有登录，使用该函数也不会报错。</p>
+<p>用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> logout</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout_view</span><span class="params">(request)</span>:</span></span><br><span class="line">  logout(request)</span><br><span class="line">  <span class="comment"># Redirect to a success page.</span></span><br></pre></td></tr></table></figure>
+<h3 id="is-authenticated"><a href="#is-authenticated" class="headerlink" title="is_authenticated()"></a>is_authenticated()</h3><p>用来判断当前请求是否通过了认证。</p>
+<p>用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_view</span><span class="params">(request)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> request.user.is_authenticated():</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'%s?next=%s'</span> % (settings.LOGIN_URL, request.path))</span><br></pre></td></tr></table></figure>
+<h3 id="login-requierd"><a href="#login-requierd" class="headerlink" title="login_requierd()"></a><strong>login_requierd()</strong></h3><p>auth 给我们提供的一个装饰器工具，用来快捷的给某个视图添加登录校验。</p>
+<p>用法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required</span><br><span class="line">      </span><br><span class="line"><span class="meta">@login_required</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_view</span><span class="params">(request)</span>:</span></span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<p>若用户没有登录，则会跳转到django默认的 登录URL ‘/accounts/login/ ‘ 并传递当前访问url的绝对路径 (登陆成功后，会重定向到该路径)。</p>
+<p>如果需要自定义登录的URL，则需要在settings.py文件中通过LOGIN_URL进行修改。</p>
+<p>示例：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LOGIN_URL</span> = <span class="string">'/login/'</span>  # 这里配置成你项目登录页面的路由</span><br></pre></td></tr></table></figure>
+<h3 id="create-user"><a href="#create-user" class="headerlink" title="create_user()"></a>create_user()</h3><p>auth 提供的一个创建新用户的方法，需要提供必要参数（username、password）等。</p>
+<p>用法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.models import User</span><br><span class="line">user = User.objects.create_user（<span class="attribute">username</span>=<span class="string">'用户名'</span>,password='密码',email='邮箱',...）</span><br></pre></td></tr></table></figure>
+<h3 id="create-superuser"><a href="#create-superuser" class="headerlink" title="create_superuser()"></a>create_superuser()</h3><p>auth 提供的一个创建新的超级用户的方法，需要提供必要参数（username、password）等。</p>
+<p>用法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.models import User</span><br><span class="line">user_obj = User.objects.create_superuser（<span class="attribute">username</span>=<span class="string">'用户名'</span>,password='密码',email='邮箱',...）</span><br></pre></td></tr></table></figure>
+<h3 id="check-password-raw-password"><a href="#check-password-raw-password" class="headerlink" title="check_password(raw_password)"></a>check_password(raw_password)</h3><p>auth 提供的一个检查密码是否正确的方法，需要提供当前请求用户的密码。</p>
+<p>密码正确返回True，否则返回False。</p>
+<p>用法：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ok</span> = user_obj.check_password(<span class="string">'密码'</span>)</span><br></pre></td></tr></table></figure>
+<p>或者直接针对当前请求的user对象校验原密码是否正确：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ok = request<span class="selector-class">.user</span><span class="selector-class">.check_password</span>(raw_password=<span class="string">'原密码'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="set-password-raw-password"><a href="#set-password-raw-password" class="headerlink" title="set_password(raw_password)"></a>set_password(raw_password)</h3><p>auth 提供的一个修改密码的方法，接收 要设置的新密码 作为参数。</p>
+<p>注意：设置完一定要调用用户对象的save方法！！！</p>
+<p>用法：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">user_obj</span><span class="selector-class">.set_password</span>(<span class="string">'新密码'</span>)</span><br><span class="line"><span class="selector-tag">user_obj</span><span class="selector-class">.save</span>()</span><br></pre></td></tr></table></figure>
+<p><strong>一个修改密码功能的简单示例</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@login_required</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_password</span><span class="params">(request)</span>:</span></span><br><span class="line">    user = request.user</span><br><span class="line">    err_msg = <span class="string">''</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        old_password = request.POST.get(<span class="string">'old_password'</span>, <span class="string">''</span>)</span><br><span class="line">        new_password = request.POST.get(<span class="string">'new_password'</span>, <span class="string">''</span>)</span><br><span class="line">        repeat_password = request.POST.get(<span class="string">'repeat_password'</span>, <span class="string">''</span>)</span><br><span class="line">        <span class="comment"># 检查旧密码是否正确</span></span><br><span class="line">        <span class="keyword">if</span> user.check_password(old_password):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> new_password:</span><br><span class="line">                err_msg = <span class="string">'新密码不能为空'</span></span><br><span class="line">            <span class="keyword">elif</span> new_password != repeat_password:</span><br><span class="line">                err_msg = <span class="string">'两次密码不一致'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                user.set_password(new_password)</span><br><span class="line">                user.save()</span><br><span class="line">                <span class="keyword">return</span> redirect(<span class="string">"/login/"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            err_msg = <span class="string">'原密码输入错误'</span></span><br><span class="line">    content = &#123;</span><br><span class="line">        <span class="string">'err_msg'</span>: err_msg,</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">'set_password.html'</span>, content)</span><br></pre></td></tr></table></figure>
+<h3 id="用户对象的属性"><a href="#用户对象的属性" class="headerlink" title="用户对象的属性"></a>用户对象的属性</h3><p>user_obj能够拿到认证所用用户表的数据属性，比如username， password等。</p>
+<p>其他常用属性含义如下：</p>
+<p>is_staff ： 用户是否拥有网站的管理权限.</p>
+<p>is_active ： 是否允许用户登录, 设置为 False，可以在不删除用户的前提下禁止用户登录。</p>
+<h2 id="扩展默认的auth-user表"><a href="#扩展默认的auth-user表" class="headerlink" title="扩展默认的auth_user表"></a><blockquote class="question">扩展默认的auth_user表</blockquote></h2><p>这内置的认证系统这么好用，但是auth_user表字段都是固定的那几个，我在项目中没法拿来直接使用啊！</p>
+<p>比如，我想要加一个存储用户手机号的字段，怎么办？</p>
+<p>聪明的你可能会想到新建另外一张表然后通过一对一和内置的auth_user表关联，这样虽然能满足要求但是有没有更好的实现方式呢？</p>
+<p>答案是当然有了。</p>
+<p>我们可以通过继承内置的 AbstractUser 类，来定义一个自己的Model类。</p>
+<p>这样既能根据项目需求灵活的设计用户表，又能使用Django强大的认证系统了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> AbstractUser</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span><span class="params">(AbstractUser)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    用户信息表</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    nid = models.AutoField(primary_key=<span class="keyword">True</span>)</span><br><span class="line">    phone = models.CharField(max_length=<span class="number">11</span>, null=<span class="keyword">True</span>, unique=<span class="keyword">True</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.username</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>按上面的方式扩展了内置的auth_user表之后，一定要在settings.py中告诉Django，我现在使用我新定义的UserInfo表来做用户认证。写法如下：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 引用Django自带的User表，继承使用时需要设置</span></span><br><span class="line"><span class="attr">AUTH_USER_MODEL</span> = <span class="string">"app名.UserInfo"</span></span><br></pre></td></tr></table></figure>
+<p>自定义认证系统默认使用的数据表之后，我们就可以像使用默认的auth_user表那样使用我们的UserInfo表了。比如：</p>
+<p>创建普通用户：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserInfo.objects.create_user(<span class="attribute">username</span>=<span class="string">'用户名'</span>, <span class="attribute">password</span>=<span class="string">'密码'</span>)</span><br></pre></td></tr></table></figure>
+<p>创建超级用户：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UserInfo.objects.create_superuser(<span class="attribute">username</span>=<span class="string">'用户名'</span>, <span class="attribute">password</span>=<span class="string">'密码'</span>)</span><br></pre></td></tr></table></figure>
+<p>再次注意：</p>
+<p>一旦我们指定了新的认证系统所使用的表，我们就需要重新在数据库中创建该表，而不能继续使用原来默认的auth_user表了。</p>
 
       
     </div>
@@ -433,7 +491,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/生成器表达式/" rel="tag"># 生成器表达式</a>
+            <a href="/tags/Django/" rel="tag"># Django</a>
           
         </div>
       
@@ -446,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/20/python列表生成式/" rel="next" title="python列表生成式">
-                <i class="fa fa-chevron-left"></i> python列表生成式
+              <a href="/2018/12/25/Django之Form组件/" rel="next" title="Django之Form组件">
+                <i class="fa fa-chevron-left"></i> Django之Form组件
               </a>
             
           </div>
@@ -456,8 +514,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/21/python内置函数/" rel="prev" title="python内置函数">
-                python内置函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/29/冒泡排序/" rel="prev" title="冒泡排序">
+                冒泡排序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器表达式"><span class="nav-text">生成器表达式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Django自带的用户认证"><span class="nav-text">Django自带的用户认证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#auth模块"><span class="nav-text">auth模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#authenticate"><span class="nav-text">authenticate()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#login-HttpRequest-user"><span class="nav-text">login(HttpRequest, user)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#logout-request"><span class="nav-text">logout(request)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#is-authenticated"><span class="nav-text">is_authenticated()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#login-requierd"><span class="nav-text">login_requierd()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create-user"><span class="nav-text">create_user()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create-superuser"><span class="nav-text">create_superuser()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#check-password-raw-password"><span class="nav-text">check_password(raw_password)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-password-raw-password"><span class="nav-text">set_password(raw_password)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户对象的属性"><span class="nav-text">用户对象的属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展默认的auth-user表"><span class="nav-text">扩展默认的auth_user表</span></a></li></ol></div>
             
 
           </div>
