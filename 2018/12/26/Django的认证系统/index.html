@@ -407,7 +407,7 @@
       
         <h2 id="Django自带的用户认证"><a href="#Django自带的用户认证" class="headerlink" title="Django自带的用户认证"></a><blockquote class="question">Django自带的用户认证</blockquote></h2><p>我们在开发一个网站的时候，无可避免的需要设计实现网站的用户系统。此时我们需要实现包括用户注册、用户登录、用户认证、注销、修改密码等功能，这还真是个麻烦的事情呢。</p>
 <p>Django作为一个完美主义者的终极框架，当然也会想到用户的这些痛点。它内置了强大的用户认证系统–auth，它默认使用 auth_user 表来存储用户数据。</p>
-<h2 id="auth模块"><a href="#auth模块" class="headerlink" title="auth模块"></a><blockquote class="question">auth模块</blockquote></h2><figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> auth</span><br></pre></td></tr></table></figure>
+<h2 id="auth模块"><a href="#auth模块" class="headerlink" title="auth模块"></a><blockquote class="question">auth模块</blockquote></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> auth</span><br></pre></td></tr></table></figure>
 <p>auth中提供了许多实用方法：</p>
 <h3 id="authenticate"><a href="#authenticate" class="headerlink" title="authenticate()"></a>authenticate()</h3><p>提供了用户认证功能，即验证用户名以及密码是否正确，一般需要username 、password两个关键字参数。</p>
 <p>如果认证成功（用户名和密码正确有效），便会返回一个 User 对象。</p>
@@ -427,7 +427,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> logout</span><br><span class="line">   </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout_view</span><span class="params">(request)</span>:</span></span><br><span class="line">  logout(request)</span><br><span class="line">  <span class="comment"># Redirect to a success page.</span></span><br></pre></td></tr></table></figure>
 <h3 id="is-authenticated"><a href="#is-authenticated" class="headerlink" title="is_authenticated()"></a>is_authenticated()</h3><p>用来判断当前请求是否通过了认证。</p>
 <p>用法：</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_view</span><span class="params">(request)</span></span><span class="symbol">:</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> request.user.is_authenticated()<span class="symbol">:</span></span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'%s?next=%s'</span> % (settings.LOGIN_URL, request.path))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_view</span><span class="params">(request)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> <span class="keyword">not</span> request.user.is_authenticated():</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'%s?next=%s'</span> % (settings.LOGIN_URL, request.path))</span><br></pre></td></tr></table></figure>
 <h3 id="login-requierd"><a href="#login-requierd" class="headerlink" title="login_requierd()"></a><strong>login_requierd()</strong></h3><p>auth 给我们提供的一个装饰器工具，用来快捷的给某个视图添加登录校验。</p>
 <p>用法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required</span><br><span class="line">      </span><br><span class="line"><span class="meta">@login_required</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_view</span><span class="params">(request)</span>:</span></span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
@@ -597,7 +597,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -619,7 +619,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
