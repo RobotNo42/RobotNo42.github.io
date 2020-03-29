@@ -109,20 +109,20 @@
 
 
 
-<meta name="description" content="创建和使用12345678class Dog():    def __init__(self,name,age):        self.name=name;        self.age=age;    def sit(self):        print(self.name.title()+&quot; is now sitting&quot;)    def roll_over(self):">
+<meta name="description" content="创建和使用12345678class Dog():    def __init__(self,name,age):        self.name=name        self.age=age    def sit(self):        print(self.name.title()+&quot; is now sitting&quot;)    def roll_over(self):        p">
 <meta name="keywords" content="类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python类">
 <meta property="og:url" content="https://robotno42.github.io/2018/11/22/python类/index.html">
 <meta property="og:site_name" content="Messiless Blog">
-<meta property="og:description" content="创建和使用12345678class Dog():    def __init__(self,name,age):        self.name=name;        self.age=age;    def sit(self):        print(self.name.title()+&quot; is now sitting&quot;)    def roll_over(self):">
+<meta property="og:description" content="创建和使用12345678class Dog():    def __init__(self,name,age):        self.name=name        self.age=age    def sit(self):        print(self.name.title()+&quot; is now sitting&quot;)    def roll_over(self):        p">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://robotno42.github.io/2018/11/22/python类/1.png">
 <meta property="og:image" content="https://robotno42.github.io/2018/11/22/python类/2.png">
-<meta property="og:updated_time" content="2019-03-21T07:31:06.055Z">
+<meta property="og:updated_time" content="2020-02-17T03:40:51.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python类">
-<meta name="twitter:description" content="创建和使用12345678class Dog():    def __init__(self,name,age):        self.name=name;        self.age=age;    def sit(self):        print(self.name.title()+&quot; is now sitting&quot;)    def roll_over(self):">
+<meta name="twitter:description" content="创建和使用12345678class Dog():    def __init__(self,name,age):        self.name=name        self.age=age    def sit(self):        print(self.name.title()+&quot; is now sitting&quot;)    def roll_over(self):        p">
 <meta name="twitter:image" content="https://robotno42.github.io/2018/11/22/python类/1.png">
 
 
@@ -408,7 +408,7 @@
       
 
       
-        <h3 id="创建和使用"><a href="#创建和使用" class="headerlink" title="创建和使用"></a><blockquote class="question">创建和使用</blockquote></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name=name;</span><br><span class="line">        self.age=age;</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sit</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name.title()+<span class="string">" is now sitting"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">roll_over</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name.title()+<span class="string">" rolled over!"</span>)</span><br></pre></td></tr></table></figure>
+        <h3 id="创建和使用"><a href="#创建和使用" class="headerlink" title="创建和使用"></a><blockquote class="question">创建和使用</blockquote></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span></span><br><span class="line">        self.name=name</span><br><span class="line">        self.age=age</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sit</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name.title()+<span class="string">" is now sitting"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">roll_over</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name.title()+<span class="string">" rolled over!"</span>)</span><br></pre></td></tr></table></figure>
 <p>方法<code>__init__()</code>是一个特殊的方法，相当于构造方法，每当创建新实例时，Python都会自动运行它<br><code>__init__</code>中的形参self必不可少，还必须位于其他形参的前面。创建实例时不用给self传递值<br>后面的两个方法由于不需要额外的信息，因此只有一个形参self，变量都有前缀self，以self为前缀的变量<br>可供类中的所有方法使用。self.name=name获取存储在形参name中的值，并将其存储到变量name中，然后<br>该变量被关联到当前创建的实例。</p>
 <h4 id="根据类创建实例"><a href="#根据类创建实例" class="headerlink" title="根据类创建实例"></a>根据类创建实例</h4><p>my_dog=Dog(‘stupy’,3)<br>这里使用上面的Dog类创建了一个名为‘stupy’、年龄为3的my_dog实例<br>访问属性<br>my_dog.name获取名字，my_dog.age获取年龄</p>
 <h4 id="调用方法"><a href="#调用方法" class="headerlink" title="调用方法"></a>调用方法</h4><p>my_dog.sit()     my_dog.roll_over()</p>
@@ -600,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -622,7 +622,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

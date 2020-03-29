@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="Messiless Blog">
 <meta property="og:description" content="生成器表达式相比列表表达式，将[]换成了()，返回对象不是一个列表，而是一个生成器，相比列表更加省内存 实例1： 列表表达式写法： 12l = [&apos;apple%s&apos; % i for i in range(10000)]print(l) 生成器表达式写法： 123g = (&apos;apple%s&apos; % i for i in range(10000))for i in g:    print(i) 实例2:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-21T07:27:44.110Z">
+<meta property="og:updated_time" content="2020-02-14T10:36:52.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python生成器表达式">
 <meta name="twitter:description" content="生成器表达式相比列表表达式，将[]换成了()，返回对象不是一个列表，而是一个生成器，相比列表更加省内存 实例1： 列表表达式写法： 12l = [&apos;apple%s&apos; % i for i in range(10000)]print(l) 生成器表达式写法： 123g = (&apos;apple%s&apos; % i for i in range(10000))for i in g:    print(i) 实例2:">
@@ -413,9 +413,9 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">g = (<span class="string">'apple%s'</span> % i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10000</span>))</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> g:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
 <p>实例2:</p>
 <p>一般写法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">res = []</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test1.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        l = line.split(<span class="string">','</span>)</span><br><span class="line">        d = &#123;&#125;</span><br><span class="line">        d[<span class="string">'name'</span>] = l[<span class="number">0</span>]</span><br><span class="line">        d[<span class="string">'price'</span>] = l[<span class="number">1</span>]</span><br><span class="line">        d[<span class="string">'count'</span>] = l[<span class="number">2</span>]</span><br><span class="line">        res.append(d)</span><br><span class="line">        print(d)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">res = []</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'test1.txt'</span>, mode=<span class="string">'r'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        l = line.split(<span class="string">','</span>)</span><br><span class="line">        d = &#123;&#125;</span><br><span class="line">        d[<span class="string">'name'</span>] = l[<span class="number">0</span>]</span><br><span class="line">        d[<span class="string">'price'</span>] = l[<span class="number">1</span>]</span><br><span class="line">        d[<span class="string">'count'</span>] = l[<span class="number">2</span>]</span><br><span class="line">        res.append(d)</span><br><span class="line">        print(d)</span><br></pre></td></tr></table></figure>
 <p>生成器表达式写法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'test1.txt'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    res = (line.split(<span class="string">','</span>) <span class="keyword">for</span> line <span class="keyword">in</span> f)</span><br><span class="line">    dic_g = (&#123;<span class="string">'name'</span>: i[<span class="number">0</span>], <span class="string">'price'</span>: i[<span class="number">1</span>], <span class="string">'count'</span>: i[<span class="number">2</span>]&#125; <span class="keyword">for</span> i <span class="keyword">in</span> res)</span><br><span class="line">    apple_dic = next(dic_g)   <span class="comment">#只有调用next才会往外拿一个,大大节省内存</span></span><br><span class="line">    print(apple_dic)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'test1.txt'</span>, mode=<span class="string">'r'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    res = (line.split(<span class="string">','</span>) <span class="keyword">for</span> line <span class="keyword">in</span> f)</span><br><span class="line">    dic_g = (&#123;<span class="string">'name'</span>: i[<span class="number">0</span>], <span class="string">'price'</span>: i[<span class="number">1</span>], <span class="string">'count'</span>: i[<span class="number">2</span>]&#125; <span class="keyword">for</span> i <span class="keyword">in</span> res)</span><br><span class="line">    apple_dic = next(dic_g)   <span class="comment">#只有调用next才会往外拿一个,大大节省内存</span></span><br><span class="line">    print(apple_dic)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -539,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -561,7 +561,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
