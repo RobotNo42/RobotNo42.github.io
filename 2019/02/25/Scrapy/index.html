@@ -118,7 +118,7 @@
 <meta property="og:description" content="ScrapyScrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 其可以应用在数据挖掘，信息处理或存储历史数据等一系列的程序中。其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。 Scr">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://robotno42.github.io/2019/02/25/Scrapy/1.png">
-<meta property="og:updated_time" content="2020-03-31T03:48:31.112Z">
+<meta property="og:updated_time" content="2020-04-06T12:25:13.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scrapy">
 <meta name="twitter:description" content="ScrapyScrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 其可以应用在数据挖掘，信息处理或存储历史数据等一系列的程序中。其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。 Scr">
@@ -545,6 +545,29 @@
 <li>在配置文件 <code>settings.py</code>中配置 <code>IMAGES_STORE</code>，这个配置是用来设置文件下载下来的路径。设置为一个有效的文件夹，用来存储下载的图片。 否则管道将保持禁用状态，即使你在 <code>ITEM_PIPELINES</code> 设置中添加了它。</li>
 <li>启动 <code>pipeline</code>：在 <code>ITEM_PIPELINES</code>中设置 <code>scrapy.pipelines.images.ImagesPipeline:1</code>。</li>
 </ol>
+<h3 id="Downloader-Middlewares-下载中间件"><a href="#Downloader-Middlewares-下载中间件" class="headerlink" title="Downloader Middlewares(下载中间件)"></a>Downloader Middlewares(下载中间件)</h3><p>下载器中间件是引擎和下载器之间通信的中间件，在这个中间件中我们可以设置代理，更换请求头等来达到反反爬虫的目的。要写下载器中间件，可以再下载器中实现两个方法，一个是<code>process_request(self,request,spider)</code>,这个方法是在请求发送之前会执行，还有一个是<code>process_response(self,request,response,spider)</code>，这个方法是数据下载到引擎之前执行。</p>
+<h4 id="process-request-self-request-spider"><a href="#process-request-self-request-spider" class="headerlink" title="process_request(self,request,spider)"></a>process_request(self,request,spider)</h4><p>这个方法是下载器在发送之前会执行的。一般可以在这个里面设置随机代理ip等</p>
+<ol>
+<li>参数</li>
+</ol>
+<ul>
+<li><p>request：发送请求的request对象</p>
+</li>
+<li><p>spider：发送请求的spider对象</p>
+</li>
+</ul>
+<ol start="2">
+<li>返回值</li>
+</ol>
+<ul>
+<li><p>返回None：如果返回None，Scrapy将继续处理该request，执行其他中间件中的相应方法，直到合适的下载器处理函数被调用。</p>
+</li>
+<li><p>返回Response：Scrapy将不会调用其他任何的<code>process_request</code>将直接返回这个response对象，已经激活的中间件的<code>process_response()</code>方法则会在每个response返回时被调用。</p>
+</li>
+<li><p>返回Request：不再使用之前的request对象去下载数据，而是根据现在返回的request对象返回数据。</p>
+<p>如果这个方法中抛出了异常，则会调用<code>process_exception</code>方法</p>
+</li>
+</ul>
 
       
     </div>
@@ -585,8 +608,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/02/Typora的常用快捷方式/" rel="prev" title="'Typora的常用快捷方式'">
-                'Typora的常用快捷方式' <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/02/Typora的常用快捷方式/" rel="prev" title="Typora的常用快捷方式">
+                Typora的常用快捷方式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -739,7 +762,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrapy"><span class="nav-text">Scrapy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装"><span class="nav-text">一、安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-text">Windows</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本使用"><span class="nav-text">二、基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构以及爬虫应用简介"><span class="nav-text">项目结构以及爬虫应用简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存json数据"><span class="nav-text">保存json数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CrawlSpider"><span class="nav-text">CrawlSpider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy-Shell"><span class="nav-text">Scrapy Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request和Response对象"><span class="nav-text">Request和Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Request对象"><span class="nav-text">Request对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response对象"><span class="nav-text">Response对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求"><span class="nav-text">发送POST请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟登录"><span class="nav-text">模拟登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件和图片"><span class="nav-text">下载文件和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要选择使用-scrapy-内置的下载文件的方法"><span class="nav-text">为什么要选择使用 scrapy 内置的下载文件的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载文件的-Files-Pipeline"><span class="nav-text">下载文件的 Files Pipeline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载图片的-Image-Pipeline"><span class="nav-text">下载图片的 Image Pipeline</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrapy"><span class="nav-text">Scrapy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装"><span class="nav-text">一、安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-text">Windows</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本使用"><span class="nav-text">二、基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构以及爬虫应用简介"><span class="nav-text">项目结构以及爬虫应用简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存json数据"><span class="nav-text">保存json数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CrawlSpider"><span class="nav-text">CrawlSpider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy-Shell"><span class="nav-text">Scrapy Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request和Response对象"><span class="nav-text">Request和Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Request对象"><span class="nav-text">Request对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response对象"><span class="nav-text">Response对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求"><span class="nav-text">发送POST请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟登录"><span class="nav-text">模拟登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件和图片"><span class="nav-text">下载文件和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要选择使用-scrapy-内置的下载文件的方法"><span class="nav-text">为什么要选择使用 scrapy 内置的下载文件的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载文件的-Files-Pipeline"><span class="nav-text">下载文件的 Files Pipeline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载图片的-Image-Pipeline"><span class="nav-text">下载图片的 Image Pipeline</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Downloader-Middlewares-下载中间件"><span class="nav-text">Downloader Middlewares(下载中间件)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#process-request-self-request-spider"><span class="nav-text">process_request(self,request,spider)</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
