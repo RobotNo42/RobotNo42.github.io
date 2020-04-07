@@ -118,7 +118,8 @@
 <meta property="og:description" content="ScrapyScrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 其可以应用在数据挖掘，信息处理或存储历史数据等一系列的程序中。其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。 Scr">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://robotno42.github.io/2019/02/25/Scrapy/1.png">
-<meta property="og:updated_time" content="2020-04-06T12:25:13.441Z">
+<meta property="og:image" content="https://robotno42.github.io/2019/02/25/Scrapy/2.png">
+<meta property="og:updated_time" content="2020-04-06T15:16:37.518Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Scrapy">
 <meta name="twitter:description" content="ScrapyScrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 其可以应用在数据挖掘，信息处理或存储历史数据等一系列的程序中。其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。 Scr">
@@ -568,6 +569,26 @@
 <p>如果这个方法中抛出了异常，则会调用<code>process_exception</code>方法</p>
 </li>
 </ul>
+<p><img src="/2019/02/25/Scrapy/2.png" alt></p>
+<h4 id="process-response-self-request-response-spider"><a href="#process-response-self-request-response-spider" class="headerlink" title="process_response(self,request,response,spider)"></a>process_response(self,request,response,spider)</h4><p>这个是下载器下载的数据到引擎中间会执行的方法</p>
+<ol>
+<li>参数：</li>
+</ol>
+<ul>
+<li>request：request对象</li>
+<li>response：被处理的response对象</li>
+<li>spider：spider对象</li>
+</ul>
+<ol start="2">
+<li>返回值：</li>
+</ol>
+<ul>
+<li>返回Response对象：会将这个新的response对象传给其他中间件，最终传给爬虫。</li>
+<li>返回Request对象：下载器链被切断，返回的request会重新被下载器调度下载。</li>
+<li>如果抛出一个异常，那么调用request的errback方法，如果没有指定这个方法，那么会抛出一个异常。</li>
+</ul>
+<h4 id="随机请求头中间件"><a href="#随机请求头中间件" class="headerlink" title="随机请求头中间件"></a>随机请求头中间件</h4><p>爬虫在频繁访问一个页面的时候，这个请求头如果一直保持一致，那么很容易被服务器发现，从而禁止掉这个请求头的访问。因此我们要在访问这个页面之前随机的更改请求头，这样才可以减小爬虫被抓的几率。随机更改请求头，可以在下载中间件中实现，在请求发送给服务器之前，随机的选择一个请求头，这样就可以避免总是使用一个请求头了，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAgentDownloadMiddleware</span><span class="params">(object)</span>:</span></span><br><span class="line">	User_Agents =[</span><br><span class="line">         <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'</span>,</span><br><span class="line">        <span class="string">' Mozilla/7.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'</span>,</span><br><span class="line">         <span class="string">'Mozilla/23.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'</span></span><br><span class="line">    ]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self,request,spider)</span>:</span></span><br><span class="line">        user_agent = random.choice(self.User_Agents)</span><br><span class="line">        request.headers[<span class="string">'User-Agent'</span>] = user_agent</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -702,7 +723,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -762,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrapy"><span class="nav-text">Scrapy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装"><span class="nav-text">一、安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-text">Windows</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本使用"><span class="nav-text">二、基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构以及爬虫应用简介"><span class="nav-text">项目结构以及爬虫应用简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存json数据"><span class="nav-text">保存json数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CrawlSpider"><span class="nav-text">CrawlSpider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy-Shell"><span class="nav-text">Scrapy Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request和Response对象"><span class="nav-text">Request和Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Request对象"><span class="nav-text">Request对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response对象"><span class="nav-text">Response对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求"><span class="nav-text">发送POST请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟登录"><span class="nav-text">模拟登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件和图片"><span class="nav-text">下载文件和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要选择使用-scrapy-内置的下载文件的方法"><span class="nav-text">为什么要选择使用 scrapy 内置的下载文件的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载文件的-Files-Pipeline"><span class="nav-text">下载文件的 Files Pipeline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载图片的-Image-Pipeline"><span class="nav-text">下载图片的 Image Pipeline</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Downloader-Middlewares-下载中间件"><span class="nav-text">Downloader Middlewares(下载中间件)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#process-request-self-request-spider"><span class="nav-text">process_request(self,request,spider)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrapy"><span class="nav-text">Scrapy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装"><span class="nav-text">一、安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-text">Windows</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本使用"><span class="nav-text">二、基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构以及爬虫应用简介"><span class="nav-text">项目结构以及爬虫应用简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存json数据"><span class="nav-text">保存json数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CrawlSpider"><span class="nav-text">CrawlSpider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy-Shell"><span class="nav-text">Scrapy Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request和Response对象"><span class="nav-text">Request和Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Request对象"><span class="nav-text">Request对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response对象"><span class="nav-text">Response对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求"><span class="nav-text">发送POST请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟登录"><span class="nav-text">模拟登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件和图片"><span class="nav-text">下载文件和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要选择使用-scrapy-内置的下载文件的方法"><span class="nav-text">为什么要选择使用 scrapy 内置的下载文件的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载文件的-Files-Pipeline"><span class="nav-text">下载文件的 Files Pipeline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载图片的-Image-Pipeline"><span class="nav-text">下载图片的 Image Pipeline</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Downloader-Middlewares-下载中间件"><span class="nav-text">Downloader Middlewares(下载中间件)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#process-request-self-request-spider"><span class="nav-text">process_request(self,request,spider)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#process-response-self-request-response-spider"><span class="nav-text">process_response(self,request,response,spider)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机请求头中间件"><span class="nav-text">随机请求头中间件</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
