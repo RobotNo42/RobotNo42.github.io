@@ -117,13 +117,13 @@
 <meta property="og:site_name" content="Messiless Blog">
 <meta property="og:description" content="路由系统简而言之，django的路由系统作用就是使views里面处理数据的函数与请求的url建立映射关系。使请求到来之后，根据urls.py里的关系条目，去查找到与请求对应的处理方法，从而返回给客户端http页面数据  Django2.0中，url得匹配规则更新了，在django1.0中，url是用正则表达式书写得，相对来说比较繁琐一些，在django2.0中进行了升级优化，描写url配置的有两个">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://messiless.club/posts/1.png">
-<meta property="og:image" content="https://messiless.club/posts/2.png">
-<meta property="og:updated_time" content="2020-04-09T12:19:57.931Z">
+<meta property="og:image" content="https://messiless.club/posts/51808/1.png">
+<meta property="og:image" content="https://messiless.club/posts/51808/2.png">
+<meta property="og:updated_time" content="2020-04-09T14:49:34.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django之路由系统">
 <meta name="twitter:description" content="路由系统简而言之，django的路由系统作用就是使views里面处理数据的函数与请求的url建立映射关系。使请求到来之后，根据urls.py里的关系条目，去查找到与请求对应的处理方法，从而返回给客户端http页面数据  Django2.0中，url得匹配规则更新了，在django1.0中，url是用正则表达式书写得，相对来说比较繁琐一些，在django2.0中进行了升级优化，描写url配置的有两个">
-<meta name="twitter:image" content="https://messiless.club/posts/1.png">
+<meta name="twitter:image" content="https://messiless.club/posts/51808/1.png">
 
 
 
@@ -409,7 +409,7 @@
 
       
         <h2 id="路由系统"><a href="#路由系统" class="headerlink" title="路由系统"></a><blockquote class="question">路由系统</blockquote></h2><p>简而言之，django的路由系统作用就是使views里面处理数据的函数与请求的url建立映射关系。使请求到来之后，根据urls.py里的关系条目，去查找到与请求对应的处理方法，从而返回给客户端http页面数据</p>
-<p><img src="/posts/1.png" alt></p>
+<img src="/posts/51808/1.png">
 <p><strong>Django2.0中，url得匹配规则更新了，在django1.0中，url是用正则表达式书写得，相对来说比较繁琐一些，在django2.0中进行了升级优化，描写url配置的有两个函数path和re_path</strong></p>
 <p>django 项目中的url规则定义放在project 的urls.py目录下，<br>默认如下：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from django<span class="selector-class">.conf</span><span class="selector-class">.urls</span> import path</span><br><span class="line">from django<span class="selector-class">.contrib</span> import admin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin<span class="selector-class">.site</span><span class="selector-class">.urls</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
@@ -434,21 +434,21 @@
 <p>比如要匹配一个视图中的函数路由，该函数有两个形参：</p>
 <p>def peopleList(request,book_id)</p>
 <p>第一个request是默认的，那么路径自动匹配该函数的第二个形参，匹配格式：<a href="int:book_id" target="_blank" rel="noopener">int:book_id</a>，并返回一个正整数或零值。</p>
-<p><img src="/posts/2.png" alt></p>
+<img src="/posts/51808/2.png">
 <h2 id="re-path"><a href="#re-path" class="headerlink" title="re_path()"></a><blockquote class="question">re_path()</blockquote></h2><p>而如果遇上路径和转换器语法都不足以定义的URL模式，那么就需要使用正则表达式，这时候就需要使用re_path()，而非path()。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> re_path</span><br></pre></td></tr></table></figure>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> re_path</span><br></pre></td></tr></table></figure>
 <p>在Python正则表达式中，命名正则表达式组的语法是<code>(?P&lt;name&gt;pattern)</code>，组<code>name</code>的名称，并且 <code>pattern</code>是要匹配的模式。</p>
 <p>还是以上图圈中的部分为例，也是可以用正则表达式来写的。如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re_path(<span class="string">r'^(\d+)/$'</span>,views.peopleList,name=<span class="string">'peopleList'</span>),</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">re_path(<span class="string">r'^(\d+)/$'</span>,views.peopleList,name=<span class="string">'peopleList'</span>),</span><br></pre></td></tr></table></figure>
 <p>这样也是可以匹配到views视图中的peopleList函数的形参的。</p>
 <p>所以这两种使用方式在使用上根据实际情况自行使用。</p>
 <h2 id="按照顺序放置的动态路由"><a href="#按照顺序放置的动态路由" class="headerlink" title="按照顺序放置的动态路由"></a><blockquote class="question">按照顺序放置的动态路由</blockquote></h2><p>可以使用正则来匹配URL，将一组url使用一条映射搞定</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">     re_path(<span class="string">r'^host/(\d+)$'</span>, views.host),</span><br><span class="line">     re_path(<span class="string">r'^host_list/(\d+)/(\d+)$'</span>, views.host_list), </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">     re_path(<span class="string">r'^host/(\d+)$'</span>, views.host),</span><br><span class="line">     re_path(<span class="string">r'^host_list/(\d+)/(\d+)$'</span>, views.host_list), </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <p>\^host_list/(\d+)/(\d+)$</p>
 <p>相对应的url是： ”<a href="http://127.0.0.1/host/8/9" target="_blank" rel="noopener">http://127.0.0.1/host/8/9</a>“，匹配到的数字会以参数的形式按照顺序传递给views里面相对应的函数<br>在views.host_list中需要指定两个形式参数,注意：此参数的顺序严格按照url中匹配的顺序</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_list</span><span class="params">(request,hid,hid2)</span>:</span> </span><br><span class="line">     <span class="keyword">return</span> HttpResponse(hid+hid2)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_list</span><span class="params">(request,hid,hid2)</span></span>: </span><br><span class="line">     <span class="keyword">return</span> HttpResponse(hid+hid2)</span><br></pre></td></tr></table></figure>
 <h2 id="传参形势的路由"><a href="#传参形势的路由" class="headerlink" title="传参形势的路由"></a><blockquote class="question">传参形势的路由</blockquote></h2><p>利用正则表达式的分组方法，以参数的形式传递到函数，可以不按顺序排列</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [ </span><br><span class="line">     re_path(<span class="string">r'^user_list/(?P&lt;v1&gt;\d+)/(?P&lt;v2&gt;\d+)$'</span>,views.user_list), </span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [ </span><br><span class="line">     re_path(<span class="string">r'^user_list/(?P&lt;v1&gt;\d+)/(?P&lt;v2&gt;\d+)$'</span>,views.user_list), </span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
 <p>然后将此参数传递到views里对应的函数，可以不按照顺序</p>
 <figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def user_list(request,v2,v1):</span><br><span class="line"> </span><br><span class="line">    <span class="built_in"> return </span>HttpResponse(v1+v2)</span><br><span class="line">参数v1 = (?P&lt;v1&gt;\d+)</span><br><span class="line">参数v2 = (?P&lt;v2&gt;\d+)</span><br></pre></td></tr></table></figure>
 <h2 id="路由分发"><a href="#路由分发" class="headerlink" title="路由分发"></a><blockquote class="question">路由分发</blockquote></h2><p>如果一个项目下有很多的app，那么在urls.py里面就要写巨多的urls映射关系。这样看起来很不灵活，而且杂乱无章。<br>我们可以根据不同的app来分类不同的url请求。<br>首先，在urls.py里写入urls映射条目。注意要导入include方法</p>
