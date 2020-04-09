@@ -117,12 +117,12 @@
 <meta property="og:site_name" content="Messiless Blog">
 <meta property="og:description" content="包介绍1、什么是包？ 官网解释Packages are a way of structuring Python’s module namespace by using “dotted module names”包是一种通过使用‘.模块名’来组织python模块名称空间的方式。 具体的：包就是一个包含有__init__.py文件的文件夹，所以其实我们创建包的目的就是为了用文件夹将文件/模块组织起来">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://messiless.club/posts/1.png">
-<meta property="og:updated_time" content="2020-04-09T12:19:57.938Z">
+<meta property="og:image" content="https://messiless.club/posts/5858/1.png">
+<meta property="og:updated_time" content="2020-04-09T15:06:55.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python包">
 <meta name="twitter:description" content="包介绍1、什么是包？ 官网解释Packages are a way of structuring Python’s module namespace by using “dotted module names”包是一种通过使用‘.模块名’来组织python模块名称空间的方式。 具体的：包就是一个包含有__init__.py文件的文件夹，所以其实我们创建包的目的就是为了用文件夹将文件/模块组织起来">
-<meta name="twitter:image" content="https://messiless.club/posts/1.png">
+<meta name="twitter:image" content="https://messiless.club/posts/5858/1.png">
 
 
 
@@ -473,7 +473,7 @@
 <p>2.attempted relative import beyond top-level package # 试图在顶级包之外使用相对导入是错误的,言外之意,必须在顶级包内使用相对导入,每增加一个.代表跳到上一级文件夹,而上一级不应该超出顶级包</p>
 <p>如果要导入的文件不在同一个包中</p>
 <p>例：在a1.py中导入test3</p>
-<p><img src="/posts/1.png" alt></p>
+<img src="/posts/5858/1.png">
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os,sys</span><br><span class="line">re = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  <span class="comment">#找到当前文件的上上级目录</span></span><br><span class="line">sys.path.append(re)   <span class="comment">#添加到路径中</span></span><br><span class="line"><span class="keyword">import</span> test3</span><br></pre></td></tr></table></figure>
 <p>例：如果在test1.py中</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> A</span><br><span class="line">A.kill()</span><br></pre></td></tr></table></figure>

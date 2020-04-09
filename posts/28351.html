@@ -117,12 +117,12 @@
 <meta property="og:site_name" content="Messiless Blog">
 <meta property="og:description" content="本篇对于Python操作MySQL主要使用两种方式：  原生模块 pymsql ORM框架 SQLAchemy  pymsqlpymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。 下载安装1pip3 install pymysql 使用操作1、执行SQL 1234567891011121314151617181920212223242526#!/usr/bin/e">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://messiless.club/posts/1.png">
-<meta property="og:updated_time" content="2020-04-09T12:19:57.954Z">
+<meta property="og:image" content="https://messiless.club/posts/28351/1.png">
+<meta property="og:updated_time" content="2020-04-09T15:08:39.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python操作mysql">
 <meta name="twitter:description" content="本篇对于Python操作MySQL主要使用两种方式：  原生模块 pymsql ORM框架 SQLAchemy  pymsqlpymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。 下载安装1pip3 install pymysql 使用操作1、执行SQL 1234567891011121314151617181920212223242526#!/usr/bin/e">
-<meta name="twitter:image" content="https://messiless.club/posts/1.png">
+<meta name="twitter:image" content="https://messiless.club/posts/28351/1.png">
 
 
 
@@ -431,7 +431,7 @@
 <h3 id="SQLAchemy"><a href="#SQLAchemy" class="headerlink" title="SQLAchemy"></a><blockquote class="question">SQLAchemy</blockquote></h3><p>SQLAlchemy是<a href="http://baike.baidu.com/subview/21087/21087.htm" target="_blank" rel="noopener">Python</a>编程语言下的一款ORM框架，该框架建立在数据库API之上，使用关系对象映射进行数据库操作，简言之便是：将对象转换成SQL，然后使用数据API执行SQL并获取执行结果。</p>
 <p>安装：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install</span> SQLAlchemy</span><br></pre></td></tr></table></figure>
-<p><img src="/posts/1.png" alt></p>
+<img src="/posts/28351/1.png">
 <p>SQLAlchemy本身无法操作数据库，其必须以来pymsql等第三方插件，Dialect用于和数据API进行交流，根据配置文件的不同调用不同的数据库API，从而实现对数据库的操作，如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MySQL-Python</span><br><span class="line">    mysql+mysqldb://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span><br><span class="line">   </span><br><span class="line">pymysql</span><br><span class="line">    mysql+pymysql://&lt;username&gt;:&lt;password&gt;@&lt;host&gt;/&lt;dbname&gt;[?&lt;options&gt;]</span><br><span class="line">   </span><br><span class="line">MySQL-Connector</span><br><span class="line">    mysql+mysqlconnector://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;[:&lt;port&gt;]/&lt;dbname&gt;</span><br><span class="line">   </span><br><span class="line">cx_Oracle</span><br><span class="line">    oracle+cx_oracle://user:pass@host:port/dbname[?key=value&amp;key=value...]</span><br><span class="line">   </span><br><span class="line">更多详见：http://docs.sqlalchemy.org/en/latest/dialects/index.html</span><br></pre></td></tr></table></figure>
 <h4 id="一、内部处理"><a href="#一、内部处理" class="headerlink" title="一、内部处理"></a>一、内部处理</h4><p>使用 Engine/ConnectionPooling/Dialect 进行数据库操作，Engine使用ConnectionPooling连接数据库，然后再通过Dialect执行SQL语句。</p>

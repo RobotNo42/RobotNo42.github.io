@@ -117,18 +117,18 @@
 <meta property="og:site_name" content="Messiless Blog">
 <meta property="og:description" content="MySQL概述1、什么是数据库 ？　答：数据的仓库，如：在ATM的示例中我们创建了一个 db 目录，称其为数据库 2、什么是 MySQL、Oracle、SQLite、Access、MS SQL Server等 ？　答：他们均是一个软件，都有两个主要的功能：   a. 将数据保存到文件或内存 b. 接收特定的命令，然后对文件进行相应的操作    3、什么是SQL ？　答：MySQL等软件可以接受命令">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://messiless.club/posts/1.png">
-<meta property="og:image" content="https://messiless.club/posts/2.png">
-<meta property="og:image" content="https://messiless.club/posts/3.png">
-<meta property="og:image" content="https://messiless.club/posts/4.png">
-<meta property="og:image" content="https://messiless.club/posts/5.png">
-<meta property="og:image" content="https://messiless.club/posts/6.png">
-<meta property="og:image" content="https://messiless.club/posts/7.png">
-<meta property="og:updated_time" content="2020-04-09T12:19:57.970Z">
+<meta property="og:image" content="https://messiless.club/posts/17251/1.png">
+<meta property="og:image" content="https://messiless.club/posts/17251/2.png">
+<meta property="og:image" content="https://messiless.club/posts/17251/3.png">
+<meta property="og:image" content="https://messiless.club/posts/17251/4.png">
+<meta property="og:image" content="https://messiless.club/posts/17251/5.png">
+<meta property="og:image" content="https://messiless.club/posts/17251/6.png">
+<meta property="og:image" content="https://messiless.club/posts/17251/7.png">
+<meta property="og:updated_time" content="2020-04-09T15:04:54.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql基础">
 <meta name="twitter:description" content="MySQL概述1、什么是数据库 ？　答：数据的仓库，如：在ATM的示例中我们创建了一个 db 目录，称其为数据库 2、什么是 MySQL、Oracle、SQLite、Access、MS SQL Server等 ？　答：他们均是一个软件，都有两个主要的功能：   a. 将数据保存到文件或内存 b. 接收特定的命令，然后对文件进行相应的操作    3、什么是SQL ？　答：MySQL等软件可以接受命令">
-<meta name="twitter:image" content="https://messiless.club/posts/1.png">
+<meta name="twitter:image" content="https://messiless.club/posts/17251/1.png">
 
 
 
@@ -432,7 +432,7 @@
 <h2 id="数据库基础"><a href="#数据库基础" class="headerlink" title="数据库基础"></a><blockquote class="question">数据库基础</blockquote></h2><p>分为两大部分：</p>
 <p>​                  1、数据库和表的创建;</p>
 <p>​                  2、数据库和表内容的操作</p>
-<p><img src="/posts/1.png" alt></p>
+<img src="/posts/17251/1.png">
 <h3 id="1、数据库和表的创建"><a href="#1、数据库和表的创建" class="headerlink" title="1、数据库和表的创建"></a>1、数据库和表的创建</h3><h4 id="（一）数据库的创建"><a href="#（一）数据库的创建" class="headerlink" title="（一）数据库的创建"></a>（一）数据库的创建</h4><h5 id="1-1、显示数据库"><a href="#1-1、显示数据库" class="headerlink" title="1.1、显示数据库"></a><strong>1.1、显示数据库</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure>
 <p>​    默认数据库：<br>　    　　　  mysql - 用户权限相关数据<br>　　　　　　test - 用于用户测试数据<br>　　　　　　information_schema - MySQL本身架构相关数据</p>
 <h5 id="1-2、创建数据库"><a href="#1-2、创建数据库" class="headerlink" title="1.2、创建数据库"></a><strong>1.2、创建数据库</strong></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># utf-8</span><br><span class="line">CREATE DATABASE 数据库名称 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;</span><br><span class="line"> </span><br><span class="line"># gbk</span><br><span class="line">CREATE DATABASE 数据库名称 DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;</span><br></pre></td></tr></table></figure>
@@ -478,7 +478,7 @@
 <p>2、在所有的字段之后使用unique key（字段列表）;</p>
 <p>3、在创建完表之后也可以用增加唯一键</p>
 <p>alter table 表名 add unique key（字段列表）；</p>
-<p><img src="/posts/2.png" alt></p>
+<img src="/posts/17251/2.png">
 <p>唯一键效果：在不为空的情况下，不允许重复。</p>
 <p>删除唯一键：</p>
 <p>一个表中允许存在多个唯一键：</p>
@@ -513,21 +513,21 @@
 <p>一对多：从球队角度来说一个球队拥有多个球员 即为一对多</p>
 <p>多对一：从球员角度来说多个球员属于一个球队 即为多对一</p>
 <p>数据表间一对多关系如下图：</p>
-<p><img src="/posts/3.png" alt></p>
+<img src="/posts/17251/3.png">
 <p>关联映射：一对一</p>
 <p>一对一关系就如球队与球队所在地址之间的关系，一支球队仅有一个地址，而一个地址区也仅有一支球队。</p>
 <p>数据表间一对一关系的表现有两种，一种是外键关联，一种是主键关联。图示如下：</p>
 <p>一对一外键关联：</p>
-<p><img src="/posts/4.png" alt></p>
+<img src="/posts/17251/4.png">
 <p>一对一主键关联：要求两个表的主键必须完全一致，通过两个表的主键建立关联关系</p>
-<p><img src="/posts/5.png" alt></p>
+<img src="/posts/17251/5.png">
 <p>关联映射：多对多</p>
 <p>多对多关系也很常见，例如学生与选修课之间的关系，一个学生可以选择多门选修课，而每个选修课又可以被多名学生选择。</p>
 <p>数据库中的多对多关联关系一般需采用中间表的方式处理，将多对多转化为两个一对多</p>
-<p><img src="/posts/6.png" alt></p>
+<img src="/posts/17251/6.png">
 <h5 id="1-8、数据表之间的约束"><a href="#1-8、数据表之间的约束" class="headerlink" title="1.8、数据表之间的约束"></a>1.8、数据表之间的约束</h5><p>约束是一种限制，它通过对表的行或列的数据做出限制，来确保表的数据的完整性、唯一性。</p>
 <p>MYSQL中，常用的几种约束：</p>
-<p><img src="/posts/7.png" alt></p>
+<img src="/posts/17251/7.png">
 <p>===================================================</p>
 <p>主键(PRIMARY KEY)是用于约束表中的一行，作为这一行的标识符，在一张表中通过主键就能准确定位到一行，因此主键十分重要。主键要求这一行的数据不能有重复且不能为空。</p>
 <p> 还有一种特殊的主键——复合主键。主键不仅可以是表中的一列，也可以由表中的两列或多列来共同标识</p>

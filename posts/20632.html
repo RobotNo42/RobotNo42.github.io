@@ -117,12 +117,12 @@
 <meta property="og:site_name" content="Messiless Blog">
 <meta property="og:description" content="了解Nginxnginx会以daemon的方式在后台运行。后台进程包含一个master进程和多个worker进程。 master进程：主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态，当worker进程退出后(异常情况下)，会自动重新启动新的worker进程 worker进程：处理基本的网络事件，各进程互相之间是独立的。worke">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://messiless.club/posts/1.png">
-<meta property="og:updated_time" content="2020-04-09T12:19:57.951Z">
+<meta property="og:image" content="https://messiless.club/posts/20632/1.png">
+<meta property="og:updated_time" content="2020-04-09T15:02:59.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LINUX -nginx服务安装">
 <meta name="twitter:description" content="了解Nginxnginx会以daemon的方式在后台运行。后台进程包含一个master进程和多个worker进程。 master进程：主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态，当worker进程退出后(异常情况下)，会自动重新启动新的worker进程 worker进程：处理基本的网络事件，各进程互相之间是独立的。worke">
-<meta name="twitter:image" content="https://messiless.club/posts/1.png">
+<meta name="twitter:image" content="https://messiless.club/posts/20632/1.png">
 
 
 
@@ -411,7 +411,7 @@
 <p><strong>master</strong>进程：<br>主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控worker进程的运行状态，当worker进程退出后(异常情况下)，会自动重新启动新的worker进程</p>
 <p><strong>worker</strong>进程：<br>处理基本的网络事件，各进程互相之间是独立的。worker进程的个数，一般与机器cpu核数一致.</p>
 <h3 id="Nginx-的进程模型"><a href="#Nginx-的进程模型" class="headerlink" title="Nginx 的进程模型"></a><blockquote class="question">Nginx 的进程模型</blockquote></h3><p>从进程模型图可以看出，我们想要操作nginx，只需要与master通信即可。</p>
-<p><img src="/posts/1.png" alt></p>
+<img src="/posts/20632/1.png">
 <p>master进程在接受信号是怎么做的呢？<br>输入如下命令行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -HUP pid</span><br></pre></td></tr></table></figure>
 <p>这个命令是优雅地重启nginx。当master进程收到信号后，因为是优雅地重启，所以服务器不会中断。而是重新加载配置文件，然后新开worker进程，再向旧的worker进程发送关闭指令。这种直接发送信号给master进程的操作方式已经显得有些老了，在0.8版本后，引入了一系列命令行参数。<br>如</p>
