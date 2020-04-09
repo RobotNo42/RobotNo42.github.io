@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.css.network/css?family=Lato:300,300italic,400,400italic,700,700italic|Iosevka:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="Form,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="FormDjango的Form主要具有一下几大功能：  生成HTML标签 验证用户数据（显示错误信息） HTML Form提交保留上次提交数据 初始化页面显示内容  1、创建Form类1234567891011121314151617181920212223from django.forms import Formfrom django.forms import widgetsfrom djang">
+<meta name="keywords" content="Form">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django之Form组件">
+<meta property="og:url" content="https://messiless.club/posts/53951.html">
+<meta property="og:site_name" content="Messiless Blog">
+<meta property="og:description" content="FormDjango的Form主要具有一下几大功能：  生成HTML标签 验证用户数据（显示错误信息） HTML Form提交保留上次提交数据 初始化页面显示内容  1、创建Form类1234567891011121314151617181920212223from django.forms import Formfrom django.forms import widgetsfrom djang">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-04-09T12:19:57.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django之Form组件">
+<meta name="twitter:description" content="FormDjango的Form主要具有一下几大功能：  生成HTML标签 验证用户数据（显示错误信息） HTML Form提交保留上次提交数据 初始化页面显示内容  1、创建Form类1234567891011121314151617181920212223from django.forms import Formfrom django.forms import widgetsfrom djang">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://messiless.club/posts/53951.html">
+
+
+
+
+
+  <title>Django之Form组件 | Messiless Blog</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Messiless Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://messiless.club/posts/53951.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Messiless">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mianma.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Messiless Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django之Form组件</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-25T16:48:12+08:00">
+                2018-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Django/" itemprop="url" rel="index">
+                    <span itemprop="name">Django</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Form"><a href="#Form" class="headerlink" title="Form"></a><blockquote class="question">Form</blockquote></h2><p>Django的Form主要具有一下几大功能：</p>
+<ul>
+<li>生成HTML标签</li>
+<li>验证用户数据（显示错误信息）</li>
+<li>HTML Form提交保留上次提交数据</li>
+<li>初始化页面显示内容</li>
+</ul>
+<h3 id="1、创建Form类"><a href="#1、创建Form类" class="headerlink" title="1、创建Form类"></a>1、创建Form类</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">from django.forms import Form</span></span><br><span class="line"><span class="xml">from django.forms import widgets</span></span><br><span class="line"><span class="xml">from django.forms import fields</span></span><br><span class="line"><span class="xml"> </span></span><br><span class="line"><span class="xml">class MyForm(Form):</span></span><br><span class="line"><span class="xml">    user = fields.CharField(</span></span><br><span class="line"><span class="xml">        widget=widgets.TextInput(attrs=&#123;'id': 'i1', 'class': 'c1'&#125;)</span></span><br><span class="line"><span class="xml">    )</span></span><br><span class="line"><span class="xml"> </span></span><br><span class="line"><span class="xml">    gender = fields.ChoiceField(</span></span><br><span class="line"><span class="xml">        choices=((1, '男'), (2, '女'),),</span></span><br><span class="line"><span class="xml">        initial=2,</span></span><br><span class="line"><span class="xml">        widget=widgets.RadioSelect</span></span><br><span class="line"><span class="xml">    )</span></span><br><span class="line"><span class="xml"> </span></span><br><span class="line"><span class="xml">    city = fields.CharField(</span></span><br><span class="line"><span class="xml">        initial=2,</span></span><br><span class="line"><span class="xml">        widget=widgets.Select(choices=((1,'上海'),(2,'北京'),))</span></span><br><span class="line"><span class="xml">    )</span></span><br><span class="line"><span class="xml"> </span></span><br><span class="line"><span class="xml">    pwd = fields.CharField(</span></span><br><span class="line"><span class="xml">        widget=widgets.PasswordInput(attrs=&#123;'class': 'c1'&#125;, render_value=True)</span></span><br><span class="line"><span class="xml">    )</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、View函数处理"><a href="#2、View函数处理" class="headerlink" title="2、View函数处理"></a>2、View函数处理</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">from django.shortcuts import render, redirect</span></span><br><span class="line"><span class="xml">from .forms import MyForm</span></span><br><span class="line"><span class="xml"> </span></span><br><span class="line"><span class="xml"> </span></span><br><span class="line"><span class="xml">def index(request):</span></span><br><span class="line"><span class="xml">    if request.method == "GET":</span></span><br><span class="line"><span class="xml">        obj = MyForm()</span></span><br><span class="line"><span class="xml">        return render(request, 'index.html', &#123;'form': obj&#125;)</span></span><br><span class="line"><span class="xml">    elif request.method == "POST":</span></span><br><span class="line"><span class="xml">        obj = MyForm(request.POST, request.FILES)</span></span><br><span class="line"><span class="xml">        if obj.is_valid():</span></span><br><span class="line"><span class="xml">            values = obj.clean()</span></span><br><span class="line"><span class="xml">            print(values)</span></span><br><span class="line"><span class="xml">        else:</span></span><br><span class="line"><span class="xml">            errors = obj.errors</span></span><br><span class="line"><span class="xml">            print(errors)</span></span><br><span class="line"><span class="xml">        return render(request, 'index.html', &#123;'form': obj&#125;)</span></span><br><span class="line"><span class="xml">    else:</span></span><br><span class="line"><span class="xml">        return redirect('http://www.google.com')</span></span><br></pre></td></tr></table></figure>
+<h3 id="3、生成HTML"><a href="#3、生成HTML" class="headerlink" title="3、生成HTML"></a>3、生成HTML</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; form.user &#125;&#125; &#123;&#123; form.user.errors &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; form.gender &#125;&#125; &#123;&#123; form.gender.errors &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; form.city &#125;&#125; &#123;&#123; form.city.errors &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; form.pwd &#125;&#125; &#123;&#123; form.pwd.errors &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="4、其他标签"><a href="#4、其他标签" class="headerlink" title="4、其他标签"></a>4、其他标签</h3><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        </span><span class="template-tag">&#123;% <span class="name"><span class="name">csrf_token</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">        </span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; form.xxoo.label &#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; form.xxoo.id_for_label &#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; form.xxoo.label_tag &#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">            </span><span class="template-variable">&#123;&#123; form.xxoo.errors &#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="template-variable">&#123;&#123; form.user &#125;&#125;</span><span class="xml"> </span><span class="template-variable">&#123;&#123; form.user.errors &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="Form类"><a href="#Form类" class="headerlink" title="Form类"></a><blockquote class="question">Form类</blockquote></h2><p>创建Form类时，主要涉及到 【字段】 和 【插件】，字段用于对用户请求数据的验证，插件用于自动生成HTML;</p>
+<h3 id="1、Django内置字段如下："><a href="#1、Django内置字段如下：" class="headerlink" title="1、Django内置字段如下："></a>1、Django内置字段如下：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">Field</span><br><span class="line">    required=<span class="keyword">True</span>,               是否允许为空</span><br><span class="line">    widget=<span class="keyword">None</span>,                 HTML插件</span><br><span class="line">    label=<span class="keyword">None</span>,                  用于生成Label标签或显示内容</span><br><span class="line">    initial=<span class="keyword">None</span>,                初始值</span><br><span class="line">    help_text=<span class="string">''</span>,                帮助信息(在标签旁边显示)</span><br><span class="line">    error_messages=<span class="keyword">None</span>,         错误信息 &#123;<span class="string">'required'</span>: <span class="string">'不能为空'</span>, <span class="string">'invalid'</span>: <span class="string">'格式错误'</span>&#125;</span><br><span class="line">    show_hidden_initial=<span class="keyword">False</span>,   是否在当前插件后面再加一个隐藏的且具有默认值的插件（可用于检验两次输入是否一直）</span><br><span class="line">    validators=[],               自定义验证规则</span><br><span class="line">    localize=<span class="keyword">False</span>,              是否支持本地化</span><br><span class="line">    disabled=<span class="keyword">False</span>,              是否可以编辑</span><br><span class="line">    label_suffix=<span class="keyword">None</span>            Label内容后缀</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">CharField(Field)</span><br><span class="line">    max_length=<span class="keyword">None</span>,             最大长度</span><br><span class="line">    min_length=<span class="keyword">None</span>,             最小长度</span><br><span class="line">    strip=<span class="keyword">True</span>                   是否移除用户输入空白</span><br><span class="line"> </span><br><span class="line">IntegerField(Field)</span><br><span class="line">    max_value=<span class="keyword">None</span>,              最大值</span><br><span class="line">    min_value=<span class="keyword">None</span>,              最小值</span><br><span class="line"> </span><br><span class="line">FloatField(IntegerField)</span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line">DecimalField(IntegerField)</span><br><span class="line">    max_value=<span class="keyword">None</span>,              最大值</span><br><span class="line">    min_value=<span class="keyword">None</span>,              最小值</span><br><span class="line">    max_digits=<span class="keyword">None</span>,             总长度</span><br><span class="line">    decimal_places=<span class="keyword">None</span>,         小数位长度</span><br><span class="line"> </span><br><span class="line">BaseTemporalField(Field)</span><br><span class="line">    input_formats=<span class="keyword">None</span>          时间格式化   </span><br><span class="line"> </span><br><span class="line">DateField(BaseTemporalField)    格式：<span class="number">2015</span><span class="number">-09</span><span class="number">-01</span></span><br><span class="line">TimeField(BaseTemporalField)    格式：<span class="number">11</span>:<span class="number">12</span></span><br><span class="line">DateTimeField(BaseTemporalField)格式：<span class="number">2015</span><span class="number">-09</span><span class="number">-01</span> <span class="number">11</span>:<span class="number">12</span></span><br><span class="line"> </span><br><span class="line">DurationField(Field)            时间间隔：%d %H:%M:%S.%f</span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line">RegexField(CharField)</span><br><span class="line">    regex,                      自定制正则表达式</span><br><span class="line">    max_length=<span class="keyword">None</span>,            最大长度</span><br><span class="line">    min_length=<span class="keyword">None</span>,            最小长度</span><br><span class="line">    error_message=<span class="keyword">None</span>,         忽略，错误信息使用 error_messages=&#123;<span class="string">'invalid'</span>: <span class="string">'...'</span>&#125;</span><br><span class="line"> </span><br><span class="line">EmailField(CharField)      </span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line">FileField(Field)</span><br><span class="line">    allow_empty_file=<span class="keyword">False</span>     是否允许空文件</span><br><span class="line"> </span><br><span class="line">ImageField(FileField)      </span><br><span class="line">    ...</span><br><span class="line">    注：需要PIL模块，pip3 install Pillow</span><br><span class="line">    以上两个字典使用时，需要注意两点：</span><br><span class="line">        - form表单中 enctype=<span class="string">"multipart/form-data"</span></span><br><span class="line">        - view函数中 obj = MyForm(request.POST, request.FILES)</span><br><span class="line"> </span><br><span class="line">URLField(Field)</span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">BooleanField(Field)  </span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line">NullBooleanField(BooleanField)</span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line">ChoiceField(Field)</span><br><span class="line">    ...</span><br><span class="line">    choices=(),                选项，如：choices = ((<span class="number">0</span>,<span class="string">'上海'</span>),(<span class="number">1</span>,<span class="string">'北京'</span>),)</span><br><span class="line">    required=<span class="keyword">True</span>,             是否必填</span><br><span class="line">    widget=<span class="keyword">None</span>,               插件，默认select插件</span><br><span class="line">    label=<span class="keyword">None</span>,                Label内容</span><br><span class="line">    initial=<span class="keyword">None</span>,              初始值</span><br><span class="line">    help_text=<span class="string">''</span>,              帮助提示</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">ModelChoiceField(ChoiceField)</span><br><span class="line">    ...                        django.forms.models.ModelChoiceField</span><br><span class="line">    queryset,                  <span class="comment"># 查询数据库中的数据</span></span><br><span class="line">    empty_label=<span class="string">"---------"</span>,   <span class="comment"># 默认空显示内容</span></span><br><span class="line">    to_field_name=<span class="keyword">None</span>,        <span class="comment"># HTML中value的值对应的字段</span></span><br><span class="line">    limit_choices_to=<span class="keyword">None</span>      <span class="comment"># ModelForm中对queryset二次筛选</span></span><br><span class="line">     </span><br><span class="line">ModelMultipleChoiceField(ModelChoiceField)</span><br><span class="line">    ...                        django.forms.models.ModelMultipleChoiceField</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">     </span><br><span class="line">TypedChoiceField(ChoiceField)</span><br><span class="line">    coerce = <span class="keyword">lambda</span> val: val   对选中的值进行一次转换</span><br><span class="line">    empty_value= <span class="string">''</span>            空值的默认值</span><br><span class="line"> </span><br><span class="line">MultipleChoiceField(ChoiceField)</span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line">TypedMultipleChoiceField(MultipleChoiceField)</span><br><span class="line">    coerce = <span class="keyword">lambda</span> val: val   对选中的每一个值进行一次转换</span><br><span class="line">    empty_value= <span class="string">''</span>            空值的默认值</span><br><span class="line"> </span><br><span class="line">ComboField(Field)</span><br><span class="line">    fields=()                  使用多个验证，如下：即验证最大长度<span class="number">20</span>，又验证邮箱格式</span><br><span class="line">                               fields.ComboField(fields=[fields.CharField(max_length=<span class="number">20</span>), fields.EmailField(),])</span><br><span class="line"> </span><br><span class="line">MultiValueField(Field)</span><br><span class="line">    PS: 抽象类，子类中可以实现聚合多个字典去匹配一个值，要配合MultiWidget使用</span><br><span class="line"> </span><br><span class="line">SplitDateTimeField(MultiValueField)</span><br><span class="line">    input_date_formats=<span class="keyword">None</span>,   格式列表：[<span class="string">'%Y--%m--%d'</span>, <span class="string">'%m%d/%Y'</span>, <span class="string">'%m/%d/%y'</span>]</span><br><span class="line">    input_time_formats=<span class="keyword">None</span>    格式列表：[<span class="string">'%H:%M:%S'</span>, <span class="string">'%H:%M:%S.%f'</span>, <span class="string">'%H:%M'</span>]</span><br><span class="line"> </span><br><span class="line">FilePathField(ChoiceField)     文件选项，目录下文件显示在页面中</span><br><span class="line">    path,                      文件夹路径</span><br><span class="line">    match=<span class="keyword">None</span>,                正则匹配</span><br><span class="line">    recursive=<span class="keyword">False</span>,           递归下面的文件夹</span><br><span class="line">    allow_files=<span class="keyword">True</span>,          允许文件</span><br><span class="line">    allow_folders=<span class="keyword">False</span>,       允许文件夹</span><br><span class="line">    required=<span class="keyword">True</span>,</span><br><span class="line">    widget=<span class="keyword">None</span>,</span><br><span class="line">    label=<span class="keyword">None</span>,</span><br><span class="line">    initial=<span class="keyword">None</span>,</span><br><span class="line">    help_text=<span class="string">''</span></span><br><span class="line"> </span><br><span class="line">GenericIPAddressField</span><br><span class="line">    protocol=<span class="string">'both'</span>,           both,ipv4,ipv6支持的IP格式</span><br><span class="line">    unpack_ipv4=<span class="keyword">False</span>          解析ipv4地址，如果是::ffff:<span class="number">192.0</span><span class="number">.2</span><span class="number">.1</span>时候，可解析为<span class="number">192.0</span><span class="number">.2</span><span class="number">.1</span>， PS：protocol必须为both才能启用</span><br><span class="line"> </span><br><span class="line">SlugField(CharField)           数字，字母，下划线，减号（连字符）</span><br><span class="line">    ...</span><br><span class="line"> </span><br><span class="line">UUIDField(CharField)           uuid类型</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>注：UUID是根据MAC以及当前时间等创建的不重复的随机字符串</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; import uuid</span><br><span class="line"></span><br><span class="line">    <span class="comment"># make a UUID based on the host ID and current time</span></span><br><span class="line">    <span class="meta">&gt;&gt;&gt; </span>uuid.uuid1()    <span class="comment"># doctest: +SKIP</span></span><br><span class="line">    UUID(<span class="string">'a8098c1a-f86e-11da-bd1a-00112444be1e'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># make a UUID using an MD5 hash of a namespace UUID and a name</span></span><br><span class="line">    <span class="meta">&gt;&gt;&gt; </span>uuid.uuid3(uuid.NAMESPACE_DNS, <span class="string">'python.org'</span>)</span><br><span class="line">    UUID(<span class="string">'6fa459ea-ee8a-3ca4-894e-db77e160355e'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># make a random UUID</span></span><br><span class="line">    <span class="meta">&gt;&gt;&gt; </span>uuid.uuid4()    <span class="comment"># doctest: +SKIP</span></span><br><span class="line">    UUID(<span class="string">'16fd2706-8baf-433b-82eb-8c7fada847da'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># make a UUID using a SHA-1 hash of a namespace UUID and a name</span></span><br><span class="line">    <span class="meta">&gt;&gt;&gt; </span>uuid.uuid5(uuid.NAMESPACE_DNS, <span class="string">'python.org'</span>)</span><br><span class="line">    UUID(<span class="string">'886313e1-3b8a-5372-9b90-0c9aee199e5d'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># make a UUID from a string of hex digits (braces and hyphens ignored)</span></span><br><span class="line">    <span class="meta">&gt;&gt;&gt; </span>x = uuid.UUID(<span class="string">'&#123;00010203-0405-0607-0809-0a0b0c0d0e0f&#125;'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># convert a UUID to a string of hex digits in standard form</span></span><br><span class="line">    <span class="meta">&gt;&gt;&gt; </span>str(x)</span><br><span class="line">    <span class="string">'00010203-0405-0607-0809-0a0b0c0d0e0f'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># get the raw 16 bytes of the UUID</span></span><br><span class="line">    <span class="meta">&gt;&gt;&gt; </span>x.bytes</span><br><span class="line">    b<span class="string">'\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># make a UUID from a 16-byte string</span></span><br><span class="line">    <span class="meta">&gt;&gt;&gt; </span>uuid.UUID(bytes=x.bytes)</span><br><span class="line">    UUID(<span class="string">'00010203-0405-0607-0809-0a0b0c0d0e0f'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2、Django内置插件："><a href="#2、Django内置插件：" class="headerlink" title="2、Django内置插件："></a>2、Django内置插件：</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">TextInput</span><span class="params">(Input)</span></span></span><br><span class="line"><span class="function"><span class="title">NumberInput</span><span class="params">(TextInput)</span></span></span><br><span class="line"><span class="function"><span class="title">EmailInput</span><span class="params">(TextInput)</span></span></span><br><span class="line"><span class="function"><span class="title">URLInput</span><span class="params">(TextInput)</span></span></span><br><span class="line"><span class="function"><span class="title">PasswordInput</span><span class="params">(TextInput)</span></span></span><br><span class="line"><span class="function"><span class="title">HiddenInput</span><span class="params">(TextInput)</span></span></span><br><span class="line"><span class="function"><span class="title">Textarea</span><span class="params">(Widget)</span></span></span><br><span class="line"><span class="function"><span class="title">DateInput</span><span class="params">(DateTimeBaseInput)</span></span></span><br><span class="line"><span class="function"><span class="title">DateTimeInput</span><span class="params">(DateTimeBaseInput)</span></span></span><br><span class="line"><span class="function"><span class="title">TimeInput</span><span class="params">(DateTimeBaseInput)</span></span></span><br><span class="line">CheckboxInput</span><br><span class="line">Select</span><br><span class="line">NullBooleanSelect</span><br><span class="line">SelectMultiple</span><br><span class="line">RadioSelect</span><br><span class="line">CheckboxSelectMultiple</span><br><span class="line">FileInput</span><br><span class="line">ClearableFileInput</span><br><span class="line">MultipleHiddenInput</span><br><span class="line">SplitDateTimeWidget</span><br><span class="line">SplitHiddenDateTimeWidget</span><br><span class="line">SelectDateWidget</span><br></pre></td></tr></table></figure>
+<h2 id="常用选择插件"><a href="#常用选择插件" class="headerlink" title="常用选择插件"></a><blockquote class="question">常用选择插件</blockquote></h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 单radio，值为字符串</span></span><br><span class="line"><span class="meta"># user = fields.CharField(</span></span><br><span class="line"><span class="meta">#     initial=2,</span></span><br><span class="line"><span class="meta">#     widget=widgets.RadioSelect(choices=((1,'上海'),(2,'北京'),))</span></span><br><span class="line"><span class="meta"># )</span></span><br><span class="line"> </span><br><span class="line"><span class="meta"># 单radio，值为字符串</span></span><br><span class="line"><span class="meta"># user = fields.ChoiceField(</span></span><br><span class="line"><span class="meta">#     choices=((1, '上海'), (2, '北京'),),</span></span><br><span class="line"><span class="meta">#     initial=2,</span></span><br><span class="line"><span class="meta">#     widget=widgets.RadioSelect</span></span><br><span class="line"><span class="meta"># )</span></span><br><span class="line"> </span><br><span class="line"><span class="meta"># 单select，值为字符串</span></span><br><span class="line"><span class="meta"># user = fields.CharField(</span></span><br><span class="line"><span class="meta">#     initial=2,</span></span><br><span class="line"><span class="meta">#     widget=widgets.Select(choices=((1,'上海'),(2,'北京'),))</span></span><br><span class="line"><span class="meta"># )</span></span><br><span class="line"> </span><br><span class="line"><span class="meta"># 单select，值为字符串</span></span><br><span class="line"><span class="meta"># user = fields.ChoiceField(</span></span><br><span class="line"><span class="meta">#     choices=((1, '上海'), (2, '北京'),),</span></span><br><span class="line"><span class="meta">#     initial=2,</span></span><br><span class="line"><span class="meta">#     widget=widgets.Select</span></span><br><span class="line"><span class="meta"># )</span></span><br><span class="line"> </span><br><span class="line"><span class="meta"># 多选select，值为列表</span></span><br><span class="line"><span class="meta"># user = fields.MultipleChoiceField(</span></span><br><span class="line"><span class="meta">#     choices=((1,'上海'),(2,'北京'),),</span></span><br><span class="line"><span class="meta">#     initial=[1,],</span></span><br><span class="line"><span class="meta">#     widget=widgets.SelectMultiple</span></span><br><span class="line"><span class="meta"># )</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="meta"># 单checkbox</span></span><br><span class="line"><span class="meta"># user = fields.CharField(</span></span><br><span class="line"><span class="meta">#     widget=widgets.CheckboxInput()</span></span><br><span class="line"><span class="meta"># )</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="meta"># 多选checkbox,值为列表</span></span><br><span class="line"><span class="meta"># user = fields.MultipleChoiceField(</span></span><br><span class="line"><span class="meta">#     initial=[2, ],</span></span><br><span class="line"><span class="meta">#     choices=((1, '上海'), (2, '北京'),),</span></span><br><span class="line"><span class="meta">#     widget=widgets.CheckboxSelectMultiple</span></span><br><span class="line"><span class="meta"># )</span></span><br></pre></td></tr></table></figure>
+<p>在使用选择标签时，需要注意choices的选项可以从数据库中获取，但是由于是静态字段 获取的值无法实时更新，那么需要自定义构造方法从而达到此目的。</p>
+<h3 id="方式一："><a href="#方式一：" class="headerlink" title="方式一："></a>方式一：</h3><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> Form</span><br><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> widgets</span><br><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> fields</span><br><span class="line"><span class="title">from</span> django.core.validators <span class="keyword">import</span> RegexValidator</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">MyForm</span>(<span class="type">Form</span>):</span></span><br><span class="line"><span class="class"> </span></span><br><span class="line"><span class="class">    user = fields.<span class="type">ChoiceField</span>(</span></span><br><span class="line"><span class="class">        # <span class="title">choices</span>=((1, '上海'), (2, '北京'),),</span></span><br><span class="line"><span class="class">        initial=2,</span></span><br><span class="line"><span class="class">        widget=widgets.<span class="type">Select</span></span></span><br><span class="line"><span class="class">    )</span></span><br><span class="line"><span class="class"> </span></span><br><span class="line"><span class="class">    def __init__(<span class="title">self</span>, *<span class="title">args</span>, **<span class="title">kwargs</span>):</span></span><br><span class="line"><span class="class">        super(<span class="type">MyForm</span>,<span class="title">self</span>).__init__(*<span class="title">args</span>, **<span class="title">kwargs</span>)</span></span><br><span class="line"><span class="class">        # self.fields['user'].widget.choices = ((1, '上海'), (2, '北京'),)</span></span><br><span class="line"><span class="class">        # 或</span></span><br><span class="line"><span class="class">        self.fields['user'].widget.choices = models.<span class="type">Classes</span>.objects.all().value_list('<span class="title">id'</span>,'<span class="title">caption'</span>)</span></span><br></pre></td></tr></table></figure>
+<h3 id="方式二："><a href="#方式二：" class="headerlink" title="方式二："></a>方式二：</h3><p>使用django提供的ModelChoiceField和ModelMultipleChoiceField字段来实现</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">from</span> django <span class="keyword">import</span> forms</span><br><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> fields</span><br><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> widgets</span><br><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> models <span class="keyword">as</span> form_model</span><br><span class="line"><span class="title">from</span> django.core.exceptions <span class="keyword">import</span> ValidationError</span><br><span class="line"><span class="title">from</span> django.core.validators <span class="keyword">import</span> RegexValidator</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">FInfo</span>(<span class="title">forms</span>.<span class="type">Form</span>):</span></span><br><span class="line"><span class="class">    authors = form_model.<span class="type">ModelMultipleChoiceField</span>(<span class="title">queryset</span>=<span class="title">models</span>.<span class="type">NNewType</span>.<span class="title">objects</span>.<span class="title">all</span>())</span></span><br><span class="line"><span class="class">    # authors = form_model.<span class="type">ModelChoiceField</span>(<span class="title">queryset</span>=<span class="title">models</span>.<span class="type">NNewType</span>.<span class="title">objects</span>.<span class="title">all</span>())</span></span><br></pre></td></tr></table></figure>
+<h2 id="自定义验证规则"><a href="#自定义验证规则" class="headerlink" title="自定义验证规则"></a><blockquote class="question">自定义验证规则</blockquote></h2><h3 id="方式一：-1"><a href="#方式一：-1" class="headerlink" title="方式一："></a>方式一：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> Form</span><br><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> widgets</span><br><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> fields</span><br><span class="line"><span class="keyword">from</span> django.core.validators <span class="keyword">import</span> RegexValidator</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyForm</span><span class="params">(Form)</span>:</span></span><br><span class="line">    user = fields.CharField(</span><br><span class="line">        validators=[RegexValidator(<span class="string">r'^[0-9]+$'</span>, <span class="string">'请输入数字'</span>), RegexValidator(<span class="string">r'^159[0-9]+$'</span>, <span class="string">'数字必须以159开头'</span>)],</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<h3 id="方式二：-1"><a href="#方式二：-1" class="headerlink" title="方式二："></a>方式二：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> Form</span><br><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> widgets</span><br><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> fields</span><br><span class="line"><span class="keyword">from</span> django.core.exceptions <span class="keyword">import</span> ValidationError</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 自定义验证规则</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mobile_validate</span><span class="params">(value)</span>:</span></span><br><span class="line">    mobile_re = re.compile(<span class="string">r'^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]&#123;8&#125;$'</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> mobile_re.match(value):</span><br><span class="line">        <span class="keyword">raise</span> ValidationError(<span class="string">'手机号码格式错误'</span>)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PublishForm</span><span class="params">(Form)</span>:</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    title = fields.CharField(max_length=<span class="number">20</span>,</span><br><span class="line">                            min_length=<span class="number">5</span>,</span><br><span class="line">                            error_messages=&#123;<span class="string">'required'</span>: <span class="string">'标题不能为空'</span>,</span><br><span class="line">                                            <span class="string">'min_length'</span>: <span class="string">'标题最少为5个字符'</span>,</span><br><span class="line">                                            <span class="string">'max_length'</span>: <span class="string">'标题最多为20个字符'</span>&#125;,</span><br><span class="line">                            widget=widgets.TextInput(attrs=&#123;<span class="string">'class'</span>: <span class="string">"form-control"</span>,</span><br><span class="line">                                                          <span class="string">'placeholder'</span>: <span class="string">'标题5-20个字符'</span>&#125;))</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 使用自定义验证规则</span></span><br><span class="line">    phone = fields.CharField(validators=[mobile_validate, ],</span><br><span class="line">                            error_messages=&#123;<span class="string">'required'</span>: <span class="string">'手机不能为空'</span>&#125;,</span><br><span class="line">                            widget=widgets.TextInput(attrs=&#123;<span class="string">'class'</span>: <span class="string">"form-control"</span>,</span><br><span class="line">                                                          <span class="string">'placeholder'</span>: <span class="string">u'手机号码'</span>&#125;))</span><br><span class="line"> </span><br><span class="line">    email = fields.EmailField(required=<span class="keyword">False</span>,</span><br><span class="line">                            error_messages=&#123;<span class="string">'required'</span>: <span class="string">u'邮箱不能为空'</span>,<span class="string">'invalid'</span>: <span class="string">u'邮箱格式错误'</span>&#125;,</span><br><span class="line">                            widget=widgets.TextInput(attrs=&#123;<span class="string">'class'</span>: <span class="string">"form-control"</span>, <span class="string">'placeholder'</span>: <span class="string">u'邮箱'</span>&#125;))</span><br></pre></td></tr></table></figure>
+<h3 id="方法三：自定义方法"><a href="#方法三：自定义方法" class="headerlink" title="方法三：自定义方法"></a>方法三：自定义方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django <span class="keyword">import</span> forms</span><br><span class="line">    <span class="keyword">from</span> django.forms <span class="keyword">import</span> fields</span><br><span class="line">    <span class="keyword">from</span> django.forms <span class="keyword">import</span> widgets</span><br><span class="line">    <span class="keyword">from</span> django.core.exceptions <span class="keyword">import</span> ValidationError</span><br><span class="line">    <span class="keyword">from</span> django.core.validators <span class="keyword">import</span> RegexValidator</span><br><span class="line"> </span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">FInfo</span><span class="params">(forms.Form)</span>:</span></span><br><span class="line">        username = fields.CharField(max_length=<span class="number">5</span>,</span><br><span class="line">                                    validators=[RegexValidator(<span class="string">r'^[0-9]+$'</span>, <span class="string">'Enter a valid extension.'</span>, <span class="string">'invalid'</span>)], )</span><br><span class="line">        email = fields.EmailField()</span><br><span class="line"> </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">clean_username</span><span class="params">(self)</span>:</span></span><br><span class="line">            <span class="string">"""</span></span><br><span class="line"><span class="string">            Form中字段中定义的格式匹配完之后，执行此方法进行验证</span></span><br><span class="line"><span class="string">            :return:</span></span><br><span class="line"><span class="string">            """</span></span><br><span class="line">            value = self.cleaned_data[<span class="string">'username'</span>]</span><br><span class="line">            <span class="keyword">if</span> <span class="string">"666"</span> <span class="keyword">in</span> value:</span><br><span class="line">                <span class="keyword">raise</span> ValidationError(<span class="string">'666已经被玩烂了...'</span>, <span class="string">'invalid'</span>)</span><br><span class="line">            <span class="keyword">return</span> value</span><br></pre></td></tr></table></figure>
+<h3 id="方式四：同时生成多个标签进行验证"><a href="#方式四：同时生成多个标签进行验证" class="headerlink" title="方式四：同时生成多个标签进行验证"></a>方式四：同时生成多个标签进行验证</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> Form</span><br><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> widgets</span><br><span class="line"><span class="keyword">from</span> django.forms <span class="keyword">import</span> fields</span><br><span class="line"> </span><br><span class="line"><span class="keyword">from</span> django.core.validators <span class="keyword">import</span> RegexValidator</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment">############## 自定义字段 ##############</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PhoneField</span><span class="params">(fields.MultiValueField)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># Define one message for all fields.</span></span><br><span class="line">        error_messages = &#123;</span><br><span class="line">            <span class="string">'incomplete'</span>: <span class="string">'Enter a country calling code and a phone number.'</span>,</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"># Or define a different message for each field.</span></span><br><span class="line">        f = (</span><br><span class="line">            fields.CharField(</span><br><span class="line">                error_messages=&#123;<span class="string">'incomplete'</span>: <span class="string">'Enter a country calling code.'</span>&#125;,</span><br><span class="line">                validators=[</span><br><span class="line">                    RegexValidator(<span class="string">r'^[0-9]+$'</span>, <span class="string">'Enter a valid country calling code.'</span>),</span><br><span class="line">                ],</span><br><span class="line">            ),</span><br><span class="line">            fields.CharField(</span><br><span class="line">                error_messages=&#123;<span class="string">'incomplete'</span>: <span class="string">'Enter a phone number.'</span>&#125;,</span><br><span class="line">                validators=[RegexValidator(<span class="string">r'^[0-9]+$'</span>, <span class="string">'Enter a valid phone number.'</span>)],</span><br><span class="line">            ),</span><br><span class="line">            fields.CharField(</span><br><span class="line">                validators=[RegexValidator(<span class="string">r'^[0-9]+$'</span>, <span class="string">'Enter a valid extension.'</span>)],</span><br><span class="line">                required=<span class="keyword">False</span>,</span><br><span class="line">            ),</span><br><span class="line">        )</span><br><span class="line">        super(PhoneField, self).__init__(error_messages=error_messages, fields=f, require_all_fields=<span class="keyword">False</span>, *args,</span><br><span class="line">                                         **kwargs)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">compress</span><span class="params">(self, data_list)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        当用户验证都通过后，该值返回给用户</span></span><br><span class="line"><span class="string">        :param data_list:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> data_list</span><br><span class="line"> </span><br><span class="line"><span class="comment">############## 自定义插件 ##############</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SplitPhoneWidget</span><span class="params">(widgets.MultiWidget)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        ws = (</span><br><span class="line">            widgets.TextInput(),</span><br><span class="line">            widgets.TextInput(),</span><br><span class="line">            widgets.TextInput(),</span><br><span class="line">        )</span><br><span class="line">        super(SplitPhoneWidget, self).__init__(ws)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">decompress</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        处理初始值，当初始值initial不是列表时，调用该方法</span></span><br><span class="line"><span class="string">        :param value:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> value:</span><br><span class="line">            <span class="keyword">return</span> value.split(<span class="string">','</span>)</span><br><span class="line">        <span class="keyword">return</span> [<span class="keyword">None</span>, <span class="keyword">None</span>, <span class="keyword">None</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="初始化数据"><a href="#初始化数据" class="headerlink" title="初始化数据"></a><blockquote class="question">初始化数据</blockquote></h2><p>在Web应用程序中开发编写功能时，时常用到获取数据库中的数据并将值初始化在HTML中的标签上。</p>
+<p>1、Form</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> Form</span><br><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> widgets</span><br><span class="line"><span class="title">from</span> django.forms <span class="keyword">import</span> fields</span><br><span class="line"><span class="title">from</span> django.core.validators <span class="keyword">import</span> RegexValidator</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">MyForm</span>(<span class="type">Form</span>):</span></span><br><span class="line"><span class="class">    user = fields.<span class="type">CharField</span>()</span></span><br><span class="line"><span class="class"> </span></span><br><span class="line"><span class="class">    city = fields.<span class="type">ChoiceField</span>(</span></span><br><span class="line"><span class="class">        <span class="title">choices</span>=((1, '上海'), (2, '北京'),),</span></span><br><span class="line"><span class="class">        widget=widgets.<span class="type">Select</span></span></span><br><span class="line"><span class="class">    )</span></span><br></pre></td></tr></table></figure>
+<p>2、Views</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render, redirect</span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> MyForm</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">"GET"</span>:</span><br><span class="line">        values = &#123;<span class="string">'user'</span>: <span class="string">'root'</span>, <span class="string">'city'</span>: <span class="number">2</span>&#125;</span><br><span class="line">        obj = MyForm(values)</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'index.html'</span>, &#123;<span class="string">'form'</span>: obj&#125;)</span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">"POST"</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">'http://www.google.com'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">'http://www.google.com'</span>)</span><br></pre></td></tr></table></figure>
+<p>3、HTML</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="template-tag">&#123;% <span class="name"><span class="name">csrf_token</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="template-variable">&#123;&#123; form.user &#125;&#125;</span><span class="xml"> </span><span class="template-variable">&#123;&#123; form.user.errors &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><span class="template-variable">&#123;&#123; form.city &#125;&#125;</span><span class="xml"> </span><span class="template-variable">&#123;&#123; form.city.errors &#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"> </span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>/&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Form/" rel="tag"># Form</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/30702.html" rel="next" title="Django之session">
+                <i class="fa fa-chevron-left"></i> Django之session
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/51757.html" rel="prev" title="Django的认证系统">
+                Django的认证系统 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/">
+              <img class="site-author-image" itemprop="image" src="/images/mianma.jpg" alt="Messiless">
+               </a>
+            
+              <p class="site-author-name" itemprop="name">Messiless</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RobotNo42" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangzc946971@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Form"><span class="nav-text">Form</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、创建Form类"><span class="nav-text">1、创建Form类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、View函数处理"><span class="nav-text">2、View函数处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、生成HTML"><span class="nav-text">3、生成HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、其他标签"><span class="nav-text">4、其他标签</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Form类"><span class="nav-text">Form类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、Django内置字段如下："><span class="nav-text">1、Django内置字段如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Django内置插件："><span class="nav-text">2、Django内置插件：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用选择插件"><span class="nav-text">常用选择插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方式一："><span class="nav-text">方式一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式二："><span class="nav-text">方式二：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义验证规则"><span class="nav-text">自定义验证规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方式一：-1"><span class="nav-text">方式一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式二：-1"><span class="nav-text">方式二：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三：自定义方法"><span class="nav-text">方法三：自定义方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方式四：同时生成多个标签进行验证"><span class="nav-text">方式四：同时生成多个标签进行验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化数据"><span class="nav-text">初始化数据</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Messiless</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

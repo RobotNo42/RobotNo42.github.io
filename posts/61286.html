@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.css.network/css?family=Lato:300,300italic,400,400italic,700,700italic|Iosevka:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+
+
+
+
+  <meta name="keywords" content="Scrapy,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ScrapyScrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 其可以应用在数据挖掘，信息处理或存储历史数据等一系列的程序中。其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。 Scr">
+<meta name="keywords" content="Scrapy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy">
+<meta property="og:url" content="https://messiless.club/posts/61286.html">
+<meta property="og:site_name" content="Messiless Blog">
+<meta property="og:description" content="ScrapyScrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 其可以应用在数据挖掘，信息处理或存储历史数据等一系列的程序中。其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。 Scr">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://messiless.club/posts/1.png">
+<meta property="og:image" content="https://messiless.club/posts/2.png">
+<meta property="og:updated_time" content="2020-04-09T12:19:57.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scrapy">
+<meta name="twitter:description" content="ScrapyScrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 其可以应用在数据挖掘，信息处理或存储历史数据等一系列的程序中。其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。 Scr">
+<meta name="twitter:image" content="https://messiless.club/posts/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://messiless.club/posts/61286.html">
+
+
+
+
+
+  <title>Scrapy | Messiless Blog</title>
+  
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Messiless Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://messiless.club/posts/61286.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Messiless">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/mianma.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Messiless Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Scrapy</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T21:05:01+08:00">
+                2019-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Scrapy"><a href="#Scrapy" class="headerlink" title="Scrapy"></a><blockquote class="question">Scrapy</blockquote></h2><p>Scrapy是一个为了爬取网站数据，提取结构性数据而编写的应用框架。 其可以应用在数据挖掘，信息处理或存储历史数据等一系列的程序中。<br>其最初是为了页面抓取 (更确切来说, 网络抓取 )所设计的， 也可以应用在获取API所返回的数据(例如 Amazon Associates Web Services ) 或者通用的网络爬虫。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。</p>
+<p>Scrapy 使用了 Twisted异步网络库来处理网络通讯。整体架构大致如下</p>
+<p><img src="/posts/1.png" alt></p>
+<p>Scrapy主要包括了以下组件：</p>
+<ul>
+<li><strong>引擎(Scrapy)</strong><br><em>用来处理整个系统的数据流处理, 触发事务(框架核心)</em></li>
+<li><strong>调度器(Scheduler)</strong><br><em>用来接受引擎发过来的请求, 压入队列中, 并在引擎再次请求的时候返回. 可以想像成一个URL（抓取网页的网址或者说是链接）的优先队列, 由它来决定下一个要抓取的网址是什么, 同时去除重复的网址</em></li>
+<li><strong>下载器(Downloader)</strong><br><em>用于下载网页内容, 并将网页内容返回给蜘蛛(Scrapy下载器是建立在twisted这个高效的异步模型上的)</em></li>
+<li><strong>爬虫(Spiders)</strong><br><em>爬虫是主要干活的, 用于从特定的网页中提取自己需要的信息, 即所谓的实体(Item)。用户也可以从中提取出链接,让Scrapy继续抓取下一个页面</em></li>
+<li><strong>项目管道(Pipeline)</strong><br><em>负责处理爬虫从网页中抽取的实体，主要的功能是持久化实体、验证实体的有效性、清除不需要的信息。当页面被爬虫解析后，将被发送到项目管道，并经过几个特定的次序处理数据。</em></li>
+<li><strong>下载器中间件(Downloader Middlewares)</strong><br><em>位于Scrapy引擎和下载器之间的框架，主要是处理Scrapy引擎与下载器之间的请求及响应。</em></li>
+<li><strong>爬虫中间件(Spider Middlewares)</strong><br><em>介于Scrapy引擎和爬虫之间的框架，主要工作是处理蜘蛛的响应输入和请求输出。</em></li>
+<li><strong>调度中间件(Scheduler Middewares)</strong><br><em>介于Scrapy引擎和调度之间的中间件，从Scrapy引擎发送到调度的请求和响应。</em></li>
+</ul>
+<p>Scrapy运行流程大概如下：</p>
+<ol>
+<li>引擎从调度器中取出一个链接(URL)用于接下来的抓取</li>
+<li>引擎把URL封装成一个请求(Request)传给下载器</li>
+<li>下载器把资源下载下来，并封装成应答包(Response)</li>
+<li>爬虫解析Response</li>
+<li>解析出实体（Item）,则交给实体管道进行进一步的处理</li>
+<li>解析出的是链接（URL）,则把URL交给调度器等待抓取</li>
+</ol>
+<h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a><blockquote class="question">一、安装</blockquote></h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install</span> scrapy</span><br></pre></td></tr></table></figure>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pip3 install wheel</span><br><span class="line">下载twisted http://www.lfd.uci.edu/~gohlke/pythonlibs/<span class="comment">#twisted</span></span><br><span class="line">进入下载目录，执行 pip3 install Twisted‑17.1.0‑cp35‑cp35m‑win_amd64.whl</span><br><span class="line">pip3 install pywin32</span><br><span class="line">pip3 install scrapy</span><br></pre></td></tr></table></figure>
+<h2 id="二、基本使用"><a href="#二、基本使用" class="headerlink" title="二、基本使用"></a><blockquote class="question">二、基本使用</blockquote></h2><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. <span class="keyword">scrapy </span>startproject 项目名称</span><br><span class="line">   - 在当前目录中创建中创建一个项目文件（类似于Django）</span><br><span class="line"> </span><br><span class="line"><span class="number">2</span>. cd 项目目录</span><br><span class="line">   <span class="keyword">scrapy </span>genspider &lt;name&gt; &lt;domain&gt;</span><br><span class="line">   - 创建爬虫应用</span><br><span class="line">   如：</span><br><span class="line">      <span class="keyword">scrapy </span>gensipider oldboy oldboy.com</span><br><span class="line">      <span class="keyword">scrapy </span>gensipider autohome autohome.com.cn</span><br><span class="line"><span class="symbol">   PS:</span></span><br><span class="line">      查看所有命令：<span class="keyword">scrapy </span>gensipider -l</span><br><span class="line">      查看模板命令：<span class="keyword">scrapy </span>gensipider -d 模板名称</span><br><span class="line"> </span><br><span class="line"><span class="number">3</span>. <span class="keyword">scrapy </span>list</span><br><span class="line">   - 展示爬虫应用列表</span><br><span class="line"> </span><br><span class="line"><span class="number">4</span>. <span class="keyword">scrapy </span>crawl 爬虫应用名称</span><br><span class="line">   - 运行单独爬虫应用</span><br></pre></td></tr></table></figure>
+<h3 id="项目结构以及爬虫应用简介"><a href="#项目结构以及爬虫应用简介" class="headerlink" title="项目结构以及爬虫应用简介"></a>项目结构以及爬虫应用简介</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">project_name/</span><br><span class="line">   scrapy.cfg                          # 配置文件(部署)项目的主配置信息</span><br><span class="line">   project_name/</span><br><span class="line">       __init__.<span class="keyword">py</span></span><br><span class="line">       <span class="built_in">items</span>.<span class="keyword">py</span>                        # 设置数据存储模板，用于结构化数据，如：Django的Model</span><br><span class="line">       pipelines.<span class="keyword">py</span>                    # 数据处理行为，如：一般结构化的数据持久化</span><br><span class="line">       settings.<span class="keyword">py</span>                     # 配置文件(爬虫)，如：递归的层数、并发数，延迟下载等</span><br><span class="line">       middlewares.<span class="keyword">py</span>                  # 中间件</span><br><span class="line">       spiders/                        # 爬虫目录，如：创建文件，编写爬虫规则</span><br><span class="line">           __init__.<span class="keyword">py</span></span><br><span class="line">           爬虫<span class="number">1</span>.<span class="keyword">py</span></span><br><span class="line">           爬虫<span class="number">2</span>.<span class="keyword">py</span></span><br><span class="line">           爬虫<span class="number">3</span>.<span class="keyword">py</span></span><br></pre></td></tr></table></figure>
+<p><em>注意：一般创建爬虫文件时，以网站域名命名</em></p>
+<p><strong>pipelines.py</strong></p>
+<p>专门用来保存数据的，其中三个方法会经常使用。</p>
+<p><code>open_spider(self, spider)</code>:当爬虫被打开的时候执行</p>
+<p><code>process_item(self, item, spider):</code>当爬虫中有item传过来的时候被调用</p>
+<p><code>close_spider(self,spider):</code>当爬虫关闭的时候会被调用</p>
+<p>要激活并使用pipelines的话,记得在settings.py中将<code>ITEM_PIPELINES</code>设置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   <span class="string">'test1_scrapy.pipelines.Test1ScrapyPipeline'</span>: <span class="number">300</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>items.py</strong></p>
+<p>专门用来定义模型。建议使用，以后就不要在spider文件中使用字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = scrapy.Field()</span><br></pre></td></tr></table></figure>
+<p><strong>spiders文件夹下创建的爬虫.py</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">response是一个 scrapy<span class="selector-class">.http</span><span class="selector-class">.response</span><span class="selector-class">.html</span><span class="selector-class">.HtmlResponse</span> 对象，可以执行 xpath 和css 语法来提取数据</span><br><span class="line">提取出来的数据是一个 Selector 或者是一个 SelectorList对象，如果想要获取其中的字符串，那么应该执行getall()或者get()方法</span><br><span class="line"><span class="function"><span class="title">getall</span><span class="params">()</span></span>:获取的是Selector中所有文本。返回的是一个列表</span><br><span class="line"><span class="function"><span class="title">get</span><span class="params">()</span></span>:获取的是Selector中的第一个文本。返回的是一个str类型</span><br><span class="line">如果数据解析回来，要传给pipelines处理，那么可以使用yield来返回</span><br></pre></td></tr></table></figure>
+<p>例:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> test1_scrapy.items <span class="keyword">import</span> Test1ScrapyItem</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MessiSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'messi'</span></span><br><span class="line">    allowed_domains = [<span class="string">'messilessblog.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://messilessblog.com/'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        articles = response.xpath(<span class="string">"//article[@class='post post-type-normal']"</span>)</span><br><span class="line">        <span class="keyword">for</span> article <span class="keyword">in</span> articles:</span><br><span class="line">            title = article.xpath(<span class="string">".//a[@class='post-title-link']//text()"</span>).get()</span><br><span class="line">            <span class="comment"># 使用items模块，不推荐直接使用字典</span></span><br><span class="line">            item = Test1ScrapyItem(title=title)</span><br><span class="line">            <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+<h3 id="保存json数据"><a href="#保存json数据" class="headerlink" title="保存json数据"></a>保存json数据</h3><p><strong>JsonItemExporter和JsonLinesItemExporter</strong></p>
+<p>保存json数据类型的时候。可以使用这两个类，让操作变得简单</p>
+<p>1.<code>JsonItemExporter</code>:这个是每次把数据添加到内存，最后统一写入磁盘中。好处是，储存的数据是一个满足json规则的数据，坏处是如果数据量比较大，那么比较耗内存</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.exporters <span class="keyword">import</span> sonItemExporter</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1ScrapyPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.fp = open(<span class="string">"messiblog.json"</span>, <span class="string">'wb'</span>)</span><br><span class="line">        self.exporter = JsonItemExporter(self.fp, ensure_ascii=<span class="keyword">False</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">        self.exporter.start_exporting()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        print(<span class="string">"爬虫开始"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        self.exporter.export_item(item)</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self,spider)</span>:</span></span><br><span class="line">        self.exporter.finish_exporting()</span><br><span class="line">        self.fp.close()</span><br><span class="line">        print(<span class="string">"爬虫结束"</span>)</span><br></pre></td></tr></table></figure>
+<p>2.<code>JsonLinesItemExporter</code>这个是每次调用<code>export_item()</code>的时候就把这个item储存到硬盘中。坏处是每一个字典是一行，整个文件不是一个满足json格式的文件，好处是每次处理数据的时候就直接存储到了硬盘，这样不会耗内存，数据也比较安全，而且不需要写start和finish</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.exporters <span class="keyword">import</span> JsonLinesItemExporter</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1ScrapyPipeline</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.fp = open(<span class="string">"messiblog.json"</span>, <span class="string">'wb'</span>)</span><br><span class="line">        self.exporter = JsonLinesItemExporter(self.fp, ensure_ascii=<span class="keyword">False</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">open_spider</span><span class="params">(self, spider)</span>:</span></span><br><span class="line">        print(<span class="string">"爬虫开始"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></span><br><span class="line">        self.exporter.exporter._item(item)</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">close_spider</span><span class="params">(self,spider)</span>:</span></span><br><span class="line">        self.fp.close()</span><br><span class="line">        print(<span class="string">"爬虫结束"</span>)</span><br></pre></td></tr></table></figure>
+<p>两种方式，都是byte写入，所以，文件打开要用byte类型打开</p>
+<h3 id="CrawlSpider"><a href="#CrawlSpider" class="headerlink" title="CrawlSpider"></a>CrawlSpider</h3><p>在之前我们解析完整个页面后获取下一页的url，然后重新发送一个请求。</p>
+<p>有时候我们想要这么做，只要满足某个条件的URL，都给我爬取，那么这个时候我们就可以通过<code>CrawlSpider</code> 来帮我们完成了。<code>CrawlSpider</code>继承自<code>Spider</code>只不过是在之前的基础上增加了新的功能，可以定义爬取url的规则，以后scrapy碰到满足条件的url都进行爬取，而不需要自己手动<code>yield scrapy.Request</code></p>
+<p><strong>创建CrawlSpider爬虫</strong></p>
+<p>之前创建爬虫的方式是通过<code>scrapy genspider [爬虫名] [域名]</code>的方式创建的。如果想要创建<code>CrawlSpider</code>爬虫，那么应该通过以下的命令创建</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy genspider -t crawl <span class="string">[爬虫名]</span> <span class="string">[域名]</span></span><br></pre></td></tr></table></figure>
+<p><code>-t crawl</code>表示以crawl为模板来创建爬虫</p>
+<p><code>scrapy genspider -l</code>可以查看所有的模板</p>
+<p><strong>LinkExtractors链接提取器</strong></p>
+<p>使用LinkExtractors可以不要程序员自己提取想要的url，然后发送请求，这些工作都可以交给LinkExtractors，他会在所有爬的页面中找到满足规则的url，实现自动的爬取，以下对LinkExtractors类做一个简单的介绍</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">scrapy</span>.<span class="title">linkextractors</span>.<span class="title">LinkExtractor</span><span class="params">(</span></span></span><br><span class="line"><span class="class"><span class="params">    allow = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    deny = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    allow_domains = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    deny_domains = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    deny_extensions = None,</span></span></span><br><span class="line"><span class="class"><span class="params">    restrict_xpaths = <span class="params">()</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    tags = <span class="params">(<span class="string">'a'</span>,<span class="string">'area'</span>)</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    attrs = <span class="params">(<span class="string">'href'</span>)</span>,</span></span></span><br><span class="line"><span class="class"><span class="params">    canonicalize = True,</span></span></span><br><span class="line"><span class="class"><span class="params">    unique = True,</span></span></span><br><span class="line"><span class="class"><span class="params">    process_value = None</span></span></span><br><span class="line"><span class="class"><span class="params">)</span></span></span><br></pre></td></tr></table></figure>
+<p>主要参数讲解：</p>
+<ul>
+<li>allow：允许的url。所有满足这个正则表达式的url都会被提取。</li>
+<li>deny：禁止的url。所有满足这个正则表达式的url都不会被提取。</li>
+<li>allow_domains：允许的域名。只有在这个里面指定的域名的url才会被提取。</li>
+<li>deny_domains：禁止的域名。所有在这个里面指定的域名的url都不会被提取。</li>
+<li>restrict_xpaths：严格的xpath。和allow共同过滤链接。</li>
+</ul>
+<p><strong>Rule规则类</strong></p>
+<p>定义爬虫的规则类。以下对这个类做一个简单的介绍：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">scrapy</span>.<span class="title">spiders</span>.<span class="title">Rule</span><span class="params">(</span></span></span><br><span class="line"><span class="class"><span class="params">    link_extractor, </span></span></span><br><span class="line"><span class="class"><span class="params">    callback = None, </span></span></span><br><span class="line"><span class="class"><span class="params">    cb_kwargs = None, </span></span></span><br><span class="line"><span class="class"><span class="params">    follow = None, </span></span></span><br><span class="line"><span class="class"><span class="params">    process_links = None, </span></span></span><br><span class="line"><span class="class"><span class="params">    process_request = None</span></span></span><br><span class="line"><span class="class"><span class="params">)</span></span></span><br></pre></td></tr></table></figure>
+<p>主要参数讲解：</p>
+<ul>
+<li>link_extractor：一个<code>LinkExtractor</code>对象，用于定义爬取规则。</li>
+<li>callback：满足这个规则的url，应该要执行哪个回调函数。因为<code>CrawlSpider</code>使用了<code>parse</code>作为回调函数，因此不要覆盖<code>parse</code>作为回调函数自己的回调函数。什么情况下使用：如果这个url对应的页面，只是为了获取更多的url，并不需要里面的数据，那么可以不指定callback。</li>
+<li>follow：指定根据该规则从response中提取的链接是否需要跟进。什么情况下使用：如果在爬取页面的时候，需要将满足当前条件的url在进行跟进，那么就设置为True，否则为False</li>
+<li>process_links：从link_extractor中获取到链接后会传递给这个函数，用来过滤不需要爬取的链接。</li>
+</ul>
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy.linkextractors <span class="keyword">import</span> LinkExtractor</span><br><span class="line"><span class="keyword">from</span> scrapy.spiders <span class="keyword">import</span> CrawlSpider, Rule</span><br><span class="line"><span class="keyword">from</span> test1_scrapy.items <span class="keyword">import</span> Test1ScrapyItem</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Meesi2Spider</span><span class="params">(CrawlSpider)</span>:</span></span><br><span class="line">    name = <span class="string">'meesi2'</span></span><br><span class="line">    allowed_domains = [<span class="string">'robotno42.github.io'</span>]</span><br><span class="line">    start_urls = [<span class="string">'https://robotno42.github.io/'</span>]</span><br><span class="line"></span><br><span class="line">    rules = (</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">r'https://robotno42.github.io/page/\d/'</span>), follow=<span class="keyword">True</span>),</span><br><span class="line">        Rule(LinkExtractor(allow=<span class="string">r'.+/\d&#123;4&#125;/\d&#123;2&#125;/\d&#123;2&#125;/.+'</span>), callback=<span class="string">"parse_item"</span>, follow=<span class="keyword">False</span>)</span><br><span class="line"></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_item</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        title = response.xpath(<span class="string">"//*[@id='posts']/article/div/header/h1/text()"</span>).get()</span><br><span class="line">        create_time = response.xpath(<span class="string">"//*[@id='posts']/article/div/header/div/span[1]/time/text()"</span>).get().strip()</span><br><span class="line">        item = Test1ScrapyItem(title=title, create_time=create_time)</span><br><span class="line">        <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+<h3 id="Scrapy-Shell"><a href="#Scrapy-Shell" class="headerlink" title="Scrapy Shell"></a>Scrapy Shell</h3><p>我们想要在爬虫中使用xpath、beautifulsoup、正则表达式、css选择器等来提取想要的数据，但是引文scrapy是一个比较中的框架，每次运行起来都要等待一段时间，因此要去验证我们写的提取规则是否正确，是一个比较麻烦的事情，因此scrapy提供了一个shell，用来方便的测试规则，当然也不仅仅局限于这个一个功能。</p>
+<p><strong>打开Scrapy Shell</strong></p>
+<p>打开cmd终端，进入到<code>Scrapy</code>项目所在的目录，然后进入到<code>scrapy</code>框架所在的虚拟环境中，输入命令<code>scrapy shell [链接]</code>。就会进入到scrapy的shell环境中。在这个环境中，你可以跟在爬虫的<code>parse</code>方法中一样使用了。</p>
+<p><strong>Scrapy Shell笔记</strong></p>
+<ol>
+<li>可以方便我们做一些数据提取的测试代码。</li>
+<li>如果想要执行scrapy命令，那么毫无疑问，肯定是要先进入到 scrapy所在的环境中。</li>
+<li>如果想要读取某个项目的配置信息，那么应该先进入到这个项目中，再执行<code>scrapy shell</code>命令。</li>
+</ol>
+<h3 id="Request和Response对象"><a href="#Request和Response对象" class="headerlink" title="Request和Response对象"></a>Request和Response对象</h3><h4 id="Request对象"><a href="#Request对象" class="headerlink" title="Request对象"></a>Request对象</h4><p>Request对象在我们写爬虫，爬取一面的数据需要重新发送一个请求的时候调用。这个类需要传递一些参数，其中比较常用的参数有：</p>
+<ol>
+<li>url：这个request对象发送请求的url。</li>
+<li>callback：在下载器下载完相应的数据后执行的回调函数。</li>
+<li>method：请求的方法。默认为<code>GET</code>方法，可以设置为其他方法。</li>
+<li>headers：请求头，对于一些固定的设置，放在<code>settings.py</code>中指定就可以了。对于那些非固定的，可以在发送请求的时候指定。</li>
+<li>meta：比较常用。用于在不同的请求之间传递数据用的。</li>
+<li>encoding：编码。默认的为<code>utf-8</code>，使用默认的就可以了。</li>
+<li>dont_filter：表示不由调度器过滤。在执行多次重复的请求的时候用得比较多。</li>
+<li>errback：在发生错误的时候执行的函数。</li>
+</ol>
+<h4 id="Response对象"><a href="#Response对象" class="headerlink" title="Response对象"></a>Response对象</h4><p>Response对象一般是由<code>scrapy</code>给你自动构建的。因此开发者不需要关心如何创建<code>Response</code>对象，而是如何使用它。<code>Response</code>对象有很多属性，可以用来提取数据的。主要有以下属性：</p>
+<ol>
+<li>meta：从其他请求传过来的<code>meta</code>属性，可以用来保持多个请求之间的数据连接。</li>
+<li>encoding：返回当前字符串编码和解码的格式。</li>
+<li>text：将返回来的数据作为<code>unicode</code>字符串返回。</li>
+<li>body：将返回的数据作为<code>bytes</code>字符串返回。</li>
+<li>xpath：xpath选择器。</li>
+<li>css：css选择器。</li>
+</ol>
+<h4 id="发送POST请求"><a href="#发送POST请求" class="headerlink" title="发送POST请求"></a>发送POST请求</h4><p>有时候我们想要在请求数据的时候发送post请求，那么这时候需要使用 <code>Request</code>的子类和<code>FormRequest</code> 来实现。如果想要在爬虫一开始的时候就发送 <code>POST</code> 请求，那么需要在爬虫类中重写 <code>start_requests(self)</code> 方法，并且不再调用 <code>start_urls</code> 里的url。</p>
+<h4 id="模拟登录"><a href="#模拟登录" class="headerlink" title="模拟登录"></a>模拟登录</h4><p>案例一：模拟登录豆瓣网，更改个性签名</p>
+<ol>
+<li>想要发送post请求，那么推荐使用<code>scrapy.FormRequest</code>方法。可以方便的指定表单数据。</li>
+<li>如果想在爬虫一开始的时候就发送post请求，那么应该重写<code>start_requests</code>方法。在这个方法中，发送post请求。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DbSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'db'</span></span><br><span class="line">    allowed_domains = [<span class="string">'douban.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://douban.com/'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        url = <span class="string">'https://accounts.douban.com/j/mobile/login/basic'</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">'name'</span>: <span class="string">'18368723168'</span>,</span><br><span class="line">            <span class="string">'password'</span>: <span class="string">'946971'</span>,</span><br><span class="line">            <span class="string">'remember'</span>: <span class="string">'true'</span>,</span><br><span class="line">            <span class="string">'ticket'</span>: <span class="string">'qxmECW2q8vqDRM0jtZTOyuL1UfJrx3s6tFaeGstOZy4IvFC4nLWo7MXtWwiVni7o7gNEi3mnOKQ*'</span></span><br><span class="line">        &#125;</span><br><span class="line">        request = scrapy.FormRequest(url, formdata=data, callback=self.parse_page)</span><br><span class="line">        <span class="keyword">yield</span> request</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        url = <span class="string">'https://www.douban.com/people/157823813/'</span></span><br><span class="line">        request = scrapy.Request(url=url, callback=self.page,)</span><br><span class="line">        <span class="keyword">yield</span> request</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">page</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        ck = response.xpath(<span class="string">"//*[@id='edit_signature']/form/div/input[@name='ck']/@value"</span>).get()</span><br><span class="line">        formdata = &#123;</span><br><span class="line">            <span class="string">'ck'</span>: ck,</span><br><span class="line">            <span class="string">'signature'</span>: <span class="string">'我就是颜色不一样的烟火'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">yield</span> scrapy.FormRequest(url=<span class="string">'https://www.douban.com/j/people/157823813/edit_signature'</span>, formdata=formdata)</span><br></pre></td></tr></table></figure>
+<h3 id="下载文件和图片"><a href="#下载文件和图片" class="headerlink" title="下载文件和图片"></a>下载文件和图片</h3><p>Scrapy为下载item中包含的文件(比如在爬取到产品时，同时也想保存对应的图片)提供了一个可重用的<code>item pipelines</code>。这些 <code>pipeline</code>有些共同的方法和结构(我们称之为 <code>media pipeline</code>)。一般来说会使用 <code>Files pipeline</code>或者 <code>Image Pipeline</code>。</p>
+<h4 id="为什么要选择使用-scrapy-内置的下载文件的方法"><a href="#为什么要选择使用-scrapy-内置的下载文件的方法" class="headerlink" title="为什么要选择使用 scrapy 内置的下载文件的方法"></a>为什么要选择使用 scrapy 内置的下载文件的方法</h4><ol>
+<li>避免重新下载最近已经下载过的数据。</li>
+<li>可以方便的指定文件存储的路径。</li>
+<li>可以将下载的图片转换成通用的格式。比如png或jpg。</li>
+<li>可以方便的生成缩略图。</li>
+<li>可以方便的检测图片的宽和高，确保他们满足最小限制。</li>
+<li>异步下载，效率非常高。</li>
+</ol>
+<h4 id="下载文件的-Files-Pipeline"><a href="#下载文件的-Files-Pipeline" class="headerlink" title="下载文件的 Files Pipeline"></a>下载文件的 Files Pipeline</h4><p>当使用<code>Files Pipeline</code> 下载文件的时候，按照以下步骤来完成：</p>
+<ol>
+<li>定义好一个<code>Items</code> ，然后在这个 <code>item</code> 中定义两个属性，分别为 <code>file_urls</code> 以及 <code>files</code>。<code>file_urls</code>是用来存储需要下载的图片的url链接，需要给一个列表。</li>
+<li>当文件下载完成后，会把文件下载的相关信息存储到<code>item</code>的<code>files</code>属性中。比如下载路径、下载的url和文件的校验码等。</li>
+<li>在配置文件 <code>settings.py</code>中配置 <code>FILES_STORE</code>，这个配置是用来设置文件下载下来的路径。设置为一个有效的文件夹，用来存储下载的图片。 否则管道将保持禁用状态，即使你在 <code>ITEM_PIPELINES</code> 设置中添加了它。</li>
+<li>启动 <code>pipeline</code>：在 <code>ITEM_PIPELINES</code>中设置 <code>scrapy.pipelines.files.FilesPipeline:1</code>。</li>
+</ol>
+<h4 id="下载图片的-Image-Pipeline"><a href="#下载图片的-Image-Pipeline" class="headerlink" title="下载图片的 Image Pipeline"></a>下载图片的 Image Pipeline</h4><p>当使用<code>Image Pipeline</code>下载文件的时候，按照以下步骤来完成：</p>
+<ol>
+<li>定义好一个Item，然后在这个 Item 中定义两个属性，分别为 <code>image_urls</code>以及 <code>images</code>。<code>image_urls</code>是用来存储需要下载的图片的url链接，需要给一个列表。</li>
+<li>当文件下载完成后，会把文件下载的相关信息存储到<code>item</code>的<code>images</code>属性中。比如下载路径、下载的url和文件的校验码等。</li>
+<li>在配置文件 <code>settings.py</code>中配置 <code>IMAGES_STORE</code>，这个配置是用来设置文件下载下来的路径。设置为一个有效的文件夹，用来存储下载的图片。 否则管道将保持禁用状态，即使你在 <code>ITEM_PIPELINES</code> 设置中添加了它。</li>
+<li>启动 <code>pipeline</code>：在 <code>ITEM_PIPELINES</code>中设置 <code>scrapy.pipelines.images.ImagesPipeline:1</code>。</li>
+</ol>
+<h3 id="Downloader-Middlewares-下载中间件"><a href="#Downloader-Middlewares-下载中间件" class="headerlink" title="Downloader Middlewares(下载中间件)"></a>Downloader Middlewares(下载中间件)</h3><p>下载器中间件是引擎和下载器之间通信的中间件，在这个中间件中我们可以设置代理，更换请求头等来达到反反爬虫的目的。要写下载器中间件，可以再下载器中实现两个方法，一个是<code>process_request(self,request,spider)</code>,这个方法是在请求发送之前会执行，还有一个是<code>process_response(self,request,response,spider)</code>，这个方法是数据下载到引擎之前执行。</p>
+<h4 id="process-request-self-request-spider"><a href="#process-request-self-request-spider" class="headerlink" title="process_request(self,request,spider)"></a>process_request(self,request,spider)</h4><p>这个方法是下载器在发送之前会执行的。一般可以在这个里面设置随机代理ip等</p>
+<ol>
+<li>参数</li>
+</ol>
+<ul>
+<li><p>request：发送请求的request对象</p>
+</li>
+<li><p>spider：发送请求的spider对象</p>
+</li>
+</ul>
+<ol start="2">
+<li>返回值</li>
+</ol>
+<ul>
+<li><p>返回None：如果返回None，Scrapy将继续处理该request，执行其他中间件中的相应方法，直到合适的下载器处理函数被调用。</p>
+</li>
+<li><p>返回Response：Scrapy将不会调用其他任何的<code>process_request</code>将直接返回这个response对象，已经激活的中间件的<code>process_response()</code>方法则会在每个response返回时被调用。</p>
+</li>
+<li><p>返回Request：不再使用之前的request对象去下载数据，而是根据现在返回的request对象返回数据。</p>
+<p>如果这个方法中抛出了异常，则会调用<code>process_exception</code>方法</p>
+</li>
+</ul>
+<p><img src="/posts/2.png" alt></p>
+<h4 id="process-response-self-request-response-spider"><a href="#process-response-self-request-response-spider" class="headerlink" title="process_response(self,request,response,spider)"></a>process_response(self,request,response,spider)</h4><p>这个是下载器下载的数据到引擎中间会执行的方法</p>
+<ol>
+<li>参数：</li>
+</ol>
+<ul>
+<li>request：request对象</li>
+<li>response：被处理的response对象</li>
+<li>spider：spider对象</li>
+</ul>
+<ol start="2">
+<li>返回值：</li>
+</ol>
+<ul>
+<li>返回Response对象：会将这个新的response对象传给其他中间件，最终传给爬虫。</li>
+<li>返回Request对象：下载器链被切断，返回的request会重新被下载器调度下载。</li>
+<li>如果抛出一个异常，那么调用request的errback方法，如果没有指定这个方法，那么会抛出一个异常。</li>
+</ul>
+<h4 id="随机请求头中间件"><a href="#随机请求头中间件" class="headerlink" title="随机请求头中间件"></a>随机请求头中间件</h4><p>爬虫在频繁访问一个页面的时候，这个请求头如果一直保持一致，那么很容易被服务器发现，从而禁止掉这个请求头的访问。因此我们要在访问这个页面之前随机的更改请求头，这样才可以减小爬虫被抓的几率。随机更改请求头，可以在下载中间件中实现，在请求发送给服务器之前，随机的选择一个请求头，这样就可以避免总是使用一个请求头了，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAgentDownloadMiddleware</span><span class="params">(object)</span>:</span></span><br><span class="line">	User_Agents =[</span><br><span class="line">         <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'</span>,</span><br><span class="line">        <span class="string">' Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML like Gecko) Chrome/44.0.2403.155 Safari/537.36'</span>,</span><br><span class="line">         <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'</span>,</span><br><span class="line">        <span class="string">'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'</span></span><br><span class="line">    ]</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self,request,spider)</span>:</span></span><br><span class="line">        user_agent = random.choice(self.User_Agents)</span><br><span class="line">        request.headers[<span class="string">'User-Agent'</span>] = user_agent</span><br></pre></td></tr></table></figure>
+<p>user-agent列表网站  <a href="http://useragentstring.com/pages/useragentstring.php?name=All" target="_blank" rel="noopener">http://useragentstring.com/pages/useragentstring.php?name=All</a></p>
+<h3 id="ip代理池中间件"><a href="#ip代理池中间件" class="headerlink" title="ip代理池中间件"></a>ip代理池中间件</h3><h4 id="购买代理："><a href="#购买代理：" class="headerlink" title="购买代理："></a>购买代理：</h4><p>在以下代理商中购买代理：</p>
+<ol>
+<li>芝麻代理</li>
+<li>太阳代理</li>
+<li>快代理</li>
+<li>讯代理</li>
+<li>蚂蚁代理</li>
+</ol>
+<h4 id="使用ip代理池"><a href="#使用ip代理池" class="headerlink" title="使用ip代理池"></a>使用ip代理池</h4>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Scrapy/" rel="tag"># Scrapy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/55836.html" rel="next" title="selenium">
+                <i class="fa fa-chevron-left"></i> selenium
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/17702.html" rel="prev" title="Typora的常用快捷方式">
+                Typora的常用快捷方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <a href="/">
+              <img class="site-author-image" itemprop="image" src="/images/mianma.jpg" alt="Messiless">
+               </a>
+            
+              <p class="site-author-name" itemprop="name">Messiless</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/RobotNo42" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:wangzc946971@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrapy"><span class="nav-text">Scrapy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装"><span class="nav-text">一、安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Windows"><span class="nav-text">Windows</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本使用"><span class="nav-text">二、基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目结构以及爬虫应用简介"><span class="nav-text">项目结构以及爬虫应用简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存json数据"><span class="nav-text">保存json数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CrawlSpider"><span class="nav-text">CrawlSpider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrapy-Shell"><span class="nav-text">Scrapy Shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request和Response对象"><span class="nav-text">Request和Response对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Request对象"><span class="nav-text">Request对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Response对象"><span class="nav-text">Response对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#发送POST请求"><span class="nav-text">发送POST请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟登录"><span class="nav-text">模拟登录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载文件和图片"><span class="nav-text">下载文件和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么要选择使用-scrapy-内置的下载文件的方法"><span class="nav-text">为什么要选择使用 scrapy 内置的下载文件的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载文件的-Files-Pipeline"><span class="nav-text">下载文件的 Files Pipeline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载图片的-Image-Pipeline"><span class="nav-text">下载图片的 Image Pipeline</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Downloader-Middlewares-下载中间件"><span class="nav-text">Downloader Middlewares(下载中间件)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#process-request-self-request-spider"><span class="nav-text">process_request(self,request,spider)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#process-response-self-request-response-spider"><span class="nav-text">process_response(self,request,response,spider)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机请求头中间件"><span class="nav-text">随机请求头中间件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip代理池中间件"><span class="nav-text">ip代理池中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#购买代理："><span class="nav-text">购买代理：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用ip代理池"><span class="nav-text">使用ip代理池</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Messiless</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
