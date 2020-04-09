@@ -670,7 +670,7 @@
 <p>抓取之后，，本地不会自动生成一份可编辑的副本，需要进行合并操作<br><strong>克隆远程仓库</strong><br>对于 <em>git clone</em>命令添加的远程仓库会以 <em>orgin</em> 为简写。它自动设置本地 master 分支跟踪克隆的远程仓库的 master 分支</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">[url</span>]</span><br></pre></td></tr></table></figure>
 <p><strong>自动的抓取然后合并远程分支到当前分支</strong></p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">git pull <span class="tag">&lt;<span class="name">remote-name</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull <span class="tag">&lt;<span class="name">remote-name</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p><strong>推送到远程仓库</strong></p>
 <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># git push <span class="string">[remote-name]</span> <span class="string">[branch-name]</span></span><br></pre></td></tr></table></figure>
 <p><em>git push</em>命令生效，还需要两个条件</p>
@@ -697,7 +697,7 @@
 <p><strong>查看标签信息与对应的提交信息</strong></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># git show <span class="meta-string">&lt;tag-name&gt;</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="附注标签"><a href="#附注标签" class="headerlink" title="附注标签"></a>附注标签</h3><p><strong>创建附注标签</strong></p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># git tag -a &lt;tag-name&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># git tag -a &lt;tag-name&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>创建附注标签并指定存储在标签中的信息</strong></p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># git <span class="keyword">tag</span> -<span class="keyword">a</span> <span class="symbol">&lt;tag-name&gt;</span> -<span class="keyword">m</span> <span class="string">'标签中的信息'</span></span><br></pre></td></tr></table></figure>
 <h3 id="轻量标签"><a href="#轻量标签" class="headerlink" title="轻量标签"></a>轻量标签</h3><p><strong>创建轻量标签</strong><br>创建轻量标签，只需要提供标签名字</p>
@@ -738,7 +738,7 @@
 <p><strong>特殊指针HEAD</strong><br>作用：指向当前所在的本地分支，即Git用它来确定当前所在的分支。</p>
 <h3 id="分支切换"><a href="#分支切换" class="headerlink" title="分支切换"></a>分支切换</h3><p>切换分支其实相当于改变HEAD的指针，同时会改变你工作目录中的文件</p>
 <p><strong>切换到分支</strong></p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">git checkout <span class="tag">&lt; <span class="attr">branch-name</span> &gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout <span class="tag">&lt; <span class="attr">branch-name</span> &gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>新建分支同时切换到该分支</strong>：</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -<span class="keyword">b </span>testing</span><br><span class="line"><span class="comment"># 基于远程分支建立新分支</span></span><br><span class="line">git checkout -<span class="keyword">b </span>&lt;<span class="keyword">branch-name&gt; </span>&lt;remote-<span class="keyword">branch-name&gt;</span></span><br></pre></td></tr></table></figure>
 <p>相当于执行了如下两条命令</p>
@@ -966,7 +966,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -988,7 +988,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
