@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="Messiless Blog">
 <meta property="og:description" content="简介该框架的速度(天然支持异步)比一般的django和flask要快N多倍 使用该框架需要保证python解释器版本是3.6及以上 Ps:django3.X版本也支持异步，但是它的异步功能并没有真正的实现，还有很多bug FastApi官网展示了FastApi的特点  快速：非常高的性能，看齐的NodeJS和Go（感谢Starlette和Pydantic）。现有最快的Python框架之一。快速编码">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-04-26T13:08:45.287Z">
+<meta property="og:updated_time" content="2020-04-26T13:52:00.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fastapi">
 <meta name="twitter:description" content="简介该框架的速度(天然支持异步)比一般的django和flask要快N多倍 使用该框架需要保证python解释器版本是3.6及以上 Ps:django3.X版本也支持异步，但是它的异步功能并没有真正的实现，还有很多bug FastApi官网展示了FastApi的特点  快速：非常高的性能，看齐的NodeJS和Go（感谢Starlette和Pydantic）。现有最快的Python框架之一。快速编码">
@@ -459,12 +459,27 @@
 <p>请记住，这意味着全部内容将存储在内存中。这对于小文件将非常有效。</p>
 <p>但是在某些情况下，您可能会从中受益<code>UploadFile</code>。</p>
 <p><strong>UploadFile</strong></p>
-<p><code>UploadFile</code> 具有以下属性：</p>
+<p>使用UploadFile有几个优势相对于bytes：</p>
 <ul>
-<li><code>filename</code>：<code>str</code>带有上载原始文件名的A （例如<code>myimage.jpg</code>）。</li>
-<li><code>content_type</code>：<code>str</code>具有内容类型（MIME类型/媒体类型）（例如<code>image/jpeg</code>）的A。</li>
-<li><code>file</code>：一个<a href="https://docs.python.org/3/library/tempfile.html#tempfile.SpooledTemporaryFile" target="_blank" rel="noopener"><code>SpooledTemporaryFile</code></a>（类似<a href="https://docs.python.org/3/glossary.html#term-file-like-object" target="_blank" rel="noopener">文件的</a>对象）。这是实际的Python文件，您可以将其直接传递给需要“类文件”对象的其他函数或库。</li>
+<li>它会使用“spooled”文件，文件存储在内存中并拥有最大的内存大小限制，并且超过了这个限制就会存储在硬盘中。</li>
+<li>意味着它同样适用于更大的文件（图片，视频，更大的二进制文件等）又不会消耗很大的内存。</li>
+<li>可以从上传文件中得到metadata</li>
+<li>它会暴露出一个python的SpooledTemporaryFile对象，你可以直接使用它进行传递。</li>
 </ul>
+<p>它拥有一下属性：</p>
+<ol>
+<li>filename：上传的源文件的名字</li>
+<li>content_type：（MIME type/media type）（eg:image/jpeg）</li>
+<li>file:可用于直接传递的SpooledTemporaraFile对象。</li>
+</ol>
+<p>同时也拥有一下async方法：</p>
+<ol>
+<li>write(data):</li>
+<li>read(data):</li>
+<li>seek(data):</li>
+<li>close（）</li>
+</ol>
+<p>这些都是async方法，需要使用await调用他们。</p>
 
       
     </div>
